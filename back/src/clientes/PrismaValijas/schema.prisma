@@ -1,0 +1,96 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../../src/clientes/PrismaValijas"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL2")
+}
+
+model Valija {
+  id                 Int      @id @default(autoincrement())
+  codigo             String   @unique
+  usuarioACargo      String
+  llegada            DateTime @default(now())
+  ultimaModificacion DateTime @updatedAt
+
+  valijaUsd   ValijaUsd? @relation(fields: [valijaUsdId], references: [id])
+  valijaUsdId Int?       @unique
+
+  valijaDop   ValijaDop? @relation("ValijaDop", fields: [valijaDopId], references: [id])
+  valijaDopId Int?       @unique
+
+  valijaEur   ValijaEur? @relation(fields: [valijaEurId], references: [id])
+  valijaEurId Int?       @unique
+
+  @@map("valijas")
+}
+
+model ValijaUsd {
+  id        Int @id @default(autoincrement())
+  depositos Int @default(0)
+
+  valija         Valija?            @relation
+  transaccionUsd transaccionesUsd[] @relation("transaccionesUsd")
+}
+
+model ValijaDop {
+  id        Int  @id @default(autoincrement())
+  depositos Int? @default(0)
+
+  valija         Valija?            @relation("ValijaDop")
+  transaccionDop transaccionesDop[] @relation("transaccionesDop")
+}
+
+model ValijaEur {
+  id        Int @id @default(autoincrement())
+  depositos Int @default(0)
+
+  valija Valija? @relation
+
+  transaccionEur transaccionesEur[] @relation("transaccionesEur")
+}
+
+model transaccionesUsd {
+  id          Int        @id @default(autoincrement())
+  D1          Int        @default(0)
+  D2          Int        @default(0)
+  D5          Int        @default(0)
+  D10         Int        @default(0)
+  D20         Int        @default(0)
+  D50         Int        @default(0)
+  D100        Int        @default(0)
+  valijaUsd   ValijaUsd? @relation("transaccionesUsd", fields: [valijaUsdId], references: [id])
+  valijaUsdId Int
+}
+
+model transaccionesDop {
+  id    Int @id @default(autoincrement())
+  D1    Int @default(0)
+  D5    Int @default(0)
+  D10   Int @default(0)
+  D25   Int @default(0)
+  D50   Int @default(0)
+  D100  Int @default(0)
+  D200  Int @default(0)
+  D500  Int @default(0)
+  D1000 Int @default(0)
+  D2000 Int @default(0)
+
+  valijaDop   ValijaDop? @relation("transaccionesDop", fields: [valijaDopId], references: [id])
+  valijaDopId Int
+}
+
+model transaccionesEur {
+  id   Int @id @default(autoincrement())
+  D10  Int @default(0)
+  D20  Int @default(0)
+  D50  Int @default(0)
+  D100 Int @default(0)
+  D200 Int @default(0)
+  D500 Int @default(0)
+
+  valijaEur   ValijaEur? @relation("transaccionesEur", fields: [valijaEurId], references: [id])
+  valijaEurId Int
+}

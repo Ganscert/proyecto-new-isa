@@ -1,0 +1,6 @@
+.DS_Store
+back/node_modules
+back/env
+back/generadorUsuarios.js
+back/.vscode
+back/.json

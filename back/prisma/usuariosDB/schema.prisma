@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../../src/clientes/PrismaUsuarios"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL1")
+}
+
+model Usuario {
+  //escencial
+  id             String   @id @unique @default(uuid())
+  nombre         String   @unique
+  codigoEmpleado Int      @unique @default(autoincrement())
+  cargo          String   @default("cajero")
+  inventario     String[] @default([])
+
+  //permisos
+  transferencia Boolean @default(false)
+  recepcion     Boolean @default(false)
+  preparacion   Boolean @default(true)
+  EIE           Boolean @default(false)
+
+  //si tiene supervisor
+  Supervisor Usuario? @relation("Supervisores", fields: [SupervisorID], references: [id])
+
+  //si es supervisor
+  SupervisorID String?
+  Colaborador  Usuario[] @relation("Supervisores")
+
+  @@map("usuarios")
+}

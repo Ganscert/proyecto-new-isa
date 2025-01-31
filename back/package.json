@@ -1,0 +1,29 @@
+{
+  "name": "back",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "studio": "npx prisma studio --schema ./prisma/valijasDB/schema.prisma",
+    "dev": "tsnd --respawn --clear src/App.ts",
+    "build": "rimraf .dist && tsc",
+    "start": "npm run build && node dist/App.js",
+    "migraciones": " npx prisma migrate dev --schema prisma/valijasDB/schema.prisma &&  npx prisma migrate dev --schema prisma/usuariosDB/schema.prisma"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@prisma/client": "^6.2.1",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.10",
+    "prisma": "^6.2.1",
+    "rimraf": "^6.0.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.7.3"
+  }
+}
