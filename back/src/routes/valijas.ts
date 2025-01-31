@@ -88,15 +88,17 @@ router.post('/registrarValija', async (req: Request, res: Response) => {
 //esta ruta es para para actualizar los datos de la valija
 router.put('/UpdateValija', async (req: Request, res: Response) => {
   try {
-    const { codigo , moneda } = req.query
+    const { codigo, moneda } = req.query
     const consulta = await ClientValijas.valija.findFirst({
       where: {
-        codigo : codigo as string
+        codigo: codigo as string
       },
-      include:{
-        valijaDop: true
+      include: {
+        valijaDop: true,
+        valijaUsd: true,
+        valijaEur: true
       }
-    }) 
+    })
 
 
     /*
@@ -108,86 +110,181 @@ router.put('/UpdateValija', async (req: Request, res: Response) => {
     * * dependiendo de la divisa, se creara, sino, se procedera a crear las actualizaciones necesarias
     * * como actualizacion de las transferencias, y la actualizacion de la cantidad de depositos.
     */
-    if(consulta == undefined){
+    if (consulta == undefined) {
       res.send('no existe la valija')
     }
-    else if(moneda === 'DOP'){
+    else if (moneda === 'DOP') {
       // * esta condicion es si la valijaDop se crea por primera vez
-      if(consulta.valijaDopId === null){
+      if (consulta.valijaDopId === null) {
         const valijaCreada = await ClientValijas.valijaDop.create({
-          data:{
-            depositos : 1,
+          data: {
+            depositos: 1,
             valija: {
-              connect : {id : consulta.id}
+              connect: { id: consulta.id }
             },
-            transaccionDop :{
-              create:{
-                D1 : 2,
-                D5 : 2,
-                D10 : 2,
-                D25 : 2,
-                D50 : 2,
-                D100 : 2,
-                D200 : 2,
-                D500 : 2,
-                D1000 : 2,
-                D2000 : 2,
+            transaccionDop: {
+              create: {
+                D1: 2,
+                D5: 2,
+                D10: 2,
+                D25: 2,
+                D50: 2,
+                D100: 2,
+                D200: 2,
+                D500: 2,
+                D1000: 2,
+                D2000: 2,
               }
             }
           }
         })
-        log(consulta.valijaDop)
         res.send(valijaCreada)
       }
       // * esta es por si ya tiene valijaDop
-      else if(consulta.valijaDopId >= 1){
+      else if (consulta.valijaDopId != null) {
         const transaccionCreada = await ClientValijas.transaccionesDop.create({
-          data:{
-                D1 : 3,
-                D5 : 3,
-                D10 : 3,
-                D25 : 3,
-                D50 : 3,
-                D100 : 3,
-                D200 : 3,
-                D500 : 3,
-                D1000 : 3,
-                D2000 : 3,
-                valijaDop:{
-                  connect:{
-                    id : consulta.valijaDopId
-                  }
-                } 
+          data: {
+            D1: 3,
+            D5: 3,
+            D10: 3,
+            D25: 3,
+            D50: 3,
+            D100: 3,
+            D200: 3,
+            D500: 3,
+            D1000: 3,
+            D2000: 3,
+            valijaDop: {
+              connect: {
+                id: consulta.valijaDopId
+              }
+            }
           }
         })
         const depositos = consulta.valijaDop!.depositos!
         const valijaActualizada = await ClientValijas.valijaDop.update({
           where: {
-           id : consulta.valijaDopId
+            id: consulta.valijaDopId
           },
-          data:{
-            depositos : depositos + 1
+          data: {
+            depositos: depositos + 1
           }
         })
-        
-        res.send() 
+
+        res.send({ valijaActualizada, transaccionCreada })
       }
 
     }
 
-
-
-    else if(moneda === 'USD'){
-      if(consulta.valijaUsdId === null){
-      res.json('la valija no tiene parte de dop')
+    else if (moneda === 'USD') {
+      if (consulta.valijaUsdId === null) {
+        // * esta condicion es si la valijaUsd se crea por primera vez
+        const valijaCreada = await ClientValijas.valijaUsd.create({
+          data: {
+            depositos: 1,
+            valija: {
+              connect: { id: consulta.id }
+            },
+            transaccionUsd: {
+              create: {
+                D1: 2,
+                D2: 2,
+                D5: 2,
+                D10: 2,
+                D20: 2,
+                D50: 2,
+                D100: 2
+              }
+            }
+          }
+        })
+        res.send(valijaCreada)
       }
-      
+      // * esta es por si ya tiene valijaUsd
+      else if (consulta.valijaDopId != null) {
+        const transaccionCreada = await ClientValijas.transaccionesUsd.create({
+          data: {
+            D1: 2,
+            D2: 2,
+            D5: 2,
+            D10: 2,
+            D20: 2,
+            D50: 2,
+            D100: 2,
+            valijaUsd: {
+              connect: {
+                id: consulta.valijaUsdId
+              }
+            }
+          }
+        })
+        const depositos = consulta.valijaUsd!.depositos!
+        const valijaActualizada = await ClientValijas.valijaUsd.update({
+          where: {
+            id: consulta.valijaUsdId
+          },
+          data: {
+            depositos: depositos + 1
+          }
+        })
+
+        res.send({ valijaActualizada, transaccionCreada })
+      }
     }
-    else{
-      if(consulta.valijaEurId === null){
-      res.json('la valija no tiene parte de dop')
+
+    else if (moneda === "EUR") {
+      if (consulta.valijaEurId === null) {
+        // * esta condicion es si la valijaUsd se crea por primera vez
+        const valijaCreada = await ClientValijas.valijaEur.create({
+          data: {
+            depositos: 1,
+            valija: {
+              connect: { id: consulta.id }
+            },
+            transaccionEur: {
+              create: {
+                D10: 1,
+                D20: 1,
+                D50: 1,
+                D100: 1,
+                D200: 1,
+                D500: 1
+              }
+            }
+          }
+        })
+        res.send(valijaCreada)
       }
-      
+      // * esta es por si ya tiene valijaUsd
+      else if (consulta.valijaEurId != null) {
+        const transaccionCreada = await ClientValijas.transaccionesEur.create({
+          data: {
+            D10: 1,
+                D20: 1,
+                D50: 1,
+                D100: 1,
+                D200: 1,
+                D500: 1,
+            valijaEur: {
+              connect: {
+                id: consulta.valijaEurId
+              }
+            }
+          }
+        })
+        const depositos = consulta.valijaEur!.depositos!
+        const valijaActualizada = await ClientValijas.valijaEur.update({
+          where: {
+            id: consulta.valijaEurId
+          },
+          data: {
+            depositos: depositos + 1
+          }
+        })
+
+        res.send({ valijaActualizada, transaccionCreada })
+      }
+
     }
 
 
