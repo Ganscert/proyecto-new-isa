@@ -193,7 +193,7 @@ export namespace Prisma {
   export type DecimalJsLike = runtime.DecimalJsLike
 
   /**
-   * Metrics 
+   * Metrics
    */
   export type Metrics = runtime.Metrics
   export type Metric<T> = runtime.Metric<T>
@@ -211,14 +211,14 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.2.1
-   * Query Engine version: 4123509d24aa4dede1e864b46351bf2790323b69
+   * Prisma Client JS version: 6.3.0
+   * Query Engine version: acc0b9dd43eb689cbd20c9470515d719db10d0b0
    */
   export type PrismaVersion = {
     client: string
   }
 
-  export const prismaVersion: PrismaVersion 
+  export const prismaVersion: PrismaVersion
 
   /**
    * Utility Types
@@ -234,15 +234,15 @@ export namespace Prisma {
 
   /**
    * Types of the values used to represent different kinds of `null` values when working with JSON fields.
-   * 
+   *
    * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
    */
   namespace NullTypes {
     /**
     * Type of `Prisma.DbNull`.
-    * 
+    *
     * You cannot use other instances of this class. Please use the `Prisma.DbNull` value.
-    * 
+    *
     * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
     */
     class DbNull {
@@ -252,9 +252,9 @@ export namespace Prisma {
 
     /**
     * Type of `Prisma.JsonNull`.
-    * 
+    *
     * You cannot use other instances of this class. Please use the `Prisma.JsonNull` value.
-    * 
+    *
     * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
     */
     class JsonNull {
@@ -264,9 +264,9 @@ export namespace Prisma {
 
     /**
     * Type of `Prisma.AnyNull`.
-    * 
+    *
     * You cannot use other instances of this class. Please use the `Prisma.AnyNull` value.
-    * 
+    *
     * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
     */
     class AnyNull {
@@ -277,21 +277,21 @@ export namespace Prisma {
 
   /**
    * Helper for filtering JSON entries that have `null` on the database (empty on the db)
-   * 
+   *
    * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
    */
   export const DbNull: NullTypes.DbNull
 
   /**
    * Helper for filtering JSON entries that have JSON `null` values (not empty on the db)
-   * 
+   *
    * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
    */
   export const JsonNull: NullTypes.JsonNull
 
   /**
    * Helper for filtering JSON entries that are `Prisma.DbNull` or `Prisma.JsonNull`
-   * 
+   *
    * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
    */
   export const AnyNull: NullTypes.AnyNull
@@ -866,11 +866,11 @@ export namespace Prisma {
    */
 
   export type UsuarioCountOutputType = {
-    Colaborador: number
+    colaboradores: number
   }
 
   export type UsuarioCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    Colaborador?: boolean | UsuarioCountOutputTypeCountColaboradorArgs
+    colaboradores?: boolean | UsuarioCountOutputTypeCountColaboradoresArgs
   }
 
   // Custom InputTypes
@@ -887,7 +887,7 @@ export namespace Prisma {
   /**
    * UsuarioCountOutputType without action
    */
-  export type UsuarioCountOutputTypeCountColaboradorArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UsuarioCountOutputTypeCountColaboradoresArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: UsuarioWhereInput
   }
 
@@ -910,39 +910,44 @@ export namespace Prisma {
 
   export type UsuarioAvgAggregateOutputType = {
     codigoEmpleado: number | null
+    SupervisorID: number | null
   }
 
   export type UsuarioSumAggregateOutputType = {
     codigoEmpleado: number | null
+    SupervisorID: number | null
   }
 
   export type UsuarioMinAggregateOutputType = {
     id: string | null
     nombre: string | null
+    contrasena: string | null
     codigoEmpleado: number | null
     cargo: string | null
     transferencia: boolean | null
     recepcion: boolean | null
     preparacion: boolean | null
     EIE: boolean | null
-    SupervisorID: string | null
+    SupervisorID: number | null
   }
 
   export type UsuarioMaxAggregateOutputType = {
     id: string | null
     nombre: string | null
+    contrasena: string | null
     codigoEmpleado: number | null
     cargo: string | null
     transferencia: boolean | null
     recepcion: boolean | null
     preparacion: boolean | null
     EIE: boolean | null
-    SupervisorID: string | null
+    SupervisorID: number | null
   }
 
   export type UsuarioCountAggregateOutputType = {
     id: number
     nombre: number
+    contrasena: number
     codigoEmpleado: number
     cargo: number
     inventario: number
@@ -957,15 +962,18 @@ export namespace Prisma {
 
   export type UsuarioAvgAggregateInputType = {
     codigoEmpleado?: true
+    SupervisorID?: true
   }
 
   export type UsuarioSumAggregateInputType = {
     codigoEmpleado?: true
+    SupervisorID?: true
   }
 
   export type UsuarioMinAggregateInputType = {
     id?: true
     nombre?: true
+    contrasena?: true
     codigoEmpleado?: true
     cargo?: true
     transferencia?: true
@@ -978,6 +986,7 @@ export namespace Prisma {
   export type UsuarioMaxAggregateInputType = {
     id?: true
     nombre?: true
+    contrasena?: true
     codigoEmpleado?: true
     cargo?: true
     transferencia?: true
@@ -990,6 +999,7 @@ export namespace Prisma {
   export type UsuarioCountAggregateInputType = {
     id?: true
     nombre?: true
+    contrasena?: true
     codigoEmpleado?: true
     cargo?: true
     inventario?: true
@@ -1090,6 +1100,7 @@ export namespace Prisma {
   export type UsuarioGroupByOutputType = {
     id: string
     nombre: string
+    contrasena: string
     codigoEmpleado: number
     cargo: string
     inventario: string[]
@@ -1097,7 +1108,7 @@ export namespace Prisma {
     recepcion: boolean
     preparacion: boolean
     EIE: boolean
-    SupervisorID: string | null
+    SupervisorID: number | null
     _count: UsuarioCountAggregateOutputType | null
     _avg: UsuarioAvgAggregateOutputType | null
     _sum: UsuarioSumAggregateOutputType | null
@@ -1122,6 +1133,7 @@ export namespace Prisma {
   export type UsuarioSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     nombre?: boolean
+    contrasena?: boolean
     codigoEmpleado?: boolean
     cargo?: boolean
     inventario?: boolean
@@ -1131,13 +1143,14 @@ export namespace Prisma {
     EIE?: boolean
     SupervisorID?: boolean
     Supervisor?: boolean | Usuario$SupervisorArgs<ExtArgs>
-    Colaborador?: boolean | Usuario$ColaboradorArgs<ExtArgs>
+    colaboradores?: boolean | Usuario$colaboradoresArgs<ExtArgs>
     _count?: boolean | UsuarioCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["usuario"]>
 
   export type UsuarioSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     nombre?: boolean
+    contrasena?: boolean
     codigoEmpleado?: boolean
     cargo?: boolean
     inventario?: boolean
@@ -1152,6 +1165,7 @@ export namespace Prisma {
   export type UsuarioSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     nombre?: boolean
+    contrasena?: boolean
     codigoEmpleado?: boolean
     cargo?: boolean
     inventario?: boolean
@@ -1166,6 +1180,7 @@ export namespace Prisma {
   export type UsuarioSelectScalar = {
     id?: boolean
     nombre?: boolean
+    contrasena?: boolean
     codigoEmpleado?: boolean
     cargo?: boolean
     inventario?: boolean
@@ -1176,10 +1191,10 @@ export namespace Prisma {
     SupervisorID?: boolean
   }
 
-  export type UsuarioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nombre" | "codigoEmpleado" | "cargo" | "inventario" | "transferencia" | "recepcion" | "preparacion" | "EIE" | "SupervisorID", ExtArgs["result"]["usuario"]>
+  export type UsuarioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nombre" | "contrasena" | "codigoEmpleado" | "cargo" | "inventario" | "transferencia" | "recepcion" | "preparacion" | "EIE" | "SupervisorID", ExtArgs["result"]["usuario"]>
   export type UsuarioInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Supervisor?: boolean | Usuario$SupervisorArgs<ExtArgs>
-    Colaborador?: boolean | Usuario$ColaboradorArgs<ExtArgs>
+    colaboradores?: boolean | Usuario$colaboradoresArgs<ExtArgs>
     _count?: boolean | UsuarioCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UsuarioIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -1193,11 +1208,12 @@ export namespace Prisma {
     name: "Usuario"
     objects: {
       Supervisor: Prisma.$UsuarioPayload<ExtArgs> | null
-      Colaborador: Prisma.$UsuarioPayload<ExtArgs>[]
+      colaboradores: Prisma.$UsuarioPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       nombre: string
+      contrasena: string
       codigoEmpleado: number
       cargo: string
       inventario: string[]
@@ -1205,7 +1221,7 @@ export namespace Prisma {
       recepcion: boolean
       preparacion: boolean
       EIE: boolean
-      SupervisorID: string | null
+      SupervisorID: number | null
     }, ExtArgs["result"]["usuario"]>
     composites: {}
   }
@@ -1601,7 +1617,7 @@ export namespace Prisma {
   export interface Prisma__UsuarioClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     Supervisor<T extends Usuario$SupervisorArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$SupervisorArgs<ExtArgs>>): Prisma__UsuarioClient<$Result.GetResult<Prisma.$UsuarioPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | null, null, ExtArgs, ClientOptions>
-    Colaborador<T extends Usuario$ColaboradorArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$ColaboradorArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UsuarioPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
+    colaboradores<T extends Usuario$colaboradoresArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$colaboradoresArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UsuarioPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1633,6 +1649,7 @@ export namespace Prisma {
   interface UsuarioFieldRefs {
     readonly id: FieldRef<"Usuario", 'String'>
     readonly nombre: FieldRef<"Usuario", 'String'>
+    readonly contrasena: FieldRef<"Usuario", 'String'>
     readonly codigoEmpleado: FieldRef<"Usuario", 'Int'>
     readonly cargo: FieldRef<"Usuario", 'String'>
     readonly inventario: FieldRef<"Usuario", 'String[]'>
@@ -1640,7 +1657,7 @@ export namespace Prisma {
     readonly recepcion: FieldRef<"Usuario", 'Boolean'>
     readonly preparacion: FieldRef<"Usuario", 'Boolean'>
     readonly EIE: FieldRef<"Usuario", 'Boolean'>
-    readonly SupervisorID: FieldRef<"Usuario", 'String'>
+    readonly SupervisorID: FieldRef<"Usuario", 'Int'>
   }
     
 
@@ -1934,6 +1951,10 @@ export namespace Prisma {
      * Filter which Usuarios to update
      */
     where?: UsuarioWhereInput
+    /**
+     * Limit how many Usuarios to update.
+     */
+    limit?: number
   }
 
   /**
@@ -1956,6 +1977,10 @@ export namespace Prisma {
      * Filter which Usuarios to update
      */
     where?: UsuarioWhereInput
+    /**
+     * Limit how many Usuarios to update.
+     */
+    limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
@@ -2022,6 +2047,10 @@ export namespace Prisma {
      * Filter which Usuarios to delete
      */
     where?: UsuarioWhereInput
+    /**
+     * Limit how many Usuarios to delete.
+     */
+    limit?: number
   }
 
   /**
@@ -2044,9 +2073,9 @@ export namespace Prisma {
   }
 
   /**
-   * Usuario.Colaborador
+   * Usuario.colaboradores
    */
-  export type Usuario$ColaboradorArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Usuario$colaboradoresArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Usuario
      */
@@ -2103,6 +2132,7 @@ export namespace Prisma {
   export const UsuarioScalarFieldEnum: {
     id: 'id',
     nombre: 'nombre',
+    contrasena: 'contrasena',
     codigoEmpleado: 'codigoEmpleado',
     cargo: 'cargo',
     inventario: 'inventario',
@@ -2203,6 +2233,7 @@ export namespace Prisma {
     NOT?: UsuarioWhereInput | UsuarioWhereInput[]
     id?: StringFilter<"Usuario"> | string
     nombre?: StringFilter<"Usuario"> | string
+    contrasena?: StringFilter<"Usuario"> | string
     codigoEmpleado?: IntFilter<"Usuario"> | number
     cargo?: StringFilter<"Usuario"> | string
     inventario?: StringNullableListFilter<"Usuario">
@@ -2210,14 +2241,15 @@ export namespace Prisma {
     recepcion?: BoolFilter<"Usuario"> | boolean
     preparacion?: BoolFilter<"Usuario"> | boolean
     EIE?: BoolFilter<"Usuario"> | boolean
-    SupervisorID?: StringNullableFilter<"Usuario"> | string | null
+    SupervisorID?: IntNullableFilter<"Usuario"> | number | null
     Supervisor?: XOR<UsuarioNullableScalarRelationFilter, UsuarioWhereInput> | null
-    Colaborador?: UsuarioListRelationFilter
+    colaboradores?: UsuarioListRelationFilter
   }
 
   export type UsuarioOrderByWithRelationInput = {
     id?: SortOrder
     nombre?: SortOrder
+    contrasena?: SortOrder
     codigoEmpleado?: SortOrder
     cargo?: SortOrder
     inventario?: SortOrder
@@ -2227,7 +2259,7 @@ export namespace Prisma {
     EIE?: SortOrder
     SupervisorID?: SortOrderInput | SortOrder
     Supervisor?: UsuarioOrderByWithRelationInput
-    Colaborador?: UsuarioOrderByRelationAggregateInput
+    colaboradores?: UsuarioOrderByRelationAggregateInput
   }
 
   export type UsuarioWhereUniqueInput = Prisma.AtLeast<{
@@ -2237,20 +2269,22 @@ export namespace Prisma {
     AND?: UsuarioWhereInput | UsuarioWhereInput[]
     OR?: UsuarioWhereInput[]
     NOT?: UsuarioWhereInput | UsuarioWhereInput[]
+    contrasena?: StringFilter<"Usuario"> | string
     cargo?: StringFilter<"Usuario"> | string
     inventario?: StringNullableListFilter<"Usuario">
     transferencia?: BoolFilter<"Usuario"> | boolean
     recepcion?: BoolFilter<"Usuario"> | boolean
     preparacion?: BoolFilter<"Usuario"> | boolean
     EIE?: BoolFilter<"Usuario"> | boolean
-    SupervisorID?: StringNullableFilter<"Usuario"> | string | null
+    SupervisorID?: IntNullableFilter<"Usuario"> | number | null
     Supervisor?: XOR<UsuarioNullableScalarRelationFilter, UsuarioWhereInput> | null
-    Colaborador?: UsuarioListRelationFilter
+    colaboradores?: UsuarioListRelationFilter
   }, "id" | "id" | "nombre" | "codigoEmpleado">
 
   export type UsuarioOrderByWithAggregationInput = {
     id?: SortOrder
     nombre?: SortOrder
+    contrasena?: SortOrder
     codigoEmpleado?: SortOrder
     cargo?: SortOrder
     inventario?: SortOrder
@@ -2272,6 +2306,7 @@ export namespace Prisma {
     NOT?: UsuarioScalarWhereWithAggregatesInput | UsuarioScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Usuario"> | string
     nombre?: StringWithAggregatesFilter<"Usuario"> | string
+    contrasena?: StringWithAggregatesFilter<"Usuario"> | string
     codigoEmpleado?: IntWithAggregatesFilter<"Usuario"> | number
     cargo?: StringWithAggregatesFilter<"Usuario"> | string
     inventario?: StringNullableListFilter<"Usuario">
@@ -2279,12 +2314,13 @@ export namespace Prisma {
     recepcion?: BoolWithAggregatesFilter<"Usuario"> | boolean
     preparacion?: BoolWithAggregatesFilter<"Usuario"> | boolean
     EIE?: BoolWithAggregatesFilter<"Usuario"> | boolean
-    SupervisorID?: StringNullableWithAggregatesFilter<"Usuario"> | string | null
+    SupervisorID?: IntNullableWithAggregatesFilter<"Usuario"> | number | null
   }
 
   export type UsuarioCreateInput = {
     id?: string
     nombre: string
+    contrasena: string
     codigoEmpleado?: number
     cargo?: string
     inventario?: UsuarioCreateinventarioInput | string[]
@@ -2292,13 +2328,14 @@ export namespace Prisma {
     recepcion?: boolean
     preparacion?: boolean
     EIE?: boolean
-    Supervisor?: UsuarioCreateNestedOneWithoutColaboradorInput
-    Colaborador?: UsuarioCreateNestedManyWithoutSupervisorInput
+    Supervisor?: UsuarioCreateNestedOneWithoutColaboradoresInput
+    colaboradores?: UsuarioCreateNestedManyWithoutSupervisorInput
   }
 
   export type UsuarioUncheckedCreateInput = {
     id?: string
     nombre: string
+    contrasena: string
     codigoEmpleado?: number
     cargo?: string
     inventario?: UsuarioCreateinventarioInput | string[]
@@ -2306,26 +2343,28 @@ export namespace Prisma {
     recepcion?: boolean
     preparacion?: boolean
     EIE?: boolean
-    SupervisorID?: string | null
-    Colaborador?: UsuarioUncheckedCreateNestedManyWithoutSupervisorInput
+    SupervisorID?: number | null
+    colaboradores?: UsuarioUncheckedCreateNestedManyWithoutSupervisorInput
   }
 
   export type UsuarioUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
+    contrasena?: StringFieldUpdateOperationsInput | string
     cargo?: StringFieldUpdateOperationsInput | string
     inventario?: UsuarioUpdateinventarioInput | string[]
     transferencia?: BoolFieldUpdateOperationsInput | boolean
     recepcion?: BoolFieldUpdateOperationsInput | boolean
     preparacion?: BoolFieldUpdateOperationsInput | boolean
     EIE?: BoolFieldUpdateOperationsInput | boolean
-    Supervisor?: UsuarioUpdateOneWithoutColaboradorNestedInput
-    Colaborador?: UsuarioUpdateManyWithoutSupervisorNestedInput
+    Supervisor?: UsuarioUpdateOneWithoutColaboradoresNestedInput
+    colaboradores?: UsuarioUpdateManyWithoutSupervisorNestedInput
   }
 
   export type UsuarioUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
+    contrasena?: StringFieldUpdateOperationsInput | string
     codigoEmpleado?: IntFieldUpdateOperationsInput | number
     cargo?: StringFieldUpdateOperationsInput | string
     inventario?: UsuarioUpdateinventarioInput | string[]
@@ -2333,13 +2372,14 @@ export namespace Prisma {
     recepcion?: BoolFieldUpdateOperationsInput | boolean
     preparacion?: BoolFieldUpdateOperationsInput | boolean
     EIE?: BoolFieldUpdateOperationsInput | boolean
-    SupervisorID?: NullableStringFieldUpdateOperationsInput | string | null
-    Colaborador?: UsuarioUncheckedUpdateManyWithoutSupervisorNestedInput
+    SupervisorID?: NullableIntFieldUpdateOperationsInput | number | null
+    colaboradores?: UsuarioUncheckedUpdateManyWithoutSupervisorNestedInput
   }
 
   export type UsuarioCreateManyInput = {
     id?: string
     nombre: string
+    contrasena: string
     codigoEmpleado?: number
     cargo?: string
     inventario?: UsuarioCreateinventarioInput | string[]
@@ -2347,12 +2387,13 @@ export namespace Prisma {
     recepcion?: boolean
     preparacion?: boolean
     EIE?: boolean
-    SupervisorID?: string | null
+    SupervisorID?: number | null
   }
 
   export type UsuarioUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
+    contrasena?: StringFieldUpdateOperationsInput | string
     cargo?: StringFieldUpdateOperationsInput | string
     inventario?: UsuarioUpdateinventarioInput | string[]
     transferencia?: BoolFieldUpdateOperationsInput | boolean
@@ -2364,6 +2405,7 @@ export namespace Prisma {
   export type UsuarioUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
+    contrasena?: StringFieldUpdateOperationsInput | string
     codigoEmpleado?: IntFieldUpdateOperationsInput | number
     cargo?: StringFieldUpdateOperationsInput | string
     inventario?: UsuarioUpdateinventarioInput | string[]
@@ -2371,7 +2413,7 @@ export namespace Prisma {
     recepcion?: BoolFieldUpdateOperationsInput | boolean
     preparacion?: BoolFieldUpdateOperationsInput | boolean
     EIE?: BoolFieldUpdateOperationsInput | boolean
-    SupervisorID?: NullableStringFieldUpdateOperationsInput | string | null
+    SupervisorID?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -2413,19 +2455,15 @@ export namespace Prisma {
     not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
-  export type StringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type UsuarioNullableScalarRelationFilter = {
@@ -2451,6 +2489,7 @@ export namespace Prisma {
   export type UsuarioCountOrderByAggregateInput = {
     id?: SortOrder
     nombre?: SortOrder
+    contrasena?: SortOrder
     codigoEmpleado?: SortOrder
     cargo?: SortOrder
     inventario?: SortOrder
@@ -2463,11 +2502,13 @@ export namespace Prisma {
 
   export type UsuarioAvgOrderByAggregateInput = {
     codigoEmpleado?: SortOrder
+    SupervisorID?: SortOrder
   }
 
   export type UsuarioMaxOrderByAggregateInput = {
     id?: SortOrder
     nombre?: SortOrder
+    contrasena?: SortOrder
     codigoEmpleado?: SortOrder
     cargo?: SortOrder
     transferencia?: SortOrder
@@ -2480,6 +2521,7 @@ export namespace Prisma {
   export type UsuarioMinOrderByAggregateInput = {
     id?: SortOrder
     nombre?: SortOrder
+    contrasena?: SortOrder
     codigoEmpleado?: SortOrder
     cargo?: SortOrder
     transferencia?: SortOrder
@@ -2491,6 +2533,7 @@ export namespace Prisma {
 
   export type UsuarioSumOrderByAggregateInput = {
     codigoEmpleado?: SortOrder
+    SupervisorID?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -2535,31 +2578,29 @@ export namespace Prisma {
     _max?: NestedBoolFilter<$PrismaModel>
   }
 
-  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
     _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type UsuarioCreateinventarioInput = {
     set: string[]
   }
 
-  export type UsuarioCreateNestedOneWithoutColaboradorInput = {
-    create?: XOR<UsuarioCreateWithoutColaboradorInput, UsuarioUncheckedCreateWithoutColaboradorInput>
-    connectOrCreate?: UsuarioCreateOrConnectWithoutColaboradorInput
+  export type UsuarioCreateNestedOneWithoutColaboradoresInput = {
+    create?: XOR<UsuarioCreateWithoutColaboradoresInput, UsuarioUncheckedCreateWithoutColaboradoresInput>
+    connectOrCreate?: UsuarioCreateOrConnectWithoutColaboradoresInput
     connect?: UsuarioWhereUniqueInput
   }
 
@@ -2590,14 +2631,14 @@ export namespace Prisma {
     set?: boolean
   }
 
-  export type UsuarioUpdateOneWithoutColaboradorNestedInput = {
-    create?: XOR<UsuarioCreateWithoutColaboradorInput, UsuarioUncheckedCreateWithoutColaboradorInput>
-    connectOrCreate?: UsuarioCreateOrConnectWithoutColaboradorInput
-    upsert?: UsuarioUpsertWithoutColaboradorInput
+  export type UsuarioUpdateOneWithoutColaboradoresNestedInput = {
+    create?: XOR<UsuarioCreateWithoutColaboradoresInput, UsuarioUncheckedCreateWithoutColaboradoresInput>
+    connectOrCreate?: UsuarioCreateOrConnectWithoutColaboradoresInput
+    upsert?: UsuarioUpsertWithoutColaboradoresInput
     disconnect?: UsuarioWhereInput | boolean
     delete?: UsuarioWhereInput | boolean
     connect?: UsuarioWhereUniqueInput
-    update?: XOR<XOR<UsuarioUpdateToOneWithWhereWithoutColaboradorInput, UsuarioUpdateWithoutColaboradorInput>, UsuarioUncheckedUpdateWithoutColaboradorInput>
+    update?: XOR<XOR<UsuarioUpdateToOneWithWhereWithoutColaboradoresInput, UsuarioUpdateWithoutColaboradoresInput>, UsuarioUncheckedUpdateWithoutColaboradoresInput>
   }
 
   export type UsuarioUpdateManyWithoutSupervisorNestedInput = {
@@ -2622,8 +2663,12 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type UsuarioUncheckedUpdateManyWithoutSupervisorNestedInput = {
@@ -2670,18 +2715,15 @@ export namespace Prisma {
     not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
@@ -2736,24 +2778,7 @@ export namespace Prisma {
     _max?: NestedBoolFilter<$PrismaModel>
   }
 
-  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
-  }
-
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
     notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
@@ -2761,12 +2786,29 @@ export namespace Prisma {
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
-  export type UsuarioCreateWithoutColaboradorInput = {
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type UsuarioCreateWithoutColaboradoresInput = {
     id?: string
     nombre: string
+    contrasena: string
     codigoEmpleado?: number
     cargo?: string
     inventario?: UsuarioCreateinventarioInput | string[]
@@ -2774,12 +2816,13 @@ export namespace Prisma {
     recepcion?: boolean
     preparacion?: boolean
     EIE?: boolean
-    Supervisor?: UsuarioCreateNestedOneWithoutColaboradorInput
+    Supervisor?: UsuarioCreateNestedOneWithoutColaboradoresInput
   }
 
-  export type UsuarioUncheckedCreateWithoutColaboradorInput = {
+  export type UsuarioUncheckedCreateWithoutColaboradoresInput = {
     id?: string
     nombre: string
+    contrasena: string
     codigoEmpleado?: number
     cargo?: string
     inventario?: UsuarioCreateinventarioInput | string[]
@@ -2787,17 +2830,18 @@ export namespace Prisma {
     recepcion?: boolean
     preparacion?: boolean
     EIE?: boolean
-    SupervisorID?: string | null
+    SupervisorID?: number | null
   }
 
-  export type UsuarioCreateOrConnectWithoutColaboradorInput = {
+  export type UsuarioCreateOrConnectWithoutColaboradoresInput = {
     where: UsuarioWhereUniqueInput
-    create: XOR<UsuarioCreateWithoutColaboradorInput, UsuarioUncheckedCreateWithoutColaboradorInput>
+    create: XOR<UsuarioCreateWithoutColaboradoresInput, UsuarioUncheckedCreateWithoutColaboradoresInput>
   }
 
   export type UsuarioCreateWithoutSupervisorInput = {
     id?: string
     nombre: string
+    contrasena: string
     codigoEmpleado?: number
     cargo?: string
     inventario?: UsuarioCreateinventarioInput | string[]
@@ -2805,12 +2849,13 @@ export namespace Prisma {
     recepcion?: boolean
     preparacion?: boolean
     EIE?: boolean
-    Colaborador?: UsuarioCreateNestedManyWithoutSupervisorInput
+    colaboradores?: UsuarioCreateNestedManyWithoutSupervisorInput
   }
 
   export type UsuarioUncheckedCreateWithoutSupervisorInput = {
     id?: string
     nombre: string
+    contrasena: string
     codigoEmpleado?: number
     cargo?: string
     inventario?: UsuarioCreateinventarioInput | string[]
@@ -2818,7 +2863,7 @@ export namespace Prisma {
     recepcion?: boolean
     preparacion?: boolean
     EIE?: boolean
-    Colaborador?: UsuarioUncheckedCreateNestedManyWithoutSupervisorInput
+    colaboradores?: UsuarioUncheckedCreateNestedManyWithoutSupervisorInput
   }
 
   export type UsuarioCreateOrConnectWithoutSupervisorInput = {
@@ -2831,32 +2876,34 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type UsuarioUpsertWithoutColaboradorInput = {
-    update: XOR<UsuarioUpdateWithoutColaboradorInput, UsuarioUncheckedUpdateWithoutColaboradorInput>
-    create: XOR<UsuarioCreateWithoutColaboradorInput, UsuarioUncheckedCreateWithoutColaboradorInput>
+  export type UsuarioUpsertWithoutColaboradoresInput = {
+    update: XOR<UsuarioUpdateWithoutColaboradoresInput, UsuarioUncheckedUpdateWithoutColaboradoresInput>
+    create: XOR<UsuarioCreateWithoutColaboradoresInput, UsuarioUncheckedCreateWithoutColaboradoresInput>
     where?: UsuarioWhereInput
   }
 
-  export type UsuarioUpdateToOneWithWhereWithoutColaboradorInput = {
+  export type UsuarioUpdateToOneWithWhereWithoutColaboradoresInput = {
     where?: UsuarioWhereInput
-    data: XOR<UsuarioUpdateWithoutColaboradorInput, UsuarioUncheckedUpdateWithoutColaboradorInput>
+    data: XOR<UsuarioUpdateWithoutColaboradoresInput, UsuarioUncheckedUpdateWithoutColaboradoresInput>
   }
 
-  export type UsuarioUpdateWithoutColaboradorInput = {
+  export type UsuarioUpdateWithoutColaboradoresInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
+    contrasena?: StringFieldUpdateOperationsInput | string
     cargo?: StringFieldUpdateOperationsInput | string
     inventario?: UsuarioUpdateinventarioInput | string[]
     transferencia?: BoolFieldUpdateOperationsInput | boolean
     recepcion?: BoolFieldUpdateOperationsInput | boolean
     preparacion?: BoolFieldUpdateOperationsInput | boolean
     EIE?: BoolFieldUpdateOperationsInput | boolean
-    Supervisor?: UsuarioUpdateOneWithoutColaboradorNestedInput
+    Supervisor?: UsuarioUpdateOneWithoutColaboradoresNestedInput
   }
 
-  export type UsuarioUncheckedUpdateWithoutColaboradorInput = {
+  export type UsuarioUncheckedUpdateWithoutColaboradoresInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
+    contrasena?: StringFieldUpdateOperationsInput | string
     codigoEmpleado?: IntFieldUpdateOperationsInput | number
     cargo?: StringFieldUpdateOperationsInput | string
     inventario?: UsuarioUpdateinventarioInput | string[]
@@ -2864,7 +2911,7 @@ export namespace Prisma {
     recepcion?: BoolFieldUpdateOperationsInput | boolean
     preparacion?: BoolFieldUpdateOperationsInput | boolean
     EIE?: BoolFieldUpdateOperationsInput | boolean
-    SupervisorID?: NullableStringFieldUpdateOperationsInput | string | null
+    SupervisorID?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type UsuarioUpsertWithWhereUniqueWithoutSupervisorInput = {
@@ -2889,6 +2936,7 @@ export namespace Prisma {
     NOT?: UsuarioScalarWhereInput | UsuarioScalarWhereInput[]
     id?: StringFilter<"Usuario"> | string
     nombre?: StringFilter<"Usuario"> | string
+    contrasena?: StringFilter<"Usuario"> | string
     codigoEmpleado?: IntFilter<"Usuario"> | number
     cargo?: StringFilter<"Usuario"> | string
     inventario?: StringNullableListFilter<"Usuario">
@@ -2896,12 +2944,13 @@ export namespace Prisma {
     recepcion?: BoolFilter<"Usuario"> | boolean
     preparacion?: BoolFilter<"Usuario"> | boolean
     EIE?: BoolFilter<"Usuario"> | boolean
-    SupervisorID?: StringNullableFilter<"Usuario"> | string | null
+    SupervisorID?: IntNullableFilter<"Usuario"> | number | null
   }
 
   export type UsuarioCreateManySupervisorInput = {
     id?: string
     nombre: string
+    contrasena: string
     codigoEmpleado?: number
     cargo?: string
     inventario?: UsuarioCreateinventarioInput | string[]
@@ -2914,18 +2963,20 @@ export namespace Prisma {
   export type UsuarioUpdateWithoutSupervisorInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
+    contrasena?: StringFieldUpdateOperationsInput | string
     cargo?: StringFieldUpdateOperationsInput | string
     inventario?: UsuarioUpdateinventarioInput | string[]
     transferencia?: BoolFieldUpdateOperationsInput | boolean
     recepcion?: BoolFieldUpdateOperationsInput | boolean
     preparacion?: BoolFieldUpdateOperationsInput | boolean
     EIE?: BoolFieldUpdateOperationsInput | boolean
-    Colaborador?: UsuarioUpdateManyWithoutSupervisorNestedInput
+    colaboradores?: UsuarioUpdateManyWithoutSupervisorNestedInput
   }
 
   export type UsuarioUncheckedUpdateWithoutSupervisorInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
+    contrasena?: StringFieldUpdateOperationsInput | string
     codigoEmpleado?: IntFieldUpdateOperationsInput | number
     cargo?: StringFieldUpdateOperationsInput | string
     inventario?: UsuarioUpdateinventarioInput | string[]
@@ -2933,12 +2984,13 @@ export namespace Prisma {
     recepcion?: BoolFieldUpdateOperationsInput | boolean
     preparacion?: BoolFieldUpdateOperationsInput | boolean
     EIE?: BoolFieldUpdateOperationsInput | boolean
-    Colaborador?: UsuarioUncheckedUpdateManyWithoutSupervisorNestedInput
+    colaboradores?: UsuarioUncheckedUpdateManyWithoutSupervisorNestedInput
   }
 
   export type UsuarioUncheckedUpdateManyWithoutSupervisorInput = {
     id?: StringFieldUpdateOperationsInput | string
     nombre?: StringFieldUpdateOperationsInput | string
+    contrasena?: StringFieldUpdateOperationsInput | string
     codigoEmpleado?: IntFieldUpdateOperationsInput | number
     cargo?: StringFieldUpdateOperationsInput | string
     inventario?: UsuarioUpdateinventarioInput | string[]

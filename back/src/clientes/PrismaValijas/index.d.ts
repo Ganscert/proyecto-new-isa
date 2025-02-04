@@ -283,7 +283,7 @@ export namespace Prisma {
   export type DecimalJsLike = runtime.DecimalJsLike
 
   /**
-   * Metrics 
+   * Metrics
    */
   export type Metrics = runtime.Metrics
   export type Metric<T> = runtime.Metric<T>
@@ -301,14 +301,14 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.2.1
-   * Query Engine version: 4123509d24aa4dede1e864b46351bf2790323b69
+   * Prisma Client JS version: 6.3.0
+   * Query Engine version: acc0b9dd43eb689cbd20c9470515d719db10d0b0
    */
   export type PrismaVersion = {
     client: string
   }
 
-  export const prismaVersion: PrismaVersion 
+  export const prismaVersion: PrismaVersion
 
   /**
    * Utility Types
@@ -324,15 +324,15 @@ export namespace Prisma {
 
   /**
    * Types of the values used to represent different kinds of `null` values when working with JSON fields.
-   * 
+   *
    * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
    */
   namespace NullTypes {
     /**
     * Type of `Prisma.DbNull`.
-    * 
+    *
     * You cannot use other instances of this class. Please use the `Prisma.DbNull` value.
-    * 
+    *
     * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
     */
     class DbNull {
@@ -342,9 +342,9 @@ export namespace Prisma {
 
     /**
     * Type of `Prisma.JsonNull`.
-    * 
+    *
     * You cannot use other instances of this class. Please use the `Prisma.JsonNull` value.
-    * 
+    *
     * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
     */
     class JsonNull {
@@ -354,9 +354,9 @@ export namespace Prisma {
 
     /**
     * Type of `Prisma.AnyNull`.
-    * 
+    *
     * You cannot use other instances of this class. Please use the `Prisma.AnyNull` value.
-    * 
+    *
     * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
     */
     class AnyNull {
@@ -367,21 +367,21 @@ export namespace Prisma {
 
   /**
    * Helper for filtering JSON entries that have `null` on the database (empty on the db)
-   * 
+   *
    * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
    */
   export const DbNull: NullTypes.DbNull
 
   /**
    * Helper for filtering JSON entries that have JSON `null` values (not empty on the db)
-   * 
+   *
    * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
    */
   export const JsonNull: NullTypes.JsonNull
 
   /**
    * Helper for filtering JSON entries that are `Prisma.DbNull` or `Prisma.JsonNull`
-   * 
+   *
    * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
    */
   export const AnyNull: NullTypes.AnyNull
@@ -1738,9 +1738,9 @@ export namespace Prisma {
     valijaUsdId?: boolean
     valijaDopId?: boolean
     valijaEurId?: boolean
-    valijaUsd?: boolean | Valija$valijaUsdArgs<ExtArgs>
     valijaDop?: boolean | Valija$valijaDopArgs<ExtArgs>
     valijaEur?: boolean | Valija$valijaEurArgs<ExtArgs>
+    valijaUsd?: boolean | Valija$valijaUsdArgs<ExtArgs>
   }, ExtArgs["result"]["valija"]>
 
   export type ValijaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1752,9 +1752,9 @@ export namespace Prisma {
     valijaUsdId?: boolean
     valijaDopId?: boolean
     valijaEurId?: boolean
-    valijaUsd?: boolean | Valija$valijaUsdArgs<ExtArgs>
     valijaDop?: boolean | Valija$valijaDopArgs<ExtArgs>
     valijaEur?: boolean | Valija$valijaEurArgs<ExtArgs>
+    valijaUsd?: boolean | Valija$valijaUsdArgs<ExtArgs>
   }, ExtArgs["result"]["valija"]>
 
   export type ValijaSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1766,9 +1766,9 @@ export namespace Prisma {
     valijaUsdId?: boolean
     valijaDopId?: boolean
     valijaEurId?: boolean
-    valijaUsd?: boolean | Valija$valijaUsdArgs<ExtArgs>
     valijaDop?: boolean | Valija$valijaDopArgs<ExtArgs>
     valijaEur?: boolean | Valija$valijaEurArgs<ExtArgs>
+    valijaUsd?: boolean | Valija$valijaUsdArgs<ExtArgs>
   }, ExtArgs["result"]["valija"]>
 
   export type ValijaSelectScalar = {
@@ -1784,27 +1784,27 @@ export namespace Prisma {
 
   export type ValijaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "codigo" | "usuarioACargo" | "llegada" | "ultimaModificacion" | "valijaUsdId" | "valijaDopId" | "valijaEurId", ExtArgs["result"]["valija"]>
   export type ValijaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    valijaUsd?: boolean | Valija$valijaUsdArgs<ExtArgs>
     valijaDop?: boolean | Valija$valijaDopArgs<ExtArgs>
     valijaEur?: boolean | Valija$valijaEurArgs<ExtArgs>
+    valijaUsd?: boolean | Valija$valijaUsdArgs<ExtArgs>
   }
   export type ValijaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    valijaUsd?: boolean | Valija$valijaUsdArgs<ExtArgs>
     valijaDop?: boolean | Valija$valijaDopArgs<ExtArgs>
     valijaEur?: boolean | Valija$valijaEurArgs<ExtArgs>
+    valijaUsd?: boolean | Valija$valijaUsdArgs<ExtArgs>
   }
   export type ValijaIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    valijaUsd?: boolean | Valija$valijaUsdArgs<ExtArgs>
     valijaDop?: boolean | Valija$valijaDopArgs<ExtArgs>
     valijaEur?: boolean | Valija$valijaEurArgs<ExtArgs>
+    valijaUsd?: boolean | Valija$valijaUsdArgs<ExtArgs>
   }
 
   export type $ValijaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Valija"
     objects: {
-      valijaUsd: Prisma.$ValijaUsdPayload<ExtArgs> | null
       valijaDop: Prisma.$ValijaDopPayload<ExtArgs> | null
       valijaEur: Prisma.$ValijaEurPayload<ExtArgs> | null
+      valijaUsd: Prisma.$ValijaUsdPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -2209,9 +2209,9 @@ export namespace Prisma {
    */
   export interface Prisma__ValijaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    valijaUsd<T extends Valija$valijaUsdArgs<ExtArgs> = {}>(args?: Subset<T, Valija$valijaUsdArgs<ExtArgs>>): Prisma__ValijaUsdClient<$Result.GetResult<Prisma.$ValijaUsdPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | null, null, ExtArgs, ClientOptions>
     valijaDop<T extends Valija$valijaDopArgs<ExtArgs> = {}>(args?: Subset<T, Valija$valijaDopArgs<ExtArgs>>): Prisma__ValijaDopClient<$Result.GetResult<Prisma.$ValijaDopPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | null, null, ExtArgs, ClientOptions>
     valijaEur<T extends Valija$valijaEurArgs<ExtArgs> = {}>(args?: Subset<T, Valija$valijaEurArgs<ExtArgs>>): Prisma__ValijaEurClient<$Result.GetResult<Prisma.$ValijaEurPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | null, null, ExtArgs, ClientOptions>
+    valijaUsd<T extends Valija$valijaUsdArgs<ExtArgs> = {}>(args?: Subset<T, Valija$valijaUsdArgs<ExtArgs>>): Prisma__ValijaUsdClient<$Result.GetResult<Prisma.$ValijaUsdPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | null, null, ExtArgs, ClientOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2542,6 +2542,10 @@ export namespace Prisma {
      * Filter which Valijas to update
      */
     where?: ValijaWhereInput
+    /**
+     * Limit how many Valijas to update.
+     */
+    limit?: number
   }
 
   /**
@@ -2564,6 +2568,10 @@ export namespace Prisma {
      * Filter which Valijas to update
      */
     where?: ValijaWhereInput
+    /**
+     * Limit how many Valijas to update.
+     */
+    limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
@@ -2630,25 +2638,10 @@ export namespace Prisma {
      * Filter which Valijas to delete
      */
     where?: ValijaWhereInput
-  }
-
-  /**
-   * Valija.valijaUsd
-   */
-  export type Valija$valijaUsdArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ValijaUsd
+     * Limit how many Valijas to delete.
      */
-    select?: ValijaUsdSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ValijaUsd
-     */
-    omit?: ValijaUsdOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ValijaUsdInclude<ExtArgs> | null
-    where?: ValijaUsdWhereInput
+    limit?: number
   }
 
   /**
@@ -2687,6 +2680,25 @@ export namespace Prisma {
      */
     include?: ValijaEurInclude<ExtArgs> | null
     where?: ValijaEurWhereInput
+  }
+
+  /**
+   * Valija.valijaUsd
+   */
+  export type Valija$valijaUsdArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ValijaUsd
+     */
+    select?: ValijaUsdSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ValijaUsd
+     */
+    omit?: ValijaUsdOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ValijaUsdInclude<ExtArgs> | null
+    where?: ValijaUsdWhereInput
   }
 
   /**
@@ -2886,8 +2898,8 @@ export namespace Prisma {
   export type ValijaUsdSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     depositos?: boolean
-    valija?: boolean | ValijaUsd$valijaArgs<ExtArgs>
     transaccionUsd?: boolean | ValijaUsd$transaccionUsdArgs<ExtArgs>
+    valija?: boolean | ValijaUsd$valijaArgs<ExtArgs>
     _count?: boolean | ValijaUsdCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["valijaUsd"]>
 
@@ -2908,8 +2920,8 @@ export namespace Prisma {
 
   export type ValijaUsdOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "depositos", ExtArgs["result"]["valijaUsd"]>
   export type ValijaUsdInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    valija?: boolean | ValijaUsd$valijaArgs<ExtArgs>
     transaccionUsd?: boolean | ValijaUsd$transaccionUsdArgs<ExtArgs>
+    valija?: boolean | ValijaUsd$valijaArgs<ExtArgs>
     _count?: boolean | ValijaUsdCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ValijaUsdIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2918,8 +2930,8 @@ export namespace Prisma {
   export type $ValijaUsdPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "ValijaUsd"
     objects: {
-      valija: Prisma.$ValijaPayload<ExtArgs> | null
       transaccionUsd: Prisma.$transaccionesUsdPayload<ExtArgs>[]
+      valija: Prisma.$ValijaPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -3318,8 +3330,8 @@ export namespace Prisma {
    */
   export interface Prisma__ValijaUsdClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    valija<T extends ValijaUsd$valijaArgs<ExtArgs> = {}>(args?: Subset<T, ValijaUsd$valijaArgs<ExtArgs>>): Prisma__ValijaClient<$Result.GetResult<Prisma.$ValijaPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | null, null, ExtArgs, ClientOptions>
     transaccionUsd<T extends ValijaUsd$transaccionUsdArgs<ExtArgs> = {}>(args?: Subset<T, ValijaUsd$transaccionUsdArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$transaccionesUsdPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
+    valija<T extends ValijaUsd$valijaArgs<ExtArgs> = {}>(args?: Subset<T, ValijaUsd$valijaArgs<ExtArgs>>): Prisma__ValijaClient<$Result.GetResult<Prisma.$ValijaPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | null, null, ExtArgs, ClientOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3640,6 +3652,10 @@ export namespace Prisma {
      * Filter which ValijaUsds to update
      */
     where?: ValijaUsdWhereInput
+    /**
+     * Limit how many ValijaUsds to update.
+     */
+    limit?: number
   }
 
   /**
@@ -3662,6 +3678,10 @@ export namespace Prisma {
      * Filter which ValijaUsds to update
      */
     where?: ValijaUsdWhereInput
+    /**
+     * Limit how many ValijaUsds to update.
+     */
+    limit?: number
   }
 
   /**
@@ -3724,25 +3744,10 @@ export namespace Prisma {
      * Filter which ValijaUsds to delete
      */
     where?: ValijaUsdWhereInput
-  }
-
-  /**
-   * ValijaUsd.valija
-   */
-  export type ValijaUsd$valijaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Valija
+     * Limit how many ValijaUsds to delete.
      */
-    select?: ValijaSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Valija
-     */
-    omit?: ValijaOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ValijaInclude<ExtArgs> | null
-    where?: ValijaWhereInput
+    limit?: number
   }
 
   /**
@@ -3767,6 +3772,25 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: TransaccionesUsdScalarFieldEnum | TransaccionesUsdScalarFieldEnum[]
+  }
+
+  /**
+   * ValijaUsd.valija
+   */
+  export type ValijaUsd$valijaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Valija
+     */
+    select?: ValijaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Valija
+     */
+    omit?: ValijaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ValijaInclude<ExtArgs> | null
+    where?: ValijaWhereInput
   }
 
   /**
@@ -3966,8 +3990,8 @@ export namespace Prisma {
   export type ValijaDopSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     depositos?: boolean
-    valija?: boolean | ValijaDop$valijaArgs<ExtArgs>
     transaccionDop?: boolean | ValijaDop$transaccionDopArgs<ExtArgs>
+    valija?: boolean | ValijaDop$valijaArgs<ExtArgs>
     _count?: boolean | ValijaDopCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["valijaDop"]>
 
@@ -3988,8 +4012,8 @@ export namespace Prisma {
 
   export type ValijaDopOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "depositos", ExtArgs["result"]["valijaDop"]>
   export type ValijaDopInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    valija?: boolean | ValijaDop$valijaArgs<ExtArgs>
     transaccionDop?: boolean | ValijaDop$transaccionDopArgs<ExtArgs>
+    valija?: boolean | ValijaDop$valijaArgs<ExtArgs>
     _count?: boolean | ValijaDopCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ValijaDopIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -3998,8 +4022,8 @@ export namespace Prisma {
   export type $ValijaDopPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "ValijaDop"
     objects: {
-      valija: Prisma.$ValijaPayload<ExtArgs> | null
       transaccionDop: Prisma.$transaccionesDopPayload<ExtArgs>[]
+      valija: Prisma.$ValijaPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -4398,8 +4422,8 @@ export namespace Prisma {
    */
   export interface Prisma__ValijaDopClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    valija<T extends ValijaDop$valijaArgs<ExtArgs> = {}>(args?: Subset<T, ValijaDop$valijaArgs<ExtArgs>>): Prisma__ValijaClient<$Result.GetResult<Prisma.$ValijaPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | null, null, ExtArgs, ClientOptions>
     transaccionDop<T extends ValijaDop$transaccionDopArgs<ExtArgs> = {}>(args?: Subset<T, ValijaDop$transaccionDopArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$transaccionesDopPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
+    valija<T extends ValijaDop$valijaArgs<ExtArgs> = {}>(args?: Subset<T, ValijaDop$valijaArgs<ExtArgs>>): Prisma__ValijaClient<$Result.GetResult<Prisma.$ValijaPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | null, null, ExtArgs, ClientOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4720,6 +4744,10 @@ export namespace Prisma {
      * Filter which ValijaDops to update
      */
     where?: ValijaDopWhereInput
+    /**
+     * Limit how many ValijaDops to update.
+     */
+    limit?: number
   }
 
   /**
@@ -4742,6 +4770,10 @@ export namespace Prisma {
      * Filter which ValijaDops to update
      */
     where?: ValijaDopWhereInput
+    /**
+     * Limit how many ValijaDops to update.
+     */
+    limit?: number
   }
 
   /**
@@ -4804,25 +4836,10 @@ export namespace Prisma {
      * Filter which ValijaDops to delete
      */
     where?: ValijaDopWhereInput
-  }
-
-  /**
-   * ValijaDop.valija
-   */
-  export type ValijaDop$valijaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Valija
+     * Limit how many ValijaDops to delete.
      */
-    select?: ValijaSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Valija
-     */
-    omit?: ValijaOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ValijaInclude<ExtArgs> | null
-    where?: ValijaWhereInput
+    limit?: number
   }
 
   /**
@@ -4847,6 +4864,25 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: TransaccionesDopScalarFieldEnum | TransaccionesDopScalarFieldEnum[]
+  }
+
+  /**
+   * ValijaDop.valija
+   */
+  export type ValijaDop$valijaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Valija
+     */
+    select?: ValijaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Valija
+     */
+    omit?: ValijaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ValijaInclude<ExtArgs> | null
+    where?: ValijaWhereInput
   }
 
   /**
@@ -5046,8 +5082,8 @@ export namespace Prisma {
   export type ValijaEurSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     depositos?: boolean
-    valija?: boolean | ValijaEur$valijaArgs<ExtArgs>
     transaccionEur?: boolean | ValijaEur$transaccionEurArgs<ExtArgs>
+    valija?: boolean | ValijaEur$valijaArgs<ExtArgs>
     _count?: boolean | ValijaEurCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["valijaEur"]>
 
@@ -5068,8 +5104,8 @@ export namespace Prisma {
 
   export type ValijaEurOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "depositos", ExtArgs["result"]["valijaEur"]>
   export type ValijaEurInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    valija?: boolean | ValijaEur$valijaArgs<ExtArgs>
     transaccionEur?: boolean | ValijaEur$transaccionEurArgs<ExtArgs>
+    valija?: boolean | ValijaEur$valijaArgs<ExtArgs>
     _count?: boolean | ValijaEurCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ValijaEurIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -5078,8 +5114,8 @@ export namespace Prisma {
   export type $ValijaEurPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "ValijaEur"
     objects: {
-      valija: Prisma.$ValijaPayload<ExtArgs> | null
       transaccionEur: Prisma.$transaccionesEurPayload<ExtArgs>[]
+      valija: Prisma.$ValijaPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -5478,8 +5514,8 @@ export namespace Prisma {
    */
   export interface Prisma__ValijaEurClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    valija<T extends ValijaEur$valijaArgs<ExtArgs> = {}>(args?: Subset<T, ValijaEur$valijaArgs<ExtArgs>>): Prisma__ValijaClient<$Result.GetResult<Prisma.$ValijaPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | null, null, ExtArgs, ClientOptions>
     transaccionEur<T extends ValijaEur$transaccionEurArgs<ExtArgs> = {}>(args?: Subset<T, ValijaEur$transaccionEurArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$transaccionesEurPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
+    valija<T extends ValijaEur$valijaArgs<ExtArgs> = {}>(args?: Subset<T, ValijaEur$valijaArgs<ExtArgs>>): Prisma__ValijaClient<$Result.GetResult<Prisma.$ValijaPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | null, null, ExtArgs, ClientOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5800,6 +5836,10 @@ export namespace Prisma {
      * Filter which ValijaEurs to update
      */
     where?: ValijaEurWhereInput
+    /**
+     * Limit how many ValijaEurs to update.
+     */
+    limit?: number
   }
 
   /**
@@ -5822,6 +5862,10 @@ export namespace Prisma {
      * Filter which ValijaEurs to update
      */
     where?: ValijaEurWhereInput
+    /**
+     * Limit how many ValijaEurs to update.
+     */
+    limit?: number
   }
 
   /**
@@ -5884,25 +5928,10 @@ export namespace Prisma {
      * Filter which ValijaEurs to delete
      */
     where?: ValijaEurWhereInput
-  }
-
-  /**
-   * ValijaEur.valija
-   */
-  export type ValijaEur$valijaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Valija
+     * Limit how many ValijaEurs to delete.
      */
-    select?: ValijaSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Valija
-     */
-    omit?: ValijaOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ValijaInclude<ExtArgs> | null
-    where?: ValijaWhereInput
+    limit?: number
   }
 
   /**
@@ -5927,6 +5956,25 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: TransaccionesEurScalarFieldEnum | TransaccionesEurScalarFieldEnum[]
+  }
+
+  /**
+   * ValijaEur.valija
+   */
+  export type ValijaEur$valijaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Valija
+     */
+    select?: ValijaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Valija
+     */
+    omit?: ValijaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ValijaInclude<ExtArgs> | null
+    where?: ValijaWhereInput
   }
 
   /**
@@ -6210,7 +6258,7 @@ export namespace Prisma {
     D50?: boolean
     D100?: boolean
     valijaUsdId?: boolean
-    valijaUsd?: boolean | transaccionesUsd$valijaUsdArgs<ExtArgs>
+    valijaUsd?: boolean | ValijaUsdDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["transaccionesUsd"]>
 
   export type transaccionesUsdSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -6223,7 +6271,7 @@ export namespace Prisma {
     D50?: boolean
     D100?: boolean
     valijaUsdId?: boolean
-    valijaUsd?: boolean | transaccionesUsd$valijaUsdArgs<ExtArgs>
+    valijaUsd?: boolean | ValijaUsdDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["transaccionesUsd"]>
 
   export type transaccionesUsdSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -6236,7 +6284,7 @@ export namespace Prisma {
     D50?: boolean
     D100?: boolean
     valijaUsdId?: boolean
-    valijaUsd?: boolean | transaccionesUsd$valijaUsdArgs<ExtArgs>
+    valijaUsd?: boolean | ValijaUsdDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["transaccionesUsd"]>
 
   export type transaccionesUsdSelectScalar = {
@@ -6253,19 +6301,19 @@ export namespace Prisma {
 
   export type transaccionesUsdOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "D1" | "D2" | "D5" | "D10" | "D20" | "D50" | "D100" | "valijaUsdId", ExtArgs["result"]["transaccionesUsd"]>
   export type transaccionesUsdInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    valijaUsd?: boolean | transaccionesUsd$valijaUsdArgs<ExtArgs>
+    valijaUsd?: boolean | ValijaUsdDefaultArgs<ExtArgs>
   }
   export type transaccionesUsdIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    valijaUsd?: boolean | transaccionesUsd$valijaUsdArgs<ExtArgs>
+    valijaUsd?: boolean | ValijaUsdDefaultArgs<ExtArgs>
   }
   export type transaccionesUsdIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    valijaUsd?: boolean | transaccionesUsd$valijaUsdArgs<ExtArgs>
+    valijaUsd?: boolean | ValijaUsdDefaultArgs<ExtArgs>
   }
 
   export type $transaccionesUsdPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "transaccionesUsd"
     objects: {
-      valijaUsd: Prisma.$ValijaUsdPayload<ExtArgs> | null
+      valijaUsd: Prisma.$ValijaUsdPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -6671,7 +6719,7 @@ export namespace Prisma {
    */
   export interface Prisma__transaccionesUsdClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    valijaUsd<T extends transaccionesUsd$valijaUsdArgs<ExtArgs> = {}>(args?: Subset<T, transaccionesUsd$valijaUsdArgs<ExtArgs>>): Prisma__ValijaUsdClient<$Result.GetResult<Prisma.$ValijaUsdPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | null, null, ExtArgs, ClientOptions>
+    valijaUsd<T extends ValijaUsdDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ValijaUsdDefaultArgs<ExtArgs>>): Prisma__ValijaUsdClient<$Result.GetResult<Prisma.$ValijaUsdPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | Null, Null, ExtArgs, ClientOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7003,6 +7051,10 @@ export namespace Prisma {
      * Filter which transaccionesUsds to update
      */
     where?: transaccionesUsdWhereInput
+    /**
+     * Limit how many transaccionesUsds to update.
+     */
+    limit?: number
   }
 
   /**
@@ -7025,6 +7077,10 @@ export namespace Prisma {
      * Filter which transaccionesUsds to update
      */
     where?: transaccionesUsdWhereInput
+    /**
+     * Limit how many transaccionesUsds to update.
+     */
+    limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
@@ -7091,25 +7147,10 @@ export namespace Prisma {
      * Filter which transaccionesUsds to delete
      */
     where?: transaccionesUsdWhereInput
-  }
-
-  /**
-   * transaccionesUsd.valijaUsd
-   */
-  export type transaccionesUsd$valijaUsdArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ValijaUsd
+     * Limit how many transaccionesUsds to delete.
      */
-    select?: ValijaUsdSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ValijaUsd
-     */
-    omit?: ValijaUsdOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ValijaUsdInclude<ExtArgs> | null
-    where?: ValijaUsdWhereInput
+    limit?: number
   }
 
   /**
@@ -7429,7 +7470,7 @@ export namespace Prisma {
     D1000?: boolean
     D2000?: boolean
     valijaDopId?: boolean
-    valijaDop?: boolean | transaccionesDop$valijaDopArgs<ExtArgs>
+    valijaDop?: boolean | ValijaDopDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["transaccionesDop"]>
 
   export type transaccionesDopSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -7445,7 +7486,7 @@ export namespace Prisma {
     D1000?: boolean
     D2000?: boolean
     valijaDopId?: boolean
-    valijaDop?: boolean | transaccionesDop$valijaDopArgs<ExtArgs>
+    valijaDop?: boolean | ValijaDopDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["transaccionesDop"]>
 
   export type transaccionesDopSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -7461,7 +7502,7 @@ export namespace Prisma {
     D1000?: boolean
     D2000?: boolean
     valijaDopId?: boolean
-    valijaDop?: boolean | transaccionesDop$valijaDopArgs<ExtArgs>
+    valijaDop?: boolean | ValijaDopDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["transaccionesDop"]>
 
   export type transaccionesDopSelectScalar = {
@@ -7481,19 +7522,19 @@ export namespace Prisma {
 
   export type transaccionesDopOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "D1" | "D5" | "D10" | "D25" | "D50" | "D100" | "D200" | "D500" | "D1000" | "D2000" | "valijaDopId", ExtArgs["result"]["transaccionesDop"]>
   export type transaccionesDopInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    valijaDop?: boolean | transaccionesDop$valijaDopArgs<ExtArgs>
+    valijaDop?: boolean | ValijaDopDefaultArgs<ExtArgs>
   }
   export type transaccionesDopIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    valijaDop?: boolean | transaccionesDop$valijaDopArgs<ExtArgs>
+    valijaDop?: boolean | ValijaDopDefaultArgs<ExtArgs>
   }
   export type transaccionesDopIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    valijaDop?: boolean | transaccionesDop$valijaDopArgs<ExtArgs>
+    valijaDop?: boolean | ValijaDopDefaultArgs<ExtArgs>
   }
 
   export type $transaccionesDopPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "transaccionesDop"
     objects: {
-      valijaDop: Prisma.$ValijaDopPayload<ExtArgs> | null
+      valijaDop: Prisma.$ValijaDopPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -7902,7 +7943,7 @@ export namespace Prisma {
    */
   export interface Prisma__transaccionesDopClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    valijaDop<T extends transaccionesDop$valijaDopArgs<ExtArgs> = {}>(args?: Subset<T, transaccionesDop$valijaDopArgs<ExtArgs>>): Prisma__ValijaDopClient<$Result.GetResult<Prisma.$ValijaDopPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | null, null, ExtArgs, ClientOptions>
+    valijaDop<T extends ValijaDopDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ValijaDopDefaultArgs<ExtArgs>>): Prisma__ValijaDopClient<$Result.GetResult<Prisma.$ValijaDopPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | Null, Null, ExtArgs, ClientOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -8237,6 +8278,10 @@ export namespace Prisma {
      * Filter which transaccionesDops to update
      */
     where?: transaccionesDopWhereInput
+    /**
+     * Limit how many transaccionesDops to update.
+     */
+    limit?: number
   }
 
   /**
@@ -8259,6 +8304,10 @@ export namespace Prisma {
      * Filter which transaccionesDops to update
      */
     where?: transaccionesDopWhereInput
+    /**
+     * Limit how many transaccionesDops to update.
+     */
+    limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
@@ -8325,25 +8374,10 @@ export namespace Prisma {
      * Filter which transaccionesDops to delete
      */
     where?: transaccionesDopWhereInput
-  }
-
-  /**
-   * transaccionesDop.valijaDop
-   */
-  export type transaccionesDop$valijaDopArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ValijaDop
+     * Limit how many transaccionesDops to delete.
      */
-    select?: ValijaDopSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ValijaDop
-     */
-    omit?: ValijaDopOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ValijaDopInclude<ExtArgs> | null
-    where?: ValijaDopWhereInput
+    limit?: number
   }
 
   /**
@@ -8615,7 +8649,7 @@ export namespace Prisma {
     D200?: boolean
     D500?: boolean
     valijaEurId?: boolean
-    valijaEur?: boolean | transaccionesEur$valijaEurArgs<ExtArgs>
+    valijaEur?: boolean | ValijaEurDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["transaccionesEur"]>
 
   export type transaccionesEurSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -8627,7 +8661,7 @@ export namespace Prisma {
     D200?: boolean
     D500?: boolean
     valijaEurId?: boolean
-    valijaEur?: boolean | transaccionesEur$valijaEurArgs<ExtArgs>
+    valijaEur?: boolean | ValijaEurDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["transaccionesEur"]>
 
   export type transaccionesEurSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -8639,7 +8673,7 @@ export namespace Prisma {
     D200?: boolean
     D500?: boolean
     valijaEurId?: boolean
-    valijaEur?: boolean | transaccionesEur$valijaEurArgs<ExtArgs>
+    valijaEur?: boolean | ValijaEurDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["transaccionesEur"]>
 
   export type transaccionesEurSelectScalar = {
@@ -8655,19 +8689,19 @@ export namespace Prisma {
 
   export type transaccionesEurOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "D10" | "D20" | "D50" | "D100" | "D200" | "D500" | "valijaEurId", ExtArgs["result"]["transaccionesEur"]>
   export type transaccionesEurInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    valijaEur?: boolean | transaccionesEur$valijaEurArgs<ExtArgs>
+    valijaEur?: boolean | ValijaEurDefaultArgs<ExtArgs>
   }
   export type transaccionesEurIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    valijaEur?: boolean | transaccionesEur$valijaEurArgs<ExtArgs>
+    valijaEur?: boolean | ValijaEurDefaultArgs<ExtArgs>
   }
   export type transaccionesEurIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    valijaEur?: boolean | transaccionesEur$valijaEurArgs<ExtArgs>
+    valijaEur?: boolean | ValijaEurDefaultArgs<ExtArgs>
   }
 
   export type $transaccionesEurPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "transaccionesEur"
     objects: {
-      valijaEur: Prisma.$ValijaEurPayload<ExtArgs> | null
+      valijaEur: Prisma.$ValijaEurPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -9072,7 +9106,7 @@ export namespace Prisma {
    */
   export interface Prisma__transaccionesEurClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    valijaEur<T extends transaccionesEur$valijaEurArgs<ExtArgs> = {}>(args?: Subset<T, transaccionesEur$valijaEurArgs<ExtArgs>>): Prisma__ValijaEurClient<$Result.GetResult<Prisma.$ValijaEurPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | null, null, ExtArgs, ClientOptions>
+    valijaEur<T extends ValijaEurDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ValijaEurDefaultArgs<ExtArgs>>): Prisma__ValijaEurClient<$Result.GetResult<Prisma.$ValijaEurPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | Null, Null, ExtArgs, ClientOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -9403,6 +9437,10 @@ export namespace Prisma {
      * Filter which transaccionesEurs to update
      */
     where?: transaccionesEurWhereInput
+    /**
+     * Limit how many transaccionesEurs to update.
+     */
+    limit?: number
   }
 
   /**
@@ -9425,6 +9463,10 @@ export namespace Prisma {
      * Filter which transaccionesEurs to update
      */
     where?: transaccionesEurWhereInput
+    /**
+     * Limit how many transaccionesEurs to update.
+     */
+    limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
@@ -9491,25 +9533,10 @@ export namespace Prisma {
      * Filter which transaccionesEurs to delete
      */
     where?: transaccionesEurWhereInput
-  }
-
-  /**
-   * transaccionesEur.valijaEur
-   */
-  export type transaccionesEur$valijaEurArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ValijaEur
+     * Limit how many transaccionesEurs to delete.
      */
-    select?: ValijaEurSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ValijaEur
-     */
-    omit?: ValijaEurOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ValijaEurInclude<ExtArgs> | null
-    where?: ValijaEurWhereInput
+    limit?: number
   }
 
   /**
@@ -9730,9 +9757,9 @@ export namespace Prisma {
     valijaUsdId?: IntNullableFilter<"Valija"> | number | null
     valijaDopId?: IntNullableFilter<"Valija"> | number | null
     valijaEurId?: IntNullableFilter<"Valija"> | number | null
-    valijaUsd?: XOR<ValijaUsdNullableScalarRelationFilter, ValijaUsdWhereInput> | null
     valijaDop?: XOR<ValijaDopNullableScalarRelationFilter, ValijaDopWhereInput> | null
     valijaEur?: XOR<ValijaEurNullableScalarRelationFilter, ValijaEurWhereInput> | null
+    valijaUsd?: XOR<ValijaUsdNullableScalarRelationFilter, ValijaUsdWhereInput> | null
   }
 
   export type ValijaOrderByWithRelationInput = {
@@ -9744,9 +9771,9 @@ export namespace Prisma {
     valijaUsdId?: SortOrderInput | SortOrder
     valijaDopId?: SortOrderInput | SortOrder
     valijaEurId?: SortOrderInput | SortOrder
-    valijaUsd?: ValijaUsdOrderByWithRelationInput
     valijaDop?: ValijaDopOrderByWithRelationInput
     valijaEur?: ValijaEurOrderByWithRelationInput
+    valijaUsd?: ValijaUsdOrderByWithRelationInput
   }
 
   export type ValijaWhereUniqueInput = Prisma.AtLeast<{
@@ -9761,9 +9788,9 @@ export namespace Prisma {
     usuarioACargo?: StringFilter<"Valija"> | string
     llegada?: DateTimeFilter<"Valija"> | Date | string
     ultimaModificacion?: DateTimeFilter<"Valija"> | Date | string
-    valijaUsd?: XOR<ValijaUsdNullableScalarRelationFilter, ValijaUsdWhereInput> | null
     valijaDop?: XOR<ValijaDopNullableScalarRelationFilter, ValijaDopWhereInput> | null
     valijaEur?: XOR<ValijaEurNullableScalarRelationFilter, ValijaEurWhereInput> | null
+    valijaUsd?: XOR<ValijaUsdNullableScalarRelationFilter, ValijaUsdWhereInput> | null
   }, "id" | "codigo" | "valijaUsdId" | "valijaDopId" | "valijaEurId">
 
   export type ValijaOrderByWithAggregationInput = {
@@ -9802,15 +9829,15 @@ export namespace Prisma {
     NOT?: ValijaUsdWhereInput | ValijaUsdWhereInput[]
     id?: IntFilter<"ValijaUsd"> | number
     depositos?: IntFilter<"ValijaUsd"> | number
-    valija?: XOR<ValijaNullableScalarRelationFilter, ValijaWhereInput> | null
     transaccionUsd?: TransaccionesUsdListRelationFilter
+    valija?: XOR<ValijaNullableScalarRelationFilter, ValijaWhereInput> | null
   }
 
   export type ValijaUsdOrderByWithRelationInput = {
     id?: SortOrder
     depositos?: SortOrder
-    valija?: ValijaOrderByWithRelationInput
     transaccionUsd?: transaccionesUsdOrderByRelationAggregateInput
+    valija?: ValijaOrderByWithRelationInput
   }
 
   export type ValijaUsdWhereUniqueInput = Prisma.AtLeast<{
@@ -9819,8 +9846,8 @@ export namespace Prisma {
     OR?: ValijaUsdWhereInput[]
     NOT?: ValijaUsdWhereInput | ValijaUsdWhereInput[]
     depositos?: IntFilter<"ValijaUsd"> | number
-    valija?: XOR<ValijaNullableScalarRelationFilter, ValijaWhereInput> | null
     transaccionUsd?: TransaccionesUsdListRelationFilter
+    valija?: XOR<ValijaNullableScalarRelationFilter, ValijaWhereInput> | null
   }, "id">
 
   export type ValijaUsdOrderByWithAggregationInput = {
@@ -9847,15 +9874,15 @@ export namespace Prisma {
     NOT?: ValijaDopWhereInput | ValijaDopWhereInput[]
     id?: IntFilter<"ValijaDop"> | number
     depositos?: IntNullableFilter<"ValijaDop"> | number | null
-    valija?: XOR<ValijaNullableScalarRelationFilter, ValijaWhereInput> | null
     transaccionDop?: TransaccionesDopListRelationFilter
+    valija?: XOR<ValijaNullableScalarRelationFilter, ValijaWhereInput> | null
   }
 
   export type ValijaDopOrderByWithRelationInput = {
     id?: SortOrder
     depositos?: SortOrderInput | SortOrder
-    valija?: ValijaOrderByWithRelationInput
     transaccionDop?: transaccionesDopOrderByRelationAggregateInput
+    valija?: ValijaOrderByWithRelationInput
   }
 
   export type ValijaDopWhereUniqueInput = Prisma.AtLeast<{
@@ -9864,8 +9891,8 @@ export namespace Prisma {
     OR?: ValijaDopWhereInput[]
     NOT?: ValijaDopWhereInput | ValijaDopWhereInput[]
     depositos?: IntNullableFilter<"ValijaDop"> | number | null
-    valija?: XOR<ValijaNullableScalarRelationFilter, ValijaWhereInput> | null
     transaccionDop?: TransaccionesDopListRelationFilter
+    valija?: XOR<ValijaNullableScalarRelationFilter, ValijaWhereInput> | null
   }, "id">
 
   export type ValijaDopOrderByWithAggregationInput = {
@@ -9892,15 +9919,15 @@ export namespace Prisma {
     NOT?: ValijaEurWhereInput | ValijaEurWhereInput[]
     id?: IntFilter<"ValijaEur"> | number
     depositos?: IntFilter<"ValijaEur"> | number
-    valija?: XOR<ValijaNullableScalarRelationFilter, ValijaWhereInput> | null
     transaccionEur?: TransaccionesEurListRelationFilter
+    valija?: XOR<ValijaNullableScalarRelationFilter, ValijaWhereInput> | null
   }
 
   export type ValijaEurOrderByWithRelationInput = {
     id?: SortOrder
     depositos?: SortOrder
-    valija?: ValijaOrderByWithRelationInput
     transaccionEur?: transaccionesEurOrderByRelationAggregateInput
+    valija?: ValijaOrderByWithRelationInput
   }
 
   export type ValijaEurWhereUniqueInput = Prisma.AtLeast<{
@@ -9909,8 +9936,8 @@ export namespace Prisma {
     OR?: ValijaEurWhereInput[]
     NOT?: ValijaEurWhereInput | ValijaEurWhereInput[]
     depositos?: IntFilter<"ValijaEur"> | number
-    valija?: XOR<ValijaNullableScalarRelationFilter, ValijaWhereInput> | null
     transaccionEur?: TransaccionesEurListRelationFilter
+    valija?: XOR<ValijaNullableScalarRelationFilter, ValijaWhereInput> | null
   }, "id">
 
   export type ValijaEurOrderByWithAggregationInput = {
@@ -9944,7 +9971,7 @@ export namespace Prisma {
     D50?: IntFilter<"transaccionesUsd"> | number
     D100?: IntFilter<"transaccionesUsd"> | number
     valijaUsdId?: IntFilter<"transaccionesUsd"> | number
-    valijaUsd?: XOR<ValijaUsdNullableScalarRelationFilter, ValijaUsdWhereInput> | null
+    valijaUsd?: XOR<ValijaUsdScalarRelationFilter, ValijaUsdWhereInput>
   }
 
   export type transaccionesUsdOrderByWithRelationInput = {
@@ -9973,7 +10000,7 @@ export namespace Prisma {
     D50?: IntFilter<"transaccionesUsd"> | number
     D100?: IntFilter<"transaccionesUsd"> | number
     valijaUsdId?: IntFilter<"transaccionesUsd"> | number
-    valijaUsd?: XOR<ValijaUsdNullableScalarRelationFilter, ValijaUsdWhereInput> | null
+    valijaUsd?: XOR<ValijaUsdScalarRelationFilter, ValijaUsdWhereInput>
   }, "id">
 
   export type transaccionesUsdOrderByWithAggregationInput = {
@@ -10024,7 +10051,7 @@ export namespace Prisma {
     D1000?: IntFilter<"transaccionesDop"> | number
     D2000?: IntFilter<"transaccionesDop"> | number
     valijaDopId?: IntFilter<"transaccionesDop"> | number
-    valijaDop?: XOR<ValijaDopNullableScalarRelationFilter, ValijaDopWhereInput> | null
+    valijaDop?: XOR<ValijaDopScalarRelationFilter, ValijaDopWhereInput>
   }
 
   export type transaccionesDopOrderByWithRelationInput = {
@@ -10059,7 +10086,7 @@ export namespace Prisma {
     D1000?: IntFilter<"transaccionesDop"> | number
     D2000?: IntFilter<"transaccionesDop"> | number
     valijaDopId?: IntFilter<"transaccionesDop"> | number
-    valijaDop?: XOR<ValijaDopNullableScalarRelationFilter, ValijaDopWhereInput> | null
+    valijaDop?: XOR<ValijaDopScalarRelationFilter, ValijaDopWhereInput>
   }, "id">
 
   export type transaccionesDopOrderByWithAggregationInput = {
@@ -10112,7 +10139,7 @@ export namespace Prisma {
     D200?: IntFilter<"transaccionesEur"> | number
     D500?: IntFilter<"transaccionesEur"> | number
     valijaEurId?: IntFilter<"transaccionesEur"> | number
-    valijaEur?: XOR<ValijaEurNullableScalarRelationFilter, ValijaEurWhereInput> | null
+    valijaEur?: XOR<ValijaEurScalarRelationFilter, ValijaEurWhereInput>
   }
 
   export type transaccionesEurOrderByWithRelationInput = {
@@ -10139,7 +10166,7 @@ export namespace Prisma {
     D200?: IntFilter<"transaccionesEur"> | number
     D500?: IntFilter<"transaccionesEur"> | number
     valijaEurId?: IntFilter<"transaccionesEur"> | number
-    valijaEur?: XOR<ValijaEurNullableScalarRelationFilter, ValijaEurWhereInput> | null
+    valijaEur?: XOR<ValijaEurScalarRelationFilter, ValijaEurWhereInput>
   }, "id">
 
   export type transaccionesEurOrderByWithAggregationInput = {
@@ -10177,9 +10204,9 @@ export namespace Prisma {
     usuarioACargo: string
     llegada?: Date | string
     ultimaModificacion?: Date | string
-    valijaUsd?: ValijaUsdCreateNestedOneWithoutValijaInput
     valijaDop?: ValijaDopCreateNestedOneWithoutValijaInput
     valijaEur?: ValijaEurCreateNestedOneWithoutValijaInput
+    valijaUsd?: ValijaUsdCreateNestedOneWithoutValijaInput
   }
 
   export type ValijaUncheckedCreateInput = {
@@ -10198,9 +10225,9 @@ export namespace Prisma {
     usuarioACargo?: StringFieldUpdateOperationsInput | string
     llegada?: DateTimeFieldUpdateOperationsInput | Date | string
     ultimaModificacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    valijaUsd?: ValijaUsdUpdateOneWithoutValijaNestedInput
     valijaDop?: ValijaDopUpdateOneWithoutValijaNestedInput
     valijaEur?: ValijaEurUpdateOneWithoutValijaNestedInput
+    valijaUsd?: ValijaUsdUpdateOneWithoutValijaNestedInput
   }
 
   export type ValijaUncheckedUpdateInput = {
@@ -10245,28 +10272,28 @@ export namespace Prisma {
 
   export type ValijaUsdCreateInput = {
     depositos?: number
-    valija?: ValijaCreateNestedOneWithoutValijaUsdInput
     transaccionUsd?: transaccionesUsdCreateNestedManyWithoutValijaUsdInput
+    valija?: ValijaCreateNestedOneWithoutValijaUsdInput
   }
 
   export type ValijaUsdUncheckedCreateInput = {
     id?: number
     depositos?: number
-    valija?: ValijaUncheckedCreateNestedOneWithoutValijaUsdInput
     transaccionUsd?: transaccionesUsdUncheckedCreateNestedManyWithoutValijaUsdInput
+    valija?: ValijaUncheckedCreateNestedOneWithoutValijaUsdInput
   }
 
   export type ValijaUsdUpdateInput = {
     depositos?: IntFieldUpdateOperationsInput | number
-    valija?: ValijaUpdateOneWithoutValijaUsdNestedInput
     transaccionUsd?: transaccionesUsdUpdateManyWithoutValijaUsdNestedInput
+    valija?: ValijaUpdateOneWithoutValijaUsdNestedInput
   }
 
   export type ValijaUsdUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     depositos?: IntFieldUpdateOperationsInput | number
-    valija?: ValijaUncheckedUpdateOneWithoutValijaUsdNestedInput
     transaccionUsd?: transaccionesUsdUncheckedUpdateManyWithoutValijaUsdNestedInput
+    valija?: ValijaUncheckedUpdateOneWithoutValijaUsdNestedInput
   }
 
   export type ValijaUsdCreateManyInput = {
@@ -10285,28 +10312,28 @@ export namespace Prisma {
 
   export type ValijaDopCreateInput = {
     depositos?: number | null
-    valija?: ValijaCreateNestedOneWithoutValijaDopInput
     transaccionDop?: transaccionesDopCreateNestedManyWithoutValijaDopInput
+    valija?: ValijaCreateNestedOneWithoutValijaDopInput
   }
 
   export type ValijaDopUncheckedCreateInput = {
     id?: number
     depositos?: number | null
-    valija?: ValijaUncheckedCreateNestedOneWithoutValijaDopInput
     transaccionDop?: transaccionesDopUncheckedCreateNestedManyWithoutValijaDopInput
+    valija?: ValijaUncheckedCreateNestedOneWithoutValijaDopInput
   }
 
   export type ValijaDopUpdateInput = {
     depositos?: NullableIntFieldUpdateOperationsInput | number | null
-    valija?: ValijaUpdateOneWithoutValijaDopNestedInput
     transaccionDop?: transaccionesDopUpdateManyWithoutValijaDopNestedInput
+    valija?: ValijaUpdateOneWithoutValijaDopNestedInput
   }
 
   export type ValijaDopUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     depositos?: NullableIntFieldUpdateOperationsInput | number | null
-    valija?: ValijaUncheckedUpdateOneWithoutValijaDopNestedInput
     transaccionDop?: transaccionesDopUncheckedUpdateManyWithoutValijaDopNestedInput
+    valija?: ValijaUncheckedUpdateOneWithoutValijaDopNestedInput
   }
 
   export type ValijaDopCreateManyInput = {
@@ -10325,28 +10352,28 @@ export namespace Prisma {
 
   export type ValijaEurCreateInput = {
     depositos?: number
-    valija?: ValijaCreateNestedOneWithoutValijaEurInput
     transaccionEur?: transaccionesEurCreateNestedManyWithoutValijaEurInput
+    valija?: ValijaCreateNestedOneWithoutValijaEurInput
   }
 
   export type ValijaEurUncheckedCreateInput = {
     id?: number
     depositos?: number
-    valija?: ValijaUncheckedCreateNestedOneWithoutValijaEurInput
     transaccionEur?: transaccionesEurUncheckedCreateNestedManyWithoutValijaEurInput
+    valija?: ValijaUncheckedCreateNestedOneWithoutValijaEurInput
   }
 
   export type ValijaEurUpdateInput = {
     depositos?: IntFieldUpdateOperationsInput | number
-    valija?: ValijaUpdateOneWithoutValijaEurNestedInput
     transaccionEur?: transaccionesEurUpdateManyWithoutValijaEurNestedInput
+    valija?: ValijaUpdateOneWithoutValijaEurNestedInput
   }
 
   export type ValijaEurUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     depositos?: IntFieldUpdateOperationsInput | number
-    valija?: ValijaUncheckedUpdateOneWithoutValijaEurNestedInput
     transaccionEur?: transaccionesEurUncheckedUpdateManyWithoutValijaEurNestedInput
+    valija?: ValijaUncheckedUpdateOneWithoutValijaEurNestedInput
   }
 
   export type ValijaEurCreateManyInput = {
@@ -10371,7 +10398,7 @@ export namespace Prisma {
     D20?: number
     D50?: number
     D100?: number
-    valijaUsd?: ValijaUsdCreateNestedOneWithoutTransaccionUsdInput
+    valijaUsd: ValijaUsdCreateNestedOneWithoutTransaccionUsdInput
   }
 
   export type transaccionesUsdUncheckedCreateInput = {
@@ -10394,7 +10421,7 @@ export namespace Prisma {
     D20?: IntFieldUpdateOperationsInput | number
     D50?: IntFieldUpdateOperationsInput | number
     D100?: IntFieldUpdateOperationsInput | number
-    valijaUsd?: ValijaUsdUpdateOneWithoutTransaccionUsdNestedInput
+    valijaUsd?: ValijaUsdUpdateOneRequiredWithoutTransaccionUsdNestedInput
   }
 
   export type transaccionesUsdUncheckedUpdateInput = {
@@ -10454,7 +10481,7 @@ export namespace Prisma {
     D500?: number
     D1000?: number
     D2000?: number
-    valijaDop?: ValijaDopCreateNestedOneWithoutTransaccionDopInput
+    valijaDop: ValijaDopCreateNestedOneWithoutTransaccionDopInput
   }
 
   export type transaccionesDopUncheckedCreateInput = {
@@ -10483,7 +10510,7 @@ export namespace Prisma {
     D500?: IntFieldUpdateOperationsInput | number
     D1000?: IntFieldUpdateOperationsInput | number
     D2000?: IntFieldUpdateOperationsInput | number
-    valijaDop?: ValijaDopUpdateOneWithoutTransaccionDopNestedInput
+    valijaDop?: ValijaDopUpdateOneRequiredWithoutTransaccionDopNestedInput
   }
 
   export type transaccionesDopUncheckedUpdateInput = {
@@ -10551,7 +10578,7 @@ export namespace Prisma {
     D100?: number
     D200?: number
     D500?: number
-    valijaEur?: ValijaEurCreateNestedOneWithoutTransaccionEurInput
+    valijaEur: ValijaEurCreateNestedOneWithoutTransaccionEurInput
   }
 
   export type transaccionesEurUncheckedCreateInput = {
@@ -10572,7 +10599,7 @@ export namespace Prisma {
     D100?: IntFieldUpdateOperationsInput | number
     D200?: IntFieldUpdateOperationsInput | number
     D500?: IntFieldUpdateOperationsInput | number
-    valijaEur?: ValijaEurUpdateOneWithoutTransaccionEurNestedInput
+    valijaEur?: ValijaEurUpdateOneRequiredWithoutTransaccionEurNestedInput
   }
 
   export type transaccionesEurUncheckedUpdateInput = {
@@ -10665,11 +10692,6 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
-  export type ValijaUsdNullableScalarRelationFilter = {
-    is?: ValijaUsdWhereInput | null
-    isNot?: ValijaUsdWhereInput | null
-  }
-
   export type ValijaDopNullableScalarRelationFilter = {
     is?: ValijaDopWhereInput | null
     isNot?: ValijaDopWhereInput | null
@@ -10678,6 +10700,11 @@ export namespace Prisma {
   export type ValijaEurNullableScalarRelationFilter = {
     is?: ValijaEurWhereInput | null
     isNot?: ValijaEurWhereInput | null
+  }
+
+  export type ValijaUsdNullableScalarRelationFilter = {
+    is?: ValijaUsdWhereInput | null
+    isNot?: ValijaUsdWhereInput | null
   }
 
   export type SortOrderInput = {
@@ -10796,15 +10823,15 @@ export namespace Prisma {
     _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
-  export type ValijaNullableScalarRelationFilter = {
-    is?: ValijaWhereInput | null
-    isNot?: ValijaWhereInput | null
-  }
-
   export type TransaccionesUsdListRelationFilter = {
     every?: transaccionesUsdWhereInput
     some?: transaccionesUsdWhereInput
     none?: transaccionesUsdWhereInput
+  }
+
+  export type ValijaNullableScalarRelationFilter = {
+    is?: ValijaWhereInput | null
+    isNot?: ValijaWhereInput | null
   }
 
   export type transaccionesUsdOrderByRelationAggregateInput = {
@@ -10906,6 +10933,11 @@ export namespace Prisma {
     depositos?: SortOrder
   }
 
+  export type ValijaUsdScalarRelationFilter = {
+    is?: ValijaUsdWhereInput
+    isNot?: ValijaUsdWhereInput
+  }
+
   export type transaccionesUsdCountOrderByAggregateInput = {
     id?: SortOrder
     D1?: SortOrder
@@ -10964,6 +10996,11 @@ export namespace Prisma {
     D50?: SortOrder
     D100?: SortOrder
     valijaUsdId?: SortOrder
+  }
+
+  export type ValijaDopScalarRelationFilter = {
+    is?: ValijaDopWhereInput
+    isNot?: ValijaDopWhereInput
   }
 
   export type transaccionesDopCountOrderByAggregateInput = {
@@ -11041,6 +11078,11 @@ export namespace Prisma {
     valijaDopId?: SortOrder
   }
 
+  export type ValijaEurScalarRelationFilter = {
+    is?: ValijaEurWhereInput
+    isNot?: ValijaEurWhereInput
+  }
+
   export type transaccionesEurCountOrderByAggregateInput = {
     id?: SortOrder
     D10?: SortOrder
@@ -11096,12 +11138,6 @@ export namespace Prisma {
     valijaEurId?: SortOrder
   }
 
-  export type ValijaUsdCreateNestedOneWithoutValijaInput = {
-    create?: XOR<ValijaUsdCreateWithoutValijaInput, ValijaUsdUncheckedCreateWithoutValijaInput>
-    connectOrCreate?: ValijaUsdCreateOrConnectWithoutValijaInput
-    connect?: ValijaUsdWhereUniqueInput
-  }
-
   export type ValijaDopCreateNestedOneWithoutValijaInput = {
     create?: XOR<ValijaDopCreateWithoutValijaInput, ValijaDopUncheckedCreateWithoutValijaInput>
     connectOrCreate?: ValijaDopCreateOrConnectWithoutValijaInput
@@ -11114,22 +11150,18 @@ export namespace Prisma {
     connect?: ValijaEurWhereUniqueInput
   }
 
+  export type ValijaUsdCreateNestedOneWithoutValijaInput = {
+    create?: XOR<ValijaUsdCreateWithoutValijaInput, ValijaUsdUncheckedCreateWithoutValijaInput>
+    connectOrCreate?: ValijaUsdCreateOrConnectWithoutValijaInput
+    connect?: ValijaUsdWhereUniqueInput
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
 
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
-  }
-
-  export type ValijaUsdUpdateOneWithoutValijaNestedInput = {
-    create?: XOR<ValijaUsdCreateWithoutValijaInput, ValijaUsdUncheckedCreateWithoutValijaInput>
-    connectOrCreate?: ValijaUsdCreateOrConnectWithoutValijaInput
-    upsert?: ValijaUsdUpsertWithoutValijaInput
-    disconnect?: ValijaUsdWhereInput | boolean
-    delete?: ValijaUsdWhereInput | boolean
-    connect?: ValijaUsdWhereUniqueInput
-    update?: XOR<XOR<ValijaUsdUpdateToOneWithWhereWithoutValijaInput, ValijaUsdUpdateWithoutValijaInput>, ValijaUsdUncheckedUpdateWithoutValijaInput>
   }
 
   export type ValijaDopUpdateOneWithoutValijaNestedInput = {
@@ -11152,6 +11184,16 @@ export namespace Prisma {
     update?: XOR<XOR<ValijaEurUpdateToOneWithWhereWithoutValijaInput, ValijaEurUpdateWithoutValijaInput>, ValijaEurUncheckedUpdateWithoutValijaInput>
   }
 
+  export type ValijaUsdUpdateOneWithoutValijaNestedInput = {
+    create?: XOR<ValijaUsdCreateWithoutValijaInput, ValijaUsdUncheckedCreateWithoutValijaInput>
+    connectOrCreate?: ValijaUsdCreateOrConnectWithoutValijaInput
+    upsert?: ValijaUsdUpsertWithoutValijaInput
+    disconnect?: ValijaUsdWhereInput | boolean
+    delete?: ValijaUsdWhereInput | boolean
+    connect?: ValijaUsdWhereUniqueInput
+    update?: XOR<XOR<ValijaUsdUpdateToOneWithWhereWithoutValijaInput, ValijaUsdUpdateWithoutValijaInput>, ValijaUsdUncheckedUpdateWithoutValijaInput>
+  }
+
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
@@ -11168,12 +11210,6 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type ValijaCreateNestedOneWithoutValijaUsdInput = {
-    create?: XOR<ValijaCreateWithoutValijaUsdInput, ValijaUncheckedCreateWithoutValijaUsdInput>
-    connectOrCreate?: ValijaCreateOrConnectWithoutValijaUsdInput
-    connect?: ValijaWhereUniqueInput
-  }
-
   export type transaccionesUsdCreateNestedManyWithoutValijaUsdInput = {
     create?: XOR<transaccionesUsdCreateWithoutValijaUsdInput, transaccionesUsdUncheckedCreateWithoutValijaUsdInput> | transaccionesUsdCreateWithoutValijaUsdInput[] | transaccionesUsdUncheckedCreateWithoutValijaUsdInput[]
     connectOrCreate?: transaccionesUsdCreateOrConnectWithoutValijaUsdInput | transaccionesUsdCreateOrConnectWithoutValijaUsdInput[]
@@ -11181,7 +11217,7 @@ export namespace Prisma {
     connect?: transaccionesUsdWhereUniqueInput | transaccionesUsdWhereUniqueInput[]
   }
 
-  export type ValijaUncheckedCreateNestedOneWithoutValijaUsdInput = {
+  export type ValijaCreateNestedOneWithoutValijaUsdInput = {
     create?: XOR<ValijaCreateWithoutValijaUsdInput, ValijaUncheckedCreateWithoutValijaUsdInput>
     connectOrCreate?: ValijaCreateOrConnectWithoutValijaUsdInput
     connect?: ValijaWhereUniqueInput
@@ -11194,14 +11230,10 @@ export namespace Prisma {
     connect?: transaccionesUsdWhereUniqueInput | transaccionesUsdWhereUniqueInput[]
   }
 
-  export type ValijaUpdateOneWithoutValijaUsdNestedInput = {
+  export type ValijaUncheckedCreateNestedOneWithoutValijaUsdInput = {
     create?: XOR<ValijaCreateWithoutValijaUsdInput, ValijaUncheckedCreateWithoutValijaUsdInput>
     connectOrCreate?: ValijaCreateOrConnectWithoutValijaUsdInput
-    upsert?: ValijaUpsertWithoutValijaUsdInput
-    disconnect?: ValijaWhereInput | boolean
-    delete?: ValijaWhereInput | boolean
     connect?: ValijaWhereUniqueInput
-    update?: XOR<XOR<ValijaUpdateToOneWithWhereWithoutValijaUsdInput, ValijaUpdateWithoutValijaUsdInput>, ValijaUncheckedUpdateWithoutValijaUsdInput>
   }
 
   export type transaccionesUsdUpdateManyWithoutValijaUsdNestedInput = {
@@ -11218,7 +11250,7 @@ export namespace Prisma {
     deleteMany?: transaccionesUsdScalarWhereInput | transaccionesUsdScalarWhereInput[]
   }
 
-  export type ValijaUncheckedUpdateOneWithoutValijaUsdNestedInput = {
+  export type ValijaUpdateOneWithoutValijaUsdNestedInput = {
     create?: XOR<ValijaCreateWithoutValijaUsdInput, ValijaUncheckedCreateWithoutValijaUsdInput>
     connectOrCreate?: ValijaCreateOrConnectWithoutValijaUsdInput
     upsert?: ValijaUpsertWithoutValijaUsdInput
@@ -11242,10 +11274,14 @@ export namespace Prisma {
     deleteMany?: transaccionesUsdScalarWhereInput | transaccionesUsdScalarWhereInput[]
   }
 
-  export type ValijaCreateNestedOneWithoutValijaDopInput = {
-    create?: XOR<ValijaCreateWithoutValijaDopInput, ValijaUncheckedCreateWithoutValijaDopInput>
-    connectOrCreate?: ValijaCreateOrConnectWithoutValijaDopInput
+  export type ValijaUncheckedUpdateOneWithoutValijaUsdNestedInput = {
+    create?: XOR<ValijaCreateWithoutValijaUsdInput, ValijaUncheckedCreateWithoutValijaUsdInput>
+    connectOrCreate?: ValijaCreateOrConnectWithoutValijaUsdInput
+    upsert?: ValijaUpsertWithoutValijaUsdInput
+    disconnect?: ValijaWhereInput | boolean
+    delete?: ValijaWhereInput | boolean
     connect?: ValijaWhereUniqueInput
+    update?: XOR<XOR<ValijaUpdateToOneWithWhereWithoutValijaUsdInput, ValijaUpdateWithoutValijaUsdInput>, ValijaUncheckedUpdateWithoutValijaUsdInput>
   }
 
   export type transaccionesDopCreateNestedManyWithoutValijaDopInput = {
@@ -11255,7 +11291,7 @@ export namespace Prisma {
     connect?: transaccionesDopWhereUniqueInput | transaccionesDopWhereUniqueInput[]
   }
 
-  export type ValijaUncheckedCreateNestedOneWithoutValijaDopInput = {
+  export type ValijaCreateNestedOneWithoutValijaDopInput = {
     create?: XOR<ValijaCreateWithoutValijaDopInput, ValijaUncheckedCreateWithoutValijaDopInput>
     connectOrCreate?: ValijaCreateOrConnectWithoutValijaDopInput
     connect?: ValijaWhereUniqueInput
@@ -11268,14 +11304,10 @@ export namespace Prisma {
     connect?: transaccionesDopWhereUniqueInput | transaccionesDopWhereUniqueInput[]
   }
 
-  export type ValijaUpdateOneWithoutValijaDopNestedInput = {
+  export type ValijaUncheckedCreateNestedOneWithoutValijaDopInput = {
     create?: XOR<ValijaCreateWithoutValijaDopInput, ValijaUncheckedCreateWithoutValijaDopInput>
     connectOrCreate?: ValijaCreateOrConnectWithoutValijaDopInput
-    upsert?: ValijaUpsertWithoutValijaDopInput
-    disconnect?: ValijaWhereInput | boolean
-    delete?: ValijaWhereInput | boolean
     connect?: ValijaWhereUniqueInput
-    update?: XOR<XOR<ValijaUpdateToOneWithWhereWithoutValijaDopInput, ValijaUpdateWithoutValijaDopInput>, ValijaUncheckedUpdateWithoutValijaDopInput>
   }
 
   export type transaccionesDopUpdateManyWithoutValijaDopNestedInput = {
@@ -11292,7 +11324,7 @@ export namespace Prisma {
     deleteMany?: transaccionesDopScalarWhereInput | transaccionesDopScalarWhereInput[]
   }
 
-  export type ValijaUncheckedUpdateOneWithoutValijaDopNestedInput = {
+  export type ValijaUpdateOneWithoutValijaDopNestedInput = {
     create?: XOR<ValijaCreateWithoutValijaDopInput, ValijaUncheckedCreateWithoutValijaDopInput>
     connectOrCreate?: ValijaCreateOrConnectWithoutValijaDopInput
     upsert?: ValijaUpsertWithoutValijaDopInput
@@ -11316,10 +11348,14 @@ export namespace Prisma {
     deleteMany?: transaccionesDopScalarWhereInput | transaccionesDopScalarWhereInput[]
   }
 
-  export type ValijaCreateNestedOneWithoutValijaEurInput = {
-    create?: XOR<ValijaCreateWithoutValijaEurInput, ValijaUncheckedCreateWithoutValijaEurInput>
-    connectOrCreate?: ValijaCreateOrConnectWithoutValijaEurInput
+  export type ValijaUncheckedUpdateOneWithoutValijaDopNestedInput = {
+    create?: XOR<ValijaCreateWithoutValijaDopInput, ValijaUncheckedCreateWithoutValijaDopInput>
+    connectOrCreate?: ValijaCreateOrConnectWithoutValijaDopInput
+    upsert?: ValijaUpsertWithoutValijaDopInput
+    disconnect?: ValijaWhereInput | boolean
+    delete?: ValijaWhereInput | boolean
     connect?: ValijaWhereUniqueInput
+    update?: XOR<XOR<ValijaUpdateToOneWithWhereWithoutValijaDopInput, ValijaUpdateWithoutValijaDopInput>, ValijaUncheckedUpdateWithoutValijaDopInput>
   }
 
   export type transaccionesEurCreateNestedManyWithoutValijaEurInput = {
@@ -11329,7 +11365,7 @@ export namespace Prisma {
     connect?: transaccionesEurWhereUniqueInput | transaccionesEurWhereUniqueInput[]
   }
 
-  export type ValijaUncheckedCreateNestedOneWithoutValijaEurInput = {
+  export type ValijaCreateNestedOneWithoutValijaEurInput = {
     create?: XOR<ValijaCreateWithoutValijaEurInput, ValijaUncheckedCreateWithoutValijaEurInput>
     connectOrCreate?: ValijaCreateOrConnectWithoutValijaEurInput
     connect?: ValijaWhereUniqueInput
@@ -11342,14 +11378,10 @@ export namespace Prisma {
     connect?: transaccionesEurWhereUniqueInput | transaccionesEurWhereUniqueInput[]
   }
 
-  export type ValijaUpdateOneWithoutValijaEurNestedInput = {
+  export type ValijaUncheckedCreateNestedOneWithoutValijaEurInput = {
     create?: XOR<ValijaCreateWithoutValijaEurInput, ValijaUncheckedCreateWithoutValijaEurInput>
     connectOrCreate?: ValijaCreateOrConnectWithoutValijaEurInput
-    upsert?: ValijaUpsertWithoutValijaEurInput
-    disconnect?: ValijaWhereInput | boolean
-    delete?: ValijaWhereInput | boolean
     connect?: ValijaWhereUniqueInput
-    update?: XOR<XOR<ValijaUpdateToOneWithWhereWithoutValijaEurInput, ValijaUpdateWithoutValijaEurInput>, ValijaUncheckedUpdateWithoutValijaEurInput>
   }
 
   export type transaccionesEurUpdateManyWithoutValijaEurNestedInput = {
@@ -11366,7 +11398,7 @@ export namespace Prisma {
     deleteMany?: transaccionesEurScalarWhereInput | transaccionesEurScalarWhereInput[]
   }
 
-  export type ValijaUncheckedUpdateOneWithoutValijaEurNestedInput = {
+  export type ValijaUpdateOneWithoutValijaEurNestedInput = {
     create?: XOR<ValijaCreateWithoutValijaEurInput, ValijaUncheckedCreateWithoutValijaEurInput>
     connectOrCreate?: ValijaCreateOrConnectWithoutValijaEurInput
     upsert?: ValijaUpsertWithoutValijaEurInput
@@ -11390,18 +11422,26 @@ export namespace Prisma {
     deleteMany?: transaccionesEurScalarWhereInput | transaccionesEurScalarWhereInput[]
   }
 
+  export type ValijaUncheckedUpdateOneWithoutValijaEurNestedInput = {
+    create?: XOR<ValijaCreateWithoutValijaEurInput, ValijaUncheckedCreateWithoutValijaEurInput>
+    connectOrCreate?: ValijaCreateOrConnectWithoutValijaEurInput
+    upsert?: ValijaUpsertWithoutValijaEurInput
+    disconnect?: ValijaWhereInput | boolean
+    delete?: ValijaWhereInput | boolean
+    connect?: ValijaWhereUniqueInput
+    update?: XOR<XOR<ValijaUpdateToOneWithWhereWithoutValijaEurInput, ValijaUpdateWithoutValijaEurInput>, ValijaUncheckedUpdateWithoutValijaEurInput>
+  }
+
   export type ValijaUsdCreateNestedOneWithoutTransaccionUsdInput = {
     create?: XOR<ValijaUsdCreateWithoutTransaccionUsdInput, ValijaUsdUncheckedCreateWithoutTransaccionUsdInput>
     connectOrCreate?: ValijaUsdCreateOrConnectWithoutTransaccionUsdInput
     connect?: ValijaUsdWhereUniqueInput
   }
 
-  export type ValijaUsdUpdateOneWithoutTransaccionUsdNestedInput = {
+  export type ValijaUsdUpdateOneRequiredWithoutTransaccionUsdNestedInput = {
     create?: XOR<ValijaUsdCreateWithoutTransaccionUsdInput, ValijaUsdUncheckedCreateWithoutTransaccionUsdInput>
     connectOrCreate?: ValijaUsdCreateOrConnectWithoutTransaccionUsdInput
     upsert?: ValijaUsdUpsertWithoutTransaccionUsdInput
-    disconnect?: ValijaUsdWhereInput | boolean
-    delete?: ValijaUsdWhereInput | boolean
     connect?: ValijaUsdWhereUniqueInput
     update?: XOR<XOR<ValijaUsdUpdateToOneWithWhereWithoutTransaccionUsdInput, ValijaUsdUpdateWithoutTransaccionUsdInput>, ValijaUsdUncheckedUpdateWithoutTransaccionUsdInput>
   }
@@ -11412,12 +11452,10 @@ export namespace Prisma {
     connect?: ValijaDopWhereUniqueInput
   }
 
-  export type ValijaDopUpdateOneWithoutTransaccionDopNestedInput = {
+  export type ValijaDopUpdateOneRequiredWithoutTransaccionDopNestedInput = {
     create?: XOR<ValijaDopCreateWithoutTransaccionDopInput, ValijaDopUncheckedCreateWithoutTransaccionDopInput>
     connectOrCreate?: ValijaDopCreateOrConnectWithoutTransaccionDopInput
     upsert?: ValijaDopUpsertWithoutTransaccionDopInput
-    disconnect?: ValijaDopWhereInput | boolean
-    delete?: ValijaDopWhereInput | boolean
     connect?: ValijaDopWhereUniqueInput
     update?: XOR<XOR<ValijaDopUpdateToOneWithWhereWithoutTransaccionDopInput, ValijaDopUpdateWithoutTransaccionDopInput>, ValijaDopUncheckedUpdateWithoutTransaccionDopInput>
   }
@@ -11428,12 +11466,10 @@ export namespace Prisma {
     connect?: ValijaEurWhereUniqueInput
   }
 
-  export type ValijaEurUpdateOneWithoutTransaccionEurNestedInput = {
+  export type ValijaEurUpdateOneRequiredWithoutTransaccionEurNestedInput = {
     create?: XOR<ValijaEurCreateWithoutTransaccionEurInput, ValijaEurUncheckedCreateWithoutTransaccionEurInput>
     connectOrCreate?: ValijaEurCreateOrConnectWithoutTransaccionEurInput
     upsert?: ValijaEurUpsertWithoutTransaccionEurInput
-    disconnect?: ValijaEurWhereInput | boolean
-    delete?: ValijaEurWhereInput | boolean
     connect?: ValijaEurWhereUniqueInput
     update?: XOR<XOR<ValijaEurUpdateToOneWithWhereWithoutTransaccionEurInput, ValijaEurUpdateWithoutTransaccionEurInput>, ValijaEurUncheckedUpdateWithoutTransaccionEurInput>
   }
@@ -11570,22 +11606,6 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
-  export type ValijaUsdCreateWithoutValijaInput = {
-    depositos?: number
-    transaccionUsd?: transaccionesUsdCreateNestedManyWithoutValijaUsdInput
-  }
-
-  export type ValijaUsdUncheckedCreateWithoutValijaInput = {
-    id?: number
-    depositos?: number
-    transaccionUsd?: transaccionesUsdUncheckedCreateNestedManyWithoutValijaUsdInput
-  }
-
-  export type ValijaUsdCreateOrConnectWithoutValijaInput = {
-    where: ValijaUsdWhereUniqueInput
-    create: XOR<ValijaUsdCreateWithoutValijaInput, ValijaUsdUncheckedCreateWithoutValijaInput>
-  }
-
   export type ValijaDopCreateWithoutValijaInput = {
     depositos?: number | null
     transaccionDop?: transaccionesDopCreateNestedManyWithoutValijaDopInput
@@ -11618,26 +11638,20 @@ export namespace Prisma {
     create: XOR<ValijaEurCreateWithoutValijaInput, ValijaEurUncheckedCreateWithoutValijaInput>
   }
 
-  export type ValijaUsdUpsertWithoutValijaInput = {
-    update: XOR<ValijaUsdUpdateWithoutValijaInput, ValijaUsdUncheckedUpdateWithoutValijaInput>
+  export type ValijaUsdCreateWithoutValijaInput = {
+    depositos?: number
+    transaccionUsd?: transaccionesUsdCreateNestedManyWithoutValijaUsdInput
+  }
+
+  export type ValijaUsdUncheckedCreateWithoutValijaInput = {
+    id?: number
+    depositos?: number
+    transaccionUsd?: transaccionesUsdUncheckedCreateNestedManyWithoutValijaUsdInput
+  }
+
+  export type ValijaUsdCreateOrConnectWithoutValijaInput = {
+    where: ValijaUsdWhereUniqueInput
     create: XOR<ValijaUsdCreateWithoutValijaInput, ValijaUsdUncheckedCreateWithoutValijaInput>
-    where?: ValijaUsdWhereInput
-  }
-
-  export type ValijaUsdUpdateToOneWithWhereWithoutValijaInput = {
-    where?: ValijaUsdWhereInput
-    data: XOR<ValijaUsdUpdateWithoutValijaInput, ValijaUsdUncheckedUpdateWithoutValijaInput>
-  }
-
-  export type ValijaUsdUpdateWithoutValijaInput = {
-    depositos?: IntFieldUpdateOperationsInput | number
-    transaccionUsd?: transaccionesUsdUpdateManyWithoutValijaUsdNestedInput
-  }
-
-  export type ValijaUsdUncheckedUpdateWithoutValijaInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    depositos?: IntFieldUpdateOperationsInput | number
-    transaccionUsd?: transaccionesUsdUncheckedUpdateManyWithoutValijaUsdNestedInput
   }
 
   export type ValijaDopUpsertWithoutValijaInput = {
@@ -11684,28 +11698,26 @@ export namespace Prisma {
     transaccionEur?: transaccionesEurUncheckedUpdateManyWithoutValijaEurNestedInput
   }
 
-  export type ValijaCreateWithoutValijaUsdInput = {
-    codigo: string
-    usuarioACargo: string
-    llegada?: Date | string
-    ultimaModificacion?: Date | string
-    valijaDop?: ValijaDopCreateNestedOneWithoutValijaInput
-    valijaEur?: ValijaEurCreateNestedOneWithoutValijaInput
+  export type ValijaUsdUpsertWithoutValijaInput = {
+    update: XOR<ValijaUsdUpdateWithoutValijaInput, ValijaUsdUncheckedUpdateWithoutValijaInput>
+    create: XOR<ValijaUsdCreateWithoutValijaInput, ValijaUsdUncheckedCreateWithoutValijaInput>
+    where?: ValijaUsdWhereInput
   }
 
-  export type ValijaUncheckedCreateWithoutValijaUsdInput = {
-    id?: number
-    codigo: string
-    usuarioACargo: string
-    llegada?: Date | string
-    ultimaModificacion?: Date | string
-    valijaDopId?: number | null
-    valijaEurId?: number | null
+  export type ValijaUsdUpdateToOneWithWhereWithoutValijaInput = {
+    where?: ValijaUsdWhereInput
+    data: XOR<ValijaUsdUpdateWithoutValijaInput, ValijaUsdUncheckedUpdateWithoutValijaInput>
   }
 
-  export type ValijaCreateOrConnectWithoutValijaUsdInput = {
-    where: ValijaWhereUniqueInput
-    create: XOR<ValijaCreateWithoutValijaUsdInput, ValijaUncheckedCreateWithoutValijaUsdInput>
+  export type ValijaUsdUpdateWithoutValijaInput = {
+    depositos?: IntFieldUpdateOperationsInput | number
+    transaccionUsd?: transaccionesUsdUpdateManyWithoutValijaUsdNestedInput
+  }
+
+  export type ValijaUsdUncheckedUpdateWithoutValijaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    depositos?: IntFieldUpdateOperationsInput | number
+    transaccionUsd?: transaccionesUsdUncheckedUpdateManyWithoutValijaUsdNestedInput
   }
 
   export type transaccionesUsdCreateWithoutValijaUsdInput = {
@@ -11739,34 +11751,28 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type ValijaUpsertWithoutValijaUsdInput = {
-    update: XOR<ValijaUpdateWithoutValijaUsdInput, ValijaUncheckedUpdateWithoutValijaUsdInput>
+  export type ValijaCreateWithoutValijaUsdInput = {
+    codigo: string
+    usuarioACargo: string
+    llegada?: Date | string
+    ultimaModificacion?: Date | string
+    valijaDop?: ValijaDopCreateNestedOneWithoutValijaInput
+    valijaEur?: ValijaEurCreateNestedOneWithoutValijaInput
+  }
+
+  export type ValijaUncheckedCreateWithoutValijaUsdInput = {
+    id?: number
+    codigo: string
+    usuarioACargo: string
+    llegada?: Date | string
+    ultimaModificacion?: Date | string
+    valijaDopId?: number | null
+    valijaEurId?: number | null
+  }
+
+  export type ValijaCreateOrConnectWithoutValijaUsdInput = {
+    where: ValijaWhereUniqueInput
     create: XOR<ValijaCreateWithoutValijaUsdInput, ValijaUncheckedCreateWithoutValijaUsdInput>
-    where?: ValijaWhereInput
-  }
-
-  export type ValijaUpdateToOneWithWhereWithoutValijaUsdInput = {
-    where?: ValijaWhereInput
-    data: XOR<ValijaUpdateWithoutValijaUsdInput, ValijaUncheckedUpdateWithoutValijaUsdInput>
-  }
-
-  export type ValijaUpdateWithoutValijaUsdInput = {
-    codigo?: StringFieldUpdateOperationsInput | string
-    usuarioACargo?: StringFieldUpdateOperationsInput | string
-    llegada?: DateTimeFieldUpdateOperationsInput | Date | string
-    ultimaModificacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    valijaDop?: ValijaDopUpdateOneWithoutValijaNestedInput
-    valijaEur?: ValijaEurUpdateOneWithoutValijaNestedInput
-  }
-
-  export type ValijaUncheckedUpdateWithoutValijaUsdInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    codigo?: StringFieldUpdateOperationsInput | string
-    usuarioACargo?: StringFieldUpdateOperationsInput | string
-    llegada?: DateTimeFieldUpdateOperationsInput | Date | string
-    ultimaModificacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    valijaDopId?: NullableIntFieldUpdateOperationsInput | number | null
-    valijaEurId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type transaccionesUsdUpsertWithWhereUniqueWithoutValijaUsdInput = {
@@ -11800,28 +11806,34 @@ export namespace Prisma {
     valijaUsdId?: IntFilter<"transaccionesUsd"> | number
   }
 
-  export type ValijaCreateWithoutValijaDopInput = {
-    codigo: string
-    usuarioACargo: string
-    llegada?: Date | string
-    ultimaModificacion?: Date | string
-    valijaUsd?: ValijaUsdCreateNestedOneWithoutValijaInput
-    valijaEur?: ValijaEurCreateNestedOneWithoutValijaInput
+  export type ValijaUpsertWithoutValijaUsdInput = {
+    update: XOR<ValijaUpdateWithoutValijaUsdInput, ValijaUncheckedUpdateWithoutValijaUsdInput>
+    create: XOR<ValijaCreateWithoutValijaUsdInput, ValijaUncheckedCreateWithoutValijaUsdInput>
+    where?: ValijaWhereInput
   }
 
-  export type ValijaUncheckedCreateWithoutValijaDopInput = {
-    id?: number
-    codigo: string
-    usuarioACargo: string
-    llegada?: Date | string
-    ultimaModificacion?: Date | string
-    valijaUsdId?: number | null
-    valijaEurId?: number | null
+  export type ValijaUpdateToOneWithWhereWithoutValijaUsdInput = {
+    where?: ValijaWhereInput
+    data: XOR<ValijaUpdateWithoutValijaUsdInput, ValijaUncheckedUpdateWithoutValijaUsdInput>
   }
 
-  export type ValijaCreateOrConnectWithoutValijaDopInput = {
-    where: ValijaWhereUniqueInput
-    create: XOR<ValijaCreateWithoutValijaDopInput, ValijaUncheckedCreateWithoutValijaDopInput>
+  export type ValijaUpdateWithoutValijaUsdInput = {
+    codigo?: StringFieldUpdateOperationsInput | string
+    usuarioACargo?: StringFieldUpdateOperationsInput | string
+    llegada?: DateTimeFieldUpdateOperationsInput | Date | string
+    ultimaModificacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    valijaDop?: ValijaDopUpdateOneWithoutValijaNestedInput
+    valijaEur?: ValijaEurUpdateOneWithoutValijaNestedInput
+  }
+
+  export type ValijaUncheckedUpdateWithoutValijaUsdInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    codigo?: StringFieldUpdateOperationsInput | string
+    usuarioACargo?: StringFieldUpdateOperationsInput | string
+    llegada?: DateTimeFieldUpdateOperationsInput | Date | string
+    ultimaModificacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    valijaDopId?: NullableIntFieldUpdateOperationsInput | number | null
+    valijaEurId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type transaccionesDopCreateWithoutValijaDopInput = {
@@ -11861,34 +11873,28 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type ValijaUpsertWithoutValijaDopInput = {
-    update: XOR<ValijaUpdateWithoutValijaDopInput, ValijaUncheckedUpdateWithoutValijaDopInput>
+  export type ValijaCreateWithoutValijaDopInput = {
+    codigo: string
+    usuarioACargo: string
+    llegada?: Date | string
+    ultimaModificacion?: Date | string
+    valijaEur?: ValijaEurCreateNestedOneWithoutValijaInput
+    valijaUsd?: ValijaUsdCreateNestedOneWithoutValijaInput
+  }
+
+  export type ValijaUncheckedCreateWithoutValijaDopInput = {
+    id?: number
+    codigo: string
+    usuarioACargo: string
+    llegada?: Date | string
+    ultimaModificacion?: Date | string
+    valijaUsdId?: number | null
+    valijaEurId?: number | null
+  }
+
+  export type ValijaCreateOrConnectWithoutValijaDopInput = {
+    where: ValijaWhereUniqueInput
     create: XOR<ValijaCreateWithoutValijaDopInput, ValijaUncheckedCreateWithoutValijaDopInput>
-    where?: ValijaWhereInput
-  }
-
-  export type ValijaUpdateToOneWithWhereWithoutValijaDopInput = {
-    where?: ValijaWhereInput
-    data: XOR<ValijaUpdateWithoutValijaDopInput, ValijaUncheckedUpdateWithoutValijaDopInput>
-  }
-
-  export type ValijaUpdateWithoutValijaDopInput = {
-    codigo?: StringFieldUpdateOperationsInput | string
-    usuarioACargo?: StringFieldUpdateOperationsInput | string
-    llegada?: DateTimeFieldUpdateOperationsInput | Date | string
-    ultimaModificacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    valijaUsd?: ValijaUsdUpdateOneWithoutValijaNestedInput
-    valijaEur?: ValijaEurUpdateOneWithoutValijaNestedInput
-  }
-
-  export type ValijaUncheckedUpdateWithoutValijaDopInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    codigo?: StringFieldUpdateOperationsInput | string
-    usuarioACargo?: StringFieldUpdateOperationsInput | string
-    llegada?: DateTimeFieldUpdateOperationsInput | Date | string
-    ultimaModificacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    valijaUsdId?: NullableIntFieldUpdateOperationsInput | number | null
-    valijaEurId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type transaccionesDopUpsertWithWhereUniqueWithoutValijaDopInput = {
@@ -11925,28 +11931,34 @@ export namespace Prisma {
     valijaDopId?: IntFilter<"transaccionesDop"> | number
   }
 
-  export type ValijaCreateWithoutValijaEurInput = {
-    codigo: string
-    usuarioACargo: string
-    llegada?: Date | string
-    ultimaModificacion?: Date | string
-    valijaUsd?: ValijaUsdCreateNestedOneWithoutValijaInput
-    valijaDop?: ValijaDopCreateNestedOneWithoutValijaInput
+  export type ValijaUpsertWithoutValijaDopInput = {
+    update: XOR<ValijaUpdateWithoutValijaDopInput, ValijaUncheckedUpdateWithoutValijaDopInput>
+    create: XOR<ValijaCreateWithoutValijaDopInput, ValijaUncheckedCreateWithoutValijaDopInput>
+    where?: ValijaWhereInput
   }
 
-  export type ValijaUncheckedCreateWithoutValijaEurInput = {
-    id?: number
-    codigo: string
-    usuarioACargo: string
-    llegada?: Date | string
-    ultimaModificacion?: Date | string
-    valijaUsdId?: number | null
-    valijaDopId?: number | null
+  export type ValijaUpdateToOneWithWhereWithoutValijaDopInput = {
+    where?: ValijaWhereInput
+    data: XOR<ValijaUpdateWithoutValijaDopInput, ValijaUncheckedUpdateWithoutValijaDopInput>
   }
 
-  export type ValijaCreateOrConnectWithoutValijaEurInput = {
-    where: ValijaWhereUniqueInput
-    create: XOR<ValijaCreateWithoutValijaEurInput, ValijaUncheckedCreateWithoutValijaEurInput>
+  export type ValijaUpdateWithoutValijaDopInput = {
+    codigo?: StringFieldUpdateOperationsInput | string
+    usuarioACargo?: StringFieldUpdateOperationsInput | string
+    llegada?: DateTimeFieldUpdateOperationsInput | Date | string
+    ultimaModificacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    valijaEur?: ValijaEurUpdateOneWithoutValijaNestedInput
+    valijaUsd?: ValijaUsdUpdateOneWithoutValijaNestedInput
+  }
+
+  export type ValijaUncheckedUpdateWithoutValijaDopInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    codigo?: StringFieldUpdateOperationsInput | string
+    usuarioACargo?: StringFieldUpdateOperationsInput | string
+    llegada?: DateTimeFieldUpdateOperationsInput | Date | string
+    ultimaModificacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    valijaUsdId?: NullableIntFieldUpdateOperationsInput | number | null
+    valijaEurId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type transaccionesEurCreateWithoutValijaEurInput = {
@@ -11978,34 +11990,28 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type ValijaUpsertWithoutValijaEurInput = {
-    update: XOR<ValijaUpdateWithoutValijaEurInput, ValijaUncheckedUpdateWithoutValijaEurInput>
+  export type ValijaCreateWithoutValijaEurInput = {
+    codigo: string
+    usuarioACargo: string
+    llegada?: Date | string
+    ultimaModificacion?: Date | string
+    valijaDop?: ValijaDopCreateNestedOneWithoutValijaInput
+    valijaUsd?: ValijaUsdCreateNestedOneWithoutValijaInput
+  }
+
+  export type ValijaUncheckedCreateWithoutValijaEurInput = {
+    id?: number
+    codigo: string
+    usuarioACargo: string
+    llegada?: Date | string
+    ultimaModificacion?: Date | string
+    valijaUsdId?: number | null
+    valijaDopId?: number | null
+  }
+
+  export type ValijaCreateOrConnectWithoutValijaEurInput = {
+    where: ValijaWhereUniqueInput
     create: XOR<ValijaCreateWithoutValijaEurInput, ValijaUncheckedCreateWithoutValijaEurInput>
-    where?: ValijaWhereInput
-  }
-
-  export type ValijaUpdateToOneWithWhereWithoutValijaEurInput = {
-    where?: ValijaWhereInput
-    data: XOR<ValijaUpdateWithoutValijaEurInput, ValijaUncheckedUpdateWithoutValijaEurInput>
-  }
-
-  export type ValijaUpdateWithoutValijaEurInput = {
-    codigo?: StringFieldUpdateOperationsInput | string
-    usuarioACargo?: StringFieldUpdateOperationsInput | string
-    llegada?: DateTimeFieldUpdateOperationsInput | Date | string
-    ultimaModificacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    valijaUsd?: ValijaUsdUpdateOneWithoutValijaNestedInput
-    valijaDop?: ValijaDopUpdateOneWithoutValijaNestedInput
-  }
-
-  export type ValijaUncheckedUpdateWithoutValijaEurInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    codigo?: StringFieldUpdateOperationsInput | string
-    usuarioACargo?: StringFieldUpdateOperationsInput | string
-    llegada?: DateTimeFieldUpdateOperationsInput | Date | string
-    ultimaModificacion?: DateTimeFieldUpdateOperationsInput | Date | string
-    valijaUsdId?: NullableIntFieldUpdateOperationsInput | number | null
-    valijaDopId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type transaccionesEurUpsertWithWhereUniqueWithoutValijaEurInput = {
@@ -12036,6 +12042,36 @@ export namespace Prisma {
     D200?: IntFilter<"transaccionesEur"> | number
     D500?: IntFilter<"transaccionesEur"> | number
     valijaEurId?: IntFilter<"transaccionesEur"> | number
+  }
+
+  export type ValijaUpsertWithoutValijaEurInput = {
+    update: XOR<ValijaUpdateWithoutValijaEurInput, ValijaUncheckedUpdateWithoutValijaEurInput>
+    create: XOR<ValijaCreateWithoutValijaEurInput, ValijaUncheckedCreateWithoutValijaEurInput>
+    where?: ValijaWhereInput
+  }
+
+  export type ValijaUpdateToOneWithWhereWithoutValijaEurInput = {
+    where?: ValijaWhereInput
+    data: XOR<ValijaUpdateWithoutValijaEurInput, ValijaUncheckedUpdateWithoutValijaEurInput>
+  }
+
+  export type ValijaUpdateWithoutValijaEurInput = {
+    codigo?: StringFieldUpdateOperationsInput | string
+    usuarioACargo?: StringFieldUpdateOperationsInput | string
+    llegada?: DateTimeFieldUpdateOperationsInput | Date | string
+    ultimaModificacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    valijaDop?: ValijaDopUpdateOneWithoutValijaNestedInput
+    valijaUsd?: ValijaUsdUpdateOneWithoutValijaNestedInput
+  }
+
+  export type ValijaUncheckedUpdateWithoutValijaEurInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    codigo?: StringFieldUpdateOperationsInput | string
+    usuarioACargo?: StringFieldUpdateOperationsInput | string
+    llegada?: DateTimeFieldUpdateOperationsInput | Date | string
+    ultimaModificacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    valijaUsdId?: NullableIntFieldUpdateOperationsInput | number | null
+    valijaDopId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type ValijaUsdCreateWithoutTransaccionUsdInput = {

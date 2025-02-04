@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "studio": "npx prisma studio --schema ./prisma/valijasDB/schema.prisma",
-    "dev": "tsnd --respawn --clear src/App.ts",
+    "dev": "NODE_OPTIONS='--max-old-space-size=8192' tsnd --respawn --clear --ignore-watch node_modules src/App.ts",
     "build": "rimraf .dist && tsc",
     "start": "npm run build && node dist/App.js",
     "migraciones": " npx prisma migrate dev --schema prisma/valijasDB/schema.prisma &&  npx prisma migrate dev --schema prisma/usuariosDB/schema.prisma"
@@ -16,7 +16,11 @@
   "description": "",
   "dependencies": {
     "@prisma/client": "^6.2.1",
-    "express": "^4.21.2"
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.8",
+    "bcryptjs": "^2.4.3",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2"
   },
   "devDependencies": {
     "@types/express": "^5.0.0",

@@ -9,88 +9,79 @@ datasource db {
 }
 
 model Valija {
-  id                 Int      @id @default(autoincrement())
-  codigo             String   @unique
+  id                 Int        @id @default(autoincrement())
+  codigo             String     @unique
   usuarioACargo      String
-  llegada            DateTime @default(now())
-  ultimaModificacion DateTime @updatedAt
-
-  valijaUsd   ValijaUsd? @relation(fields: [valijaUsdId], references: [id])
-  valijaUsdId Int?       @unique
-
-  valijaDop   ValijaDop? @relation("ValijaDop", fields: [valijaDopId], references: [id])
-  valijaDopId Int?       @unique
-
-  valijaEur   ValijaEur? @relation(fields: [valijaEurId], references: [id])
-  valijaEurId Int?       @unique
+  llegada            DateTime   @default(now())
+  ultimaModificacion DateTime   @updatedAt
+  valijaUsdId        Int?       @unique
+  valijaDopId        Int?       @unique
+  valijaEurId        Int?       @unique
+  valijaDop          ValijaDop? @relation("ValijaDop", fields: [valijaDopId], references: [id])
+  valijaEur          ValijaEur? @relation(fields: [valijaEurId], references: [id])
+  valijaUsd          ValijaUsd? @relation(fields: [valijaUsdId], references: [id])
 
   @@map("valijas")
 }
 
 model ValijaUsd {
-  id        Int @id @default(autoincrement())
-  depositos Int @default(0)
-
-  valija         Valija?            @relation
+  id             Int                @id @default(autoincrement())
+  depositos      Int                @default(0)
   transaccionUsd transaccionesUsd[] @relation("transaccionesUsd")
+  valija         Valija?
 }
 
 model ValijaDop {
-  id        Int  @id @default(autoincrement())
-  depositos Int? @default(0)
-
-  valija         Valija?            @relation("ValijaDop")
+  id             Int                @id @default(autoincrement())
+  depositos      Int?               @default(0)
   transaccionDop transaccionesDop[] @relation("transaccionesDop")
+  valija         Valija?            @relation("ValijaDop")
 }
 
 model ValijaEur {
-  id        Int @id @default(autoincrement())
-  depositos Int @default(0)
-
-  valija Valija? @relation
-
+  id             Int                @id @default(autoincrement())
+  depositos      Int                @default(0)
   transaccionEur transaccionesEur[] @relation("transaccionesEur")
+  valija         Valija?
 }
 
 model transaccionesUsd {
-  id          Int        @id @default(autoincrement())
-  D1          Int        @default(0)
-  D2          Int        @default(0)
-  D5          Int        @default(0)
-  D10         Int        @default(0)
-  D20         Int        @default(0)
-  D50         Int        @default(0)
-  D100        Int        @default(0)
-  valijaUsd   ValijaUsd? @relation("transaccionesUsd", fields: [valijaUsdId], references: [id])
+  id          Int       @id @default(autoincrement())
+  D1          Int       @default(0)
+  D2          Int       @default(0)
+  D5          Int       @default(0)
+  D10         Int       @default(0)
+  D20         Int       @default(0)
+  D50         Int       @default(0)
+  D100        Int       @default(0)
   valijaUsdId Int
+  valijaUsd   ValijaUsd @relation("transaccionesUsd", fields: [valijaUsdId], references: [id])
 }
 
 model transaccionesDop {
-  id    Int @id @default(autoincrement())
-  D1    Int @default(0)
-  D5    Int @default(0)
-  D10   Int @default(0)
-  D25   Int @default(0)
-  D50   Int @default(0)
-  D100  Int @default(0)
-  D200  Int @default(0)
-  D500  Int @default(0)
-  D1000 Int @default(0)
-  D2000 Int @default(0)
-
-  valijaDop   ValijaDop? @relation("transaccionesDop", fields: [valijaDopId], references: [id])
+  id          Int       @id @default(autoincrement())
+  D1          Int       @default(0)
+  D5          Int       @default(0)
+  D10         Int       @default(0)
+  D25         Int       @default(0)
+  D50         Int       @default(0)
+  D100        Int       @default(0)
+  D200        Int       @default(0)
+  D500        Int       @default(0)
+  D1000       Int       @default(0)
+  D2000       Int       @default(0)
   valijaDopId Int
+  valijaDop   ValijaDop @relation("transaccionesDop", fields: [valijaDopId], references: [id])
 }
 
 model transaccionesEur {
-  id   Int @id @default(autoincrement())
-  D10  Int @default(0)
-  D20  Int @default(0)
-  D50  Int @default(0)
-  D100 Int @default(0)
-  D200 Int @default(0)
-  D500 Int @default(0)
-
-  valijaEur   ValijaEur? @relation("transaccionesEur", fields: [valijaEurId], references: [id])
+  id          Int       @id @default(autoincrement())
+  D10         Int       @default(0)
+  D20         Int       @default(0)
+  D50         Int       @default(0)
+  D100        Int       @default(0)
+  D200        Int       @default(0)
+  D500        Int       @default(0)
   valijaEurId Int
+  valijaEur   ValijaEur @relation("transaccionesEur", fields: [valijaEurId], references: [id])
 }

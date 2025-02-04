@@ -12,6 +12,7 @@ export const ValijasServices = {
       console.log(error)
     }
   },
+  
   getByCodigo: async (req: Request, res: Response) => {
     try {
       const { codigo } = req.params
@@ -25,6 +26,7 @@ export const ValijasServices = {
       console.log(error)
     }
   },
+
   getById: async (req: Request, res: Response) => {
     try {
       const { id } = req.params
@@ -52,6 +54,7 @@ export const ValijasServices = {
       console.log(error)
     }
   },
+
   registerValija: async (req: Request, res: Response) => {
     const { codigo } = req.body
     try {
@@ -62,11 +65,11 @@ export const ValijasServices = {
         }
       })
       res.send(valijaCreada)
-
     } catch (error) {
       res.send(error)
     }
   },
+
   updateValija: async (req: Request, res: Response) => {
     try {
       const { codigo, moneda } = req.query
@@ -151,12 +154,9 @@ export const ValijasServices = {
               depositos: depositos + 1
             }
           })
-
           res.send({ valijaActualizada, transaccionCreada })
         }
-
       }
-
       else if (moneda === 'USD') {
         if (consulta.valijaUsdId === null) {
           // * esta condicion es si la valijaUsd se crea por primera vez
@@ -208,11 +208,9 @@ export const ValijasServices = {
               depositos: depositos + 1
             }
           })
-
           res.send({ valijaActualizada, transaccionCreada })
         }
       }
-
       else if (moneda === "EUR") {
         if (consulta.valijaEurId === null) {
           // * esta condicion es si la valijaUsd se crea por primera vez
@@ -262,10 +260,8 @@ export const ValijasServices = {
               depositos: depositos + 1
             }
           })
-
           res.send({ valijaActualizada, transaccionCreada })
         }
-
       }
     } catch (error) {
       console.log(error)

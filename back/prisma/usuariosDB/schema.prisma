@@ -12,6 +12,7 @@ model Usuario {
   //escencial
   id             String   @id @unique @default(uuid())
   nombre         String   @unique
+  contrasena     String
   codigoEmpleado Int      @unique @default(autoincrement())
   cargo          String   @default("cajero")
   inventario     String[] @default([])
@@ -23,11 +24,11 @@ model Usuario {
   EIE           Boolean @default(false)
 
   //si tiene supervisor
-  Supervisor Usuario? @relation("Supervisores", fields: [SupervisorID], references: [id])
+  Supervisor   Usuario? @relation("supervisores", fields: [SupervisorID], references: [codigoEmpleado])
+  SupervisorID Int?
 
   //si es supervisor
-  SupervisorID String?
-  Colaborador  Usuario[] @relation("Supervisores")
+  colaboradores Usuario[] @relation("supervisores")
 
   @@map("usuarios")
 }
