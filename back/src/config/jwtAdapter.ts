@@ -3,15 +3,15 @@ import { envs } from './env';
 
 
 
-const JWT_SEED = envs.seed;
+const JWT_SEED = envs.seed || 'default Seed' ;
 
 
 export class JwtAdapter {
 
-   static async generateToken(payload: any) {
+   static async generateToken(payload: object) {
 
       return new Promise((resolve) => {
-         jwt.sign(payload, JWT_SEED!, { expiresIn: "8h" }, (err, token) => {
+         jwt.sign(payload, JWT_SEED, { expiresIn: "8h" }, (err, token) => {
             if (err) return resolve(null);
             resolve(token)
 
@@ -24,7 +24,7 @@ export class JwtAdapter {
 
 
       return new Promise((resolve) => {
-         jwt.verify(token, JWT_SEED!, (err: any, decoded: unknown) => {
+         jwt.verify(token, JWT_SEED, (err: any, decoded: unknown) => {
 
             if (err) return resolve(null)
             resolve(decoded as T)

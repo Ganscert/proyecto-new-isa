@@ -2,8 +2,10 @@ import { Request, Response } from "express"
 import { PrismaClient as Usuarios } from "../clientes/PrismaUsuarios"
 import { PrismaClient as valijas } from "../clientes/PrismaValijas"
 import { bcryptAdapter } from "../config/bcrypt"
+import { AuthService } from "./authService"
 
-const ClientUsuarios = new Usuarios()
+const ClientUsuarios = new Usuarios();
+const ClienteValijas = new valijas();
 
 export const UsuariosServices = {
   //servicio para conseguir todos los usuarios
@@ -33,7 +35,7 @@ export const UsuariosServices = {
         recepcion = false,
         contrasena } = req.body
 
-      const {nombre,codigoEmpleado,cargo} = await ClientUsuarios.usuario.create({
+      const { nombre, codigoEmpleado, cargo } = await ClientUsuarios.usuario.create({
         data: {
           nombre: user,
           codigoEmpleado: typeof (codigo) == "string" ? parseInt(codigo) : codigo,
@@ -46,7 +48,7 @@ export const UsuariosServices = {
           contrasena: bcryptAdapter.hash(contrasena)
         }
       })
-      res.send({nombre,codigoEmpleado,cargo})
+      res.send({ nombre, codigoEmpleado, cargo })
     } catch (error) {
       console.log(error)
       res.send(error)
@@ -54,20 +56,55 @@ export const UsuariosServices = {
 
   },
 
-  login: async(req : Request, res: Response)=>{
-    const {codigo, Contrasena} = req.body
+  //servicio login de los usuarios
+  login: async (req: Request, res: Response) => {
+    const { codigo, Contrasena } = req.body
 
-    const usuario = await ClientUsuarios.usuario.findFirst({
-      where:{
-        codigoEmpleado : parseInt(codigo)
+    const { nombre, contrasena, cargo, transferencia, recepcion, EIE, SupervisorID, preparacion } = (await ClientUsuarios.usuario.findFirst({
+      where: {
+        codigoEmpleado: parseInt(codigo)
+      }
+    })) || {}
+
+    const comparacion = bcryptAdapter.compare(Contrasena, contrasena!)
+    if (comparacion) {
+      const token = await AuthService.login({ nombre, cargo, transferencia, recepcion, EIE, SupervisorID })
+      res.send({ nombre, cargo, transferencia, recepcion, EIE, SupervisorID, codigo, preparacion })
+      // localStorage.setItem("token",JSON.stringify(token)) 
+    } else {
+      res.send("usuario o contraseña invalidos")
+    }
+  },
+
+  //servicio para las asignaciones de las valijas
+  asignacion: async (req: Request, res: Response) => {
+    const { valija, user } = req.body
+
+
+    const valijaBuscada = await ClienteValijas.valija.update({
+      where: {
+        codigo: valija
+      },
+      data: {
+        usuarioACargo: user
       }
     })
 
-    const comparacion = bcryptAdapter.compare(Contrasena ,usuario!.contrasena)
-    if(comparacion){
-      res.send(usuario)
-    }else{
-      res.send("usuario o contraseña invalidos")
-    }
+    const usuario = await ClientUsuarios.usuario.findFirst({
+      where: {
+        codigoEmpleado: parseInt(user)
+      }
+    })
+
+    const inventario = await ClientUsuarios.usuario.update({
+      where: {
+        codigoEmpleado: parseInt(user)
+      },
+      data: {
+        inventario: usuario?.inventario.concat(valija)
+      }
+    })
+    res.send(inventario)
   }
 }
+

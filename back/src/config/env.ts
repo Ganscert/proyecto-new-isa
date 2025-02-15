@@ -1,5 +1,5 @@
 
 
-export const envs={
-  seed: process.env.secret
+export const envs = {
+  seed: process.env.secret,
 }

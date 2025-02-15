@@ -9,3 +9,4 @@ router.get("/getAll", UsuariosServices.getAll)
 router.post("/register", UsuariosServices.register)
 
 router.post("/login", UsuariosServices.login)
+router.get("/asignacion", UsuariosServices.asignacion)

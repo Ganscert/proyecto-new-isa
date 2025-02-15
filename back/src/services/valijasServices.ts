@@ -49,7 +49,7 @@ export const ValijasServices = {
           usuarioACargo
         }
       })
-      res.send(allValijas)
+      res.json(allValijas)
     } catch (error) {
       console.log(error)
     }
