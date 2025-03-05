@@ -76,12 +76,11 @@ model transaccionesDop {
 
 model transaccionesEur {
   id          Int       @id @default(autoincrement())
+  D5          Int       @default(0)
   D10         Int       @default(0)
   D20         Int       @default(0)
   D50         Int       @default(0)
   D100        Int       @default(0)
-  D200        Int       @default(0)
-  D500        Int       @default(0)
   valijaEurId Int
   valijaEur   ValijaEur @relation("transaccionesEur", fields: [valijaEurId], references: [id])
 }

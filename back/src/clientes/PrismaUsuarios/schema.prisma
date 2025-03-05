@@ -9,26 +9,55 @@ datasource db {
 }
 
 model Usuario {
-  //escencial
-  id             String   @id @unique @default(uuid())
+  id             String   @id @default(uuid())
   nombre         String   @unique
   contrasena     String
   codigoEmpleado Int      @unique @default(autoincrement())
   cargo          String   @default("cajero")
   inventario     String[] @default([])
 
-  //permisos
+  // Permisos
   transferencia Boolean @default(false)
   recepcion     Boolean @default(false)
   preparacion   Boolean @default(true)
   EIE           Boolean @default(false)
 
-  //si tiene supervisor
+  // Relación con supervisor
   Supervisor   Usuario? @relation("supervisores", fields: [SupervisorID], references: [codigoEmpleado])
   SupervisorID Int?
 
-  //si es supervisor
+  // Relación con colaboradores
   colaboradores Usuario[] @relation("supervisores")
 
+  // Relación 1:1 con Saldo (se elimina @fields y @references aquí)
+  saldo   Saldo  @relation(fields: [saldoId], references: [id])
+  saldoId String @unique
+
   @@map("usuarios")
+}
+
+model Saldo {
+  id      String   @id @default(uuid())
+  usuario Usuario?
+  RD1     Int      @default(0)
+  RD5     Int      @default(0)
+  RD10    Int      @default(0)
+  RD25    Int      @default(0)
+  RD100   Int      @default(0)
+  RD200   Int      @default(0)
+  RD500   Int      @default(0)
+  RD1000  Int      @default(0)
+  RD2000  Int      @default(0)
+  USD1    Int      @default(0)
+  USD2    Int      @default(0)
+  USD5    Int      @default(0)
+  USD10   Int      @default(0)
+  USD20   Int      @default(0)
+  USD50   Int      @default(0)
+  USD100  Int      @default(0)
+  EUR5    Int      @default(0)
+  EUR10   Int      @default(0)
+  EUR20   Int      @default(0)
+  EUR50   Int      @default(0)
+  EUR100  Int      @default(0)
 }

@@ -8413,56 +8413,51 @@ export namespace Prisma {
 
   export type TransaccionesEurAvgAggregateOutputType = {
     id: number | null
+    D5: number | null
     D10: number | null
     D20: number | null
     D50: number | null
     D100: number | null
-    D200: number | null
-    D500: number | null
     valijaEurId: number | null
   }
 
   export type TransaccionesEurSumAggregateOutputType = {
     id: number | null
+    D5: number | null
     D10: number | null
     D20: number | null
     D50: number | null
     D100: number | null
-    D200: number | null
-    D500: number | null
     valijaEurId: number | null
   }
 
   export type TransaccionesEurMinAggregateOutputType = {
     id: number | null
+    D5: number | null
     D10: number | null
     D20: number | null
     D50: number | null
     D100: number | null
-    D200: number | null
-    D500: number | null
     valijaEurId: number | null
   }
 
   export type TransaccionesEurMaxAggregateOutputType = {
     id: number | null
+    D5: number | null
     D10: number | null
     D20: number | null
     D50: number | null
     D100: number | null
-    D200: number | null
-    D500: number | null
     valijaEurId: number | null
   }
 
   export type TransaccionesEurCountAggregateOutputType = {
     id: number
+    D5: number
     D10: number
     D20: number
     D50: number
     D100: number
-    D200: number
-    D500: number
     valijaEurId: number
     _all: number
   }
@@ -8470,56 +8465,51 @@ export namespace Prisma {
 
   export type TransaccionesEurAvgAggregateInputType = {
     id?: true
+    D5?: true
     D10?: true
     D20?: true
     D50?: true
     D100?: true
-    D200?: true
-    D500?: true
     valijaEurId?: true
   }
 
   export type TransaccionesEurSumAggregateInputType = {
     id?: true
+    D5?: true
     D10?: true
     D20?: true
     D50?: true
     D100?: true
-    D200?: true
-    D500?: true
     valijaEurId?: true
   }
 
   export type TransaccionesEurMinAggregateInputType = {
     id?: true
+    D5?: true
     D10?: true
     D20?: true
     D50?: true
     D100?: true
-    D200?: true
-    D500?: true
     valijaEurId?: true
   }
 
   export type TransaccionesEurMaxAggregateInputType = {
     id?: true
+    D5?: true
     D10?: true
     D20?: true
     D50?: true
     D100?: true
-    D200?: true
-    D500?: true
     valijaEurId?: true
   }
 
   export type TransaccionesEurCountAggregateInputType = {
     id?: true
+    D5?: true
     D10?: true
     D20?: true
     D50?: true
     D100?: true
-    D200?: true
-    D500?: true
     valijaEurId?: true
     _all?: true
   }
@@ -8612,12 +8602,11 @@ export namespace Prisma {
 
   export type TransaccionesEurGroupByOutputType = {
     id: number
+    D5: number
     D10: number
     D20: number
     D50: number
     D100: number
-    D200: number
-    D500: number
     valijaEurId: number
     _count: TransaccionesEurCountAggregateOutputType | null
     _avg: TransaccionesEurAvgAggregateOutputType | null
@@ -8642,52 +8631,48 @@ export namespace Prisma {
 
   export type transaccionesEurSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    D5?: boolean
     D10?: boolean
     D20?: boolean
     D50?: boolean
     D100?: boolean
-    D200?: boolean
-    D500?: boolean
     valijaEurId?: boolean
     valijaEur?: boolean | ValijaEurDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["transaccionesEur"]>
 
   export type transaccionesEurSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    D5?: boolean
     D10?: boolean
     D20?: boolean
     D50?: boolean
     D100?: boolean
-    D200?: boolean
-    D500?: boolean
     valijaEurId?: boolean
     valijaEur?: boolean | ValijaEurDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["transaccionesEur"]>
 
   export type transaccionesEurSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    D5?: boolean
     D10?: boolean
     D20?: boolean
     D50?: boolean
     D100?: boolean
-    D200?: boolean
-    D500?: boolean
     valijaEurId?: boolean
     valijaEur?: boolean | ValijaEurDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["transaccionesEur"]>
 
   export type transaccionesEurSelectScalar = {
     id?: boolean
+    D5?: boolean
     D10?: boolean
     D20?: boolean
     D50?: boolean
     D100?: boolean
-    D200?: boolean
-    D500?: boolean
     valijaEurId?: boolean
   }
 
-  export type transaccionesEurOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "D10" | "D20" | "D50" | "D100" | "D200" | "D500" | "valijaEurId", ExtArgs["result"]["transaccionesEur"]>
+  export type transaccionesEurOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "D5" | "D10" | "D20" | "D50" | "D100" | "valijaEurId", ExtArgs["result"]["transaccionesEur"]>
   export type transaccionesEurInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     valijaEur?: boolean | ValijaEurDefaultArgs<ExtArgs>
   }
@@ -8705,12 +8690,11 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
+      D5: number
       D10: number
       D20: number
       D50: number
       D100: number
-      D200: number
-      D500: number
       valijaEurId: number
     }, ExtArgs["result"]["transaccionesEur"]>
     composites: {}
@@ -9137,12 +9121,11 @@ export namespace Prisma {
    */ 
   interface transaccionesEurFieldRefs {
     readonly id: FieldRef<"transaccionesEur", 'Int'>
+    readonly D5: FieldRef<"transaccionesEur", 'Int'>
     readonly D10: FieldRef<"transaccionesEur", 'Int'>
     readonly D20: FieldRef<"transaccionesEur", 'Int'>
     readonly D50: FieldRef<"transaccionesEur", 'Int'>
     readonly D100: FieldRef<"transaccionesEur", 'Int'>
-    readonly D200: FieldRef<"transaccionesEur", 'Int'>
-    readonly D500: FieldRef<"transaccionesEur", 'Int'>
     readonly valijaEurId: FieldRef<"transaccionesEur", 'Int'>
   }
     
@@ -9645,12 +9628,11 @@ export namespace Prisma {
 
   export const TransaccionesEurScalarFieldEnum: {
     id: 'id',
+    D5: 'D5',
     D10: 'D10',
     D20: 'D20',
     D50: 'D50',
     D100: 'D100',
-    D200: 'D200',
-    D500: 'D500',
     valijaEurId: 'valijaEurId'
   };
 
@@ -10132,24 +10114,22 @@ export namespace Prisma {
     OR?: transaccionesEurWhereInput[]
     NOT?: transaccionesEurWhereInput | transaccionesEurWhereInput[]
     id?: IntFilter<"transaccionesEur"> | number
+    D5?: IntFilter<"transaccionesEur"> | number
     D10?: IntFilter<"transaccionesEur"> | number
     D20?: IntFilter<"transaccionesEur"> | number
     D50?: IntFilter<"transaccionesEur"> | number
     D100?: IntFilter<"transaccionesEur"> | number
-    D200?: IntFilter<"transaccionesEur"> | number
-    D500?: IntFilter<"transaccionesEur"> | number
     valijaEurId?: IntFilter<"transaccionesEur"> | number
     valijaEur?: XOR<ValijaEurScalarRelationFilter, ValijaEurWhereInput>
   }
 
   export type transaccionesEurOrderByWithRelationInput = {
     id?: SortOrder
+    D5?: SortOrder
     D10?: SortOrder
     D20?: SortOrder
     D50?: SortOrder
     D100?: SortOrder
-    D200?: SortOrder
-    D500?: SortOrder
     valijaEurId?: SortOrder
     valijaEur?: ValijaEurOrderByWithRelationInput
   }
@@ -10159,24 +10139,22 @@ export namespace Prisma {
     AND?: transaccionesEurWhereInput | transaccionesEurWhereInput[]
     OR?: transaccionesEurWhereInput[]
     NOT?: transaccionesEurWhereInput | transaccionesEurWhereInput[]
+    D5?: IntFilter<"transaccionesEur"> | number
     D10?: IntFilter<"transaccionesEur"> | number
     D20?: IntFilter<"transaccionesEur"> | number
     D50?: IntFilter<"transaccionesEur"> | number
     D100?: IntFilter<"transaccionesEur"> | number
-    D200?: IntFilter<"transaccionesEur"> | number
-    D500?: IntFilter<"transaccionesEur"> | number
     valijaEurId?: IntFilter<"transaccionesEur"> | number
     valijaEur?: XOR<ValijaEurScalarRelationFilter, ValijaEurWhereInput>
   }, "id">
 
   export type transaccionesEurOrderByWithAggregationInput = {
     id?: SortOrder
+    D5?: SortOrder
     D10?: SortOrder
     D20?: SortOrder
     D50?: SortOrder
     D100?: SortOrder
-    D200?: SortOrder
-    D500?: SortOrder
     valijaEurId?: SortOrder
     _count?: transaccionesEurCountOrderByAggregateInput
     _avg?: transaccionesEurAvgOrderByAggregateInput
@@ -10190,12 +10168,11 @@ export namespace Prisma {
     OR?: transaccionesEurScalarWhereWithAggregatesInput[]
     NOT?: transaccionesEurScalarWhereWithAggregatesInput | transaccionesEurScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"transaccionesEur"> | number
+    D5?: IntWithAggregatesFilter<"transaccionesEur"> | number
     D10?: IntWithAggregatesFilter<"transaccionesEur"> | number
     D20?: IntWithAggregatesFilter<"transaccionesEur"> | number
     D50?: IntWithAggregatesFilter<"transaccionesEur"> | number
     D100?: IntWithAggregatesFilter<"transaccionesEur"> | number
-    D200?: IntWithAggregatesFilter<"transaccionesEur"> | number
-    D500?: IntWithAggregatesFilter<"transaccionesEur"> | number
     valijaEurId?: IntWithAggregatesFilter<"transaccionesEur"> | number
   }
 
@@ -10572,75 +10549,68 @@ export namespace Prisma {
   }
 
   export type transaccionesEurCreateInput = {
+    D5?: number
     D10?: number
     D20?: number
     D50?: number
     D100?: number
-    D200?: number
-    D500?: number
     valijaEur: ValijaEurCreateNestedOneWithoutTransaccionEurInput
   }
 
   export type transaccionesEurUncheckedCreateInput = {
     id?: number
+    D5?: number
     D10?: number
     D20?: number
     D50?: number
     D100?: number
-    D200?: number
-    D500?: number
     valijaEurId: number
   }
 
   export type transaccionesEurUpdateInput = {
+    D5?: IntFieldUpdateOperationsInput | number
     D10?: IntFieldUpdateOperationsInput | number
     D20?: IntFieldUpdateOperationsInput | number
     D50?: IntFieldUpdateOperationsInput | number
     D100?: IntFieldUpdateOperationsInput | number
-    D200?: IntFieldUpdateOperationsInput | number
-    D500?: IntFieldUpdateOperationsInput | number
     valijaEur?: ValijaEurUpdateOneRequiredWithoutTransaccionEurNestedInput
   }
 
   export type transaccionesEurUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
+    D5?: IntFieldUpdateOperationsInput | number
     D10?: IntFieldUpdateOperationsInput | number
     D20?: IntFieldUpdateOperationsInput | number
     D50?: IntFieldUpdateOperationsInput | number
     D100?: IntFieldUpdateOperationsInput | number
-    D200?: IntFieldUpdateOperationsInput | number
-    D500?: IntFieldUpdateOperationsInput | number
     valijaEurId?: IntFieldUpdateOperationsInput | number
   }
 
   export type transaccionesEurCreateManyInput = {
     id?: number
+    D5?: number
     D10?: number
     D20?: number
     D50?: number
     D100?: number
-    D200?: number
-    D500?: number
     valijaEurId: number
   }
 
   export type transaccionesEurUpdateManyMutationInput = {
+    D5?: IntFieldUpdateOperationsInput | number
     D10?: IntFieldUpdateOperationsInput | number
     D20?: IntFieldUpdateOperationsInput | number
     D50?: IntFieldUpdateOperationsInput | number
     D100?: IntFieldUpdateOperationsInput | number
-    D200?: IntFieldUpdateOperationsInput | number
-    D500?: IntFieldUpdateOperationsInput | number
   }
 
   export type transaccionesEurUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
+    D5?: IntFieldUpdateOperationsInput | number
     D10?: IntFieldUpdateOperationsInput | number
     D20?: IntFieldUpdateOperationsInput | number
     D50?: IntFieldUpdateOperationsInput | number
     D100?: IntFieldUpdateOperationsInput | number
-    D200?: IntFieldUpdateOperationsInput | number
-    D500?: IntFieldUpdateOperationsInput | number
     valijaEurId?: IntFieldUpdateOperationsInput | number
   }
 
@@ -11085,56 +11055,51 @@ export namespace Prisma {
 
   export type transaccionesEurCountOrderByAggregateInput = {
     id?: SortOrder
+    D5?: SortOrder
     D10?: SortOrder
     D20?: SortOrder
     D50?: SortOrder
     D100?: SortOrder
-    D200?: SortOrder
-    D500?: SortOrder
     valijaEurId?: SortOrder
   }
 
   export type transaccionesEurAvgOrderByAggregateInput = {
     id?: SortOrder
+    D5?: SortOrder
     D10?: SortOrder
     D20?: SortOrder
     D50?: SortOrder
     D100?: SortOrder
-    D200?: SortOrder
-    D500?: SortOrder
     valijaEurId?: SortOrder
   }
 
   export type transaccionesEurMaxOrderByAggregateInput = {
     id?: SortOrder
+    D5?: SortOrder
     D10?: SortOrder
     D20?: SortOrder
     D50?: SortOrder
     D100?: SortOrder
-    D200?: SortOrder
-    D500?: SortOrder
     valijaEurId?: SortOrder
   }
 
   export type transaccionesEurMinOrderByAggregateInput = {
     id?: SortOrder
+    D5?: SortOrder
     D10?: SortOrder
     D20?: SortOrder
     D50?: SortOrder
     D100?: SortOrder
-    D200?: SortOrder
-    D500?: SortOrder
     valijaEurId?: SortOrder
   }
 
   export type transaccionesEurSumOrderByAggregateInput = {
     id?: SortOrder
+    D5?: SortOrder
     D10?: SortOrder
     D20?: SortOrder
     D50?: SortOrder
     D100?: SortOrder
-    D200?: SortOrder
-    D500?: SortOrder
     valijaEurId?: SortOrder
   }
 
@@ -11962,22 +11927,20 @@ export namespace Prisma {
   }
 
   export type transaccionesEurCreateWithoutValijaEurInput = {
+    D5?: number
     D10?: number
     D20?: number
     D50?: number
     D100?: number
-    D200?: number
-    D500?: number
   }
 
   export type transaccionesEurUncheckedCreateWithoutValijaEurInput = {
     id?: number
+    D5?: number
     D10?: number
     D20?: number
     D50?: number
     D100?: number
-    D200?: number
-    D500?: number
   }
 
   export type transaccionesEurCreateOrConnectWithoutValijaEurInput = {
@@ -12035,12 +11998,11 @@ export namespace Prisma {
     OR?: transaccionesEurScalarWhereInput[]
     NOT?: transaccionesEurScalarWhereInput | transaccionesEurScalarWhereInput[]
     id?: IntFilter<"transaccionesEur"> | number
+    D5?: IntFilter<"transaccionesEur"> | number
     D10?: IntFilter<"transaccionesEur"> | number
     D20?: IntFilter<"transaccionesEur"> | number
     D50?: IntFilter<"transaccionesEur"> | number
     D100?: IntFilter<"transaccionesEur"> | number
-    D200?: IntFilter<"transaccionesEur"> | number
-    D500?: IntFilter<"transaccionesEur"> | number
     valijaEurId?: IntFilter<"transaccionesEur"> | number
   }
 
@@ -12288,41 +12250,37 @@ export namespace Prisma {
 
   export type transaccionesEurCreateManyValijaEurInput = {
     id?: number
+    D5?: number
     D10?: number
     D20?: number
     D50?: number
     D100?: number
-    D200?: number
-    D500?: number
   }
 
   export type transaccionesEurUpdateWithoutValijaEurInput = {
+    D5?: IntFieldUpdateOperationsInput | number
     D10?: IntFieldUpdateOperationsInput | number
     D20?: IntFieldUpdateOperationsInput | number
     D50?: IntFieldUpdateOperationsInput | number
     D100?: IntFieldUpdateOperationsInput | number
-    D200?: IntFieldUpdateOperationsInput | number
-    D500?: IntFieldUpdateOperationsInput | number
   }
 
   export type transaccionesEurUncheckedUpdateWithoutValijaEurInput = {
     id?: IntFieldUpdateOperationsInput | number
+    D5?: IntFieldUpdateOperationsInput | number
     D10?: IntFieldUpdateOperationsInput | number
     D20?: IntFieldUpdateOperationsInput | number
     D50?: IntFieldUpdateOperationsInput | number
     D100?: IntFieldUpdateOperationsInput | number
-    D200?: IntFieldUpdateOperationsInput | number
-    D500?: IntFieldUpdateOperationsInput | number
   }
 
   export type transaccionesEurUncheckedUpdateManyWithoutValijaEurInput = {
     id?: IntFieldUpdateOperationsInput | number
+    D5?: IntFieldUpdateOperationsInput | number
     D10?: IntFieldUpdateOperationsInput | number
     D20?: IntFieldUpdateOperationsInput | number
     D50?: IntFieldUpdateOperationsInput | number
     D100?: IntFieldUpdateOperationsInput | number
-    D200?: IntFieldUpdateOperationsInput | number
-    D500?: IntFieldUpdateOperationsInput | number
   }
 
 

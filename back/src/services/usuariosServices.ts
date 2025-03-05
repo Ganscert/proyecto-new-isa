@@ -35,20 +35,36 @@ export const UsuariosServices = {
         recepcion = false,
         contrasena } = req.body
 
-      const { nombre, codigoEmpleado, cargo } = await ClientUsuarios.usuario.create({
-        data: {
-          nombre: user,
-          codigoEmpleado: typeof (codigo) == "string" ? parseInt(codigo) : codigo,
-          transferencia: Boolean(transferencia),
-          SupervisorID: parseInt(supervisor),
-          cargo: Cargo,
-          EIE,
-          preparacion,
-          recepcion,
-          contrasena: bcryptAdapter.hash(contrasena)
+      const validacion = await ClientUsuarios.usuario.findFirst({
+        where: {
+          codigoEmpleado: parseInt(codigo)
         }
       })
-      res.send({ nombre, codigoEmpleado, cargo })
+
+      if (validacion) {
+        res.send([validacion,false])
+      } else {
+        const saldoDeEmpleado = await ClientUsuarios.saldo.create({
+          data: {}
+        })
+
+        const empleado = await ClientUsuarios.usuario.create({
+          data: {
+            nombre: user,
+            codigoEmpleado: typeof (codigo) === "string" ? parseInt(codigo) : codigo,
+            transferencia: Boolean(transferencia),
+            SupervisorID: parseInt(supervisor),
+            cargo: Cargo,
+            EIE,
+            preparacion,
+            recepcion,
+            contrasena: bcryptAdapter.hash(contrasena),
+            saldoId: saldoDeEmpleado.id
+          }
+        })
+        res.send([empleado,true])
+      }
+      // res.send(saldoDeEmpleado)
     } catch (error) {
       console.log(error)
       res.send(error)
@@ -59,6 +75,7 @@ export const UsuariosServices = {
   //servicio login de los usuarios
   login: async (req: Request, res: Response) => {
     const { codigo, Contrasena } = req.body
+    console.log(codigo,Contrasena)
 
     const { nombre, contrasena, cargo, transferencia, recepcion, EIE, SupervisorID, preparacion } = (await ClientUsuarios.usuario.findFirst({
       where: {

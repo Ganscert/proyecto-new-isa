@@ -18,6 +18,11 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  * 
  */
 export type Usuario = $Result.DefaultSelection<Prisma.$UsuarioPayload>
+/**
+ * Model Saldo
+ * 
+ */
+export type Saldo = $Result.DefaultSelection<Prisma.$SaldoPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -153,6 +158,16 @@ export class PrismaClient<
     * ```
     */
   get usuario(): Prisma.UsuarioDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.saldo`: Exposes CRUD operations for the **Saldo** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Saldos
+    * const saldos = await prisma.saldo.findMany()
+    * ```
+    */
+  get saldo(): Prisma.SaldoDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -593,7 +608,8 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    Usuario: 'Usuario'
+    Usuario: 'Usuario',
+    Saldo: 'Saldo'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -609,7 +625,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "usuario"
+      modelProps: "usuario" | "saldo"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -684,6 +700,80 @@ export namespace Prisma {
           count: {
             args: Prisma.UsuarioCountArgs<ExtArgs>
             result: $Utils.Optional<UsuarioCountAggregateOutputType> | number
+          }
+        }
+      }
+      Saldo: {
+        payload: Prisma.$SaldoPayload<ExtArgs>
+        fields: Prisma.SaldoFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SaldoFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaldoPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SaldoFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaldoPayload>
+          }
+          findFirst: {
+            args: Prisma.SaldoFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaldoPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SaldoFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaldoPayload>
+          }
+          findMany: {
+            args: Prisma.SaldoFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaldoPayload>[]
+          }
+          create: {
+            args: Prisma.SaldoCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaldoPayload>
+          }
+          createMany: {
+            args: Prisma.SaldoCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.SaldoCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaldoPayload>[]
+          }
+          delete: {
+            args: Prisma.SaldoDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaldoPayload>
+          }
+          update: {
+            args: Prisma.SaldoUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaldoPayload>
+          }
+          deleteMany: {
+            args: Prisma.SaldoDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SaldoUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.SaldoUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaldoPayload>[]
+          }
+          upsert: {
+            args: Prisma.SaldoUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SaldoPayload>
+          }
+          aggregate: {
+            args: Prisma.SaldoAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSaldo>
+          }
+          groupBy: {
+            args: Prisma.SaldoGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SaldoGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SaldoCountArgs<ExtArgs>
+            result: $Utils.Optional<SaldoCountAggregateOutputType> | number
           }
         }
       }
@@ -772,6 +862,7 @@ export namespace Prisma {
   }
   export type GlobalOmitConfig = {
     usuario?: UsuarioOmit
+    saldo?: SaldoOmit
   }
 
   /* Types for Logging */
@@ -929,6 +1020,7 @@ export namespace Prisma {
     preparacion: boolean | null
     EIE: boolean | null
     SupervisorID: number | null
+    saldoId: string | null
   }
 
   export type UsuarioMaxAggregateOutputType = {
@@ -942,6 +1034,7 @@ export namespace Prisma {
     preparacion: boolean | null
     EIE: boolean | null
     SupervisorID: number | null
+    saldoId: string | null
   }
 
   export type UsuarioCountAggregateOutputType = {
@@ -956,6 +1049,7 @@ export namespace Prisma {
     preparacion: number
     EIE: number
     SupervisorID: number
+    saldoId: number
     _all: number
   }
 
@@ -981,6 +1075,7 @@ export namespace Prisma {
     preparacion?: true
     EIE?: true
     SupervisorID?: true
+    saldoId?: true
   }
 
   export type UsuarioMaxAggregateInputType = {
@@ -994,6 +1089,7 @@ export namespace Prisma {
     preparacion?: true
     EIE?: true
     SupervisorID?: true
+    saldoId?: true
   }
 
   export type UsuarioCountAggregateInputType = {
@@ -1008,6 +1104,7 @@ export namespace Prisma {
     preparacion?: true
     EIE?: true
     SupervisorID?: true
+    saldoId?: true
     _all?: true
   }
 
@@ -1109,6 +1206,7 @@ export namespace Prisma {
     preparacion: boolean
     EIE: boolean
     SupervisorID: number | null
+    saldoId: string
     _count: UsuarioCountAggregateOutputType | null
     _avg: UsuarioAvgAggregateOutputType | null
     _sum: UsuarioSumAggregateOutputType | null
@@ -1142,8 +1240,10 @@ export namespace Prisma {
     preparacion?: boolean
     EIE?: boolean
     SupervisorID?: boolean
+    saldoId?: boolean
     Supervisor?: boolean | Usuario$SupervisorArgs<ExtArgs>
     colaboradores?: boolean | Usuario$colaboradoresArgs<ExtArgs>
+    saldo?: boolean | SaldoDefaultArgs<ExtArgs>
     _count?: boolean | UsuarioCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["usuario"]>
 
@@ -1159,7 +1259,9 @@ export namespace Prisma {
     preparacion?: boolean
     EIE?: boolean
     SupervisorID?: boolean
+    saldoId?: boolean
     Supervisor?: boolean | Usuario$SupervisorArgs<ExtArgs>
+    saldo?: boolean | SaldoDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["usuario"]>
 
   export type UsuarioSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1174,7 +1276,9 @@ export namespace Prisma {
     preparacion?: boolean
     EIE?: boolean
     SupervisorID?: boolean
+    saldoId?: boolean
     Supervisor?: boolean | Usuario$SupervisorArgs<ExtArgs>
+    saldo?: boolean | SaldoDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["usuario"]>
 
   export type UsuarioSelectScalar = {
@@ -1189,19 +1293,23 @@ export namespace Prisma {
     preparacion?: boolean
     EIE?: boolean
     SupervisorID?: boolean
+    saldoId?: boolean
   }
 
-  export type UsuarioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nombre" | "contrasena" | "codigoEmpleado" | "cargo" | "inventario" | "transferencia" | "recepcion" | "preparacion" | "EIE" | "SupervisorID", ExtArgs["result"]["usuario"]>
+  export type UsuarioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nombre" | "contrasena" | "codigoEmpleado" | "cargo" | "inventario" | "transferencia" | "recepcion" | "preparacion" | "EIE" | "SupervisorID" | "saldoId", ExtArgs["result"]["usuario"]>
   export type UsuarioInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Supervisor?: boolean | Usuario$SupervisorArgs<ExtArgs>
     colaboradores?: boolean | Usuario$colaboradoresArgs<ExtArgs>
+    saldo?: boolean | SaldoDefaultArgs<ExtArgs>
     _count?: boolean | UsuarioCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UsuarioIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Supervisor?: boolean | Usuario$SupervisorArgs<ExtArgs>
+    saldo?: boolean | SaldoDefaultArgs<ExtArgs>
   }
   export type UsuarioIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Supervisor?: boolean | Usuario$SupervisorArgs<ExtArgs>
+    saldo?: boolean | SaldoDefaultArgs<ExtArgs>
   }
 
   export type $UsuarioPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -1209,6 +1317,7 @@ export namespace Prisma {
     objects: {
       Supervisor: Prisma.$UsuarioPayload<ExtArgs> | null
       colaboradores: Prisma.$UsuarioPayload<ExtArgs>[]
+      saldo: Prisma.$SaldoPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -1222,6 +1331,7 @@ export namespace Prisma {
       preparacion: boolean
       EIE: boolean
       SupervisorID: number | null
+      saldoId: string
     }, ExtArgs["result"]["usuario"]>
     composites: {}
   }
@@ -1618,6 +1728,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     Supervisor<T extends Usuario$SupervisorArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$SupervisorArgs<ExtArgs>>): Prisma__UsuarioClient<$Result.GetResult<Prisma.$UsuarioPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | null, null, ExtArgs, ClientOptions>
     colaboradores<T extends Usuario$colaboradoresArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$colaboradoresArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UsuarioPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
+    saldo<T extends SaldoDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SaldoDefaultArgs<ExtArgs>>): Prisma__SaldoClient<$Result.GetResult<Prisma.$SaldoPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | Null, Null, ExtArgs, ClientOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1658,6 +1769,7 @@ export namespace Prisma {
     readonly preparacion: FieldRef<"Usuario", 'Boolean'>
     readonly EIE: FieldRef<"Usuario", 'Boolean'>
     readonly SupervisorID: FieldRef<"Usuario", 'Int'>
+    readonly saldoId: FieldRef<"Usuario", 'String'>
   }
     
 
@@ -2116,6 +2228,1404 @@ export namespace Prisma {
 
 
   /**
+   * Model Saldo
+   */
+
+  export type AggregateSaldo = {
+    _count: SaldoCountAggregateOutputType | null
+    _avg: SaldoAvgAggregateOutputType | null
+    _sum: SaldoSumAggregateOutputType | null
+    _min: SaldoMinAggregateOutputType | null
+    _max: SaldoMaxAggregateOutputType | null
+  }
+
+  export type SaldoAvgAggregateOutputType = {
+    RD1: number | null
+    RD5: number | null
+    RD10: number | null
+    RD25: number | null
+    RD100: number | null
+    RD200: number | null
+    RD500: number | null
+    RD1000: number | null
+    RD2000: number | null
+    USD1: number | null
+    USD2: number | null
+    USD5: number | null
+    USD10: number | null
+    USD20: number | null
+    USD50: number | null
+    USD100: number | null
+    EUR5: number | null
+    EUR10: number | null
+    EUR20: number | null
+    EUR50: number | null
+    EUR100: number | null
+  }
+
+  export type SaldoSumAggregateOutputType = {
+    RD1: number | null
+    RD5: number | null
+    RD10: number | null
+    RD25: number | null
+    RD100: number | null
+    RD200: number | null
+    RD500: number | null
+    RD1000: number | null
+    RD2000: number | null
+    USD1: number | null
+    USD2: number | null
+    USD5: number | null
+    USD10: number | null
+    USD20: number | null
+    USD50: number | null
+    USD100: number | null
+    EUR5: number | null
+    EUR10: number | null
+    EUR20: number | null
+    EUR50: number | null
+    EUR100: number | null
+  }
+
+  export type SaldoMinAggregateOutputType = {
+    id: string | null
+    RD1: number | null
+    RD5: number | null
+    RD10: number | null
+    RD25: number | null
+    RD100: number | null
+    RD200: number | null
+    RD500: number | null
+    RD1000: number | null
+    RD2000: number | null
+    USD1: number | null
+    USD2: number | null
+    USD5: number | null
+    USD10: number | null
+    USD20: number | null
+    USD50: number | null
+    USD100: number | null
+    EUR5: number | null
+    EUR10: number | null
+    EUR20: number | null
+    EUR50: number | null
+    EUR100: number | null
+  }
+
+  export type SaldoMaxAggregateOutputType = {
+    id: string | null
+    RD1: number | null
+    RD5: number | null
+    RD10: number | null
+    RD25: number | null
+    RD100: number | null
+    RD200: number | null
+    RD500: number | null
+    RD1000: number | null
+    RD2000: number | null
+    USD1: number | null
+    USD2: number | null
+    USD5: number | null
+    USD10: number | null
+    USD20: number | null
+    USD50: number | null
+    USD100: number | null
+    EUR5: number | null
+    EUR10: number | null
+    EUR20: number | null
+    EUR50: number | null
+    EUR100: number | null
+  }
+
+  export type SaldoCountAggregateOutputType = {
+    id: number
+    RD1: number
+    RD5: number
+    RD10: number
+    RD25: number
+    RD100: number
+    RD200: number
+    RD500: number
+    RD1000: number
+    RD2000: number
+    USD1: number
+    USD2: number
+    USD5: number
+    USD10: number
+    USD20: number
+    USD50: number
+    USD100: number
+    EUR5: number
+    EUR10: number
+    EUR20: number
+    EUR50: number
+    EUR100: number
+    _all: number
+  }
+
+
+  export type SaldoAvgAggregateInputType = {
+    RD1?: true
+    RD5?: true
+    RD10?: true
+    RD25?: true
+    RD100?: true
+    RD200?: true
+    RD500?: true
+    RD1000?: true
+    RD2000?: true
+    USD1?: true
+    USD2?: true
+    USD5?: true
+    USD10?: true
+    USD20?: true
+    USD50?: true
+    USD100?: true
+    EUR5?: true
+    EUR10?: true
+    EUR20?: true
+    EUR50?: true
+    EUR100?: true
+  }
+
+  export type SaldoSumAggregateInputType = {
+    RD1?: true
+    RD5?: true
+    RD10?: true
+    RD25?: true
+    RD100?: true
+    RD200?: true
+    RD500?: true
+    RD1000?: true
+    RD2000?: true
+    USD1?: true
+    USD2?: true
+    USD5?: true
+    USD10?: true
+    USD20?: true
+    USD50?: true
+    USD100?: true
+    EUR5?: true
+    EUR10?: true
+    EUR20?: true
+    EUR50?: true
+    EUR100?: true
+  }
+
+  export type SaldoMinAggregateInputType = {
+    id?: true
+    RD1?: true
+    RD5?: true
+    RD10?: true
+    RD25?: true
+    RD100?: true
+    RD200?: true
+    RD500?: true
+    RD1000?: true
+    RD2000?: true
+    USD1?: true
+    USD2?: true
+    USD5?: true
+    USD10?: true
+    USD20?: true
+    USD50?: true
+    USD100?: true
+    EUR5?: true
+    EUR10?: true
+    EUR20?: true
+    EUR50?: true
+    EUR100?: true
+  }
+
+  export type SaldoMaxAggregateInputType = {
+    id?: true
+    RD1?: true
+    RD5?: true
+    RD10?: true
+    RD25?: true
+    RD100?: true
+    RD200?: true
+    RD500?: true
+    RD1000?: true
+    RD2000?: true
+    USD1?: true
+    USD2?: true
+    USD5?: true
+    USD10?: true
+    USD20?: true
+    USD50?: true
+    USD100?: true
+    EUR5?: true
+    EUR10?: true
+    EUR20?: true
+    EUR50?: true
+    EUR100?: true
+  }
+
+  export type SaldoCountAggregateInputType = {
+    id?: true
+    RD1?: true
+    RD5?: true
+    RD10?: true
+    RD25?: true
+    RD100?: true
+    RD200?: true
+    RD500?: true
+    RD1000?: true
+    RD2000?: true
+    USD1?: true
+    USD2?: true
+    USD5?: true
+    USD10?: true
+    USD20?: true
+    USD50?: true
+    USD100?: true
+    EUR5?: true
+    EUR10?: true
+    EUR20?: true
+    EUR50?: true
+    EUR100?: true
+    _all?: true
+  }
+
+  export type SaldoAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Saldo to aggregate.
+     */
+    where?: SaldoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Saldos to fetch.
+     */
+    orderBy?: SaldoOrderByWithRelationInput | SaldoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SaldoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Saldos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Saldos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Saldos
+    **/
+    _count?: true | SaldoCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: SaldoAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SaldoSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SaldoMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SaldoMaxAggregateInputType
+  }
+
+  export type GetSaldoAggregateType<T extends SaldoAggregateArgs> = {
+        [P in keyof T & keyof AggregateSaldo]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSaldo[P]>
+      : GetScalarType<T[P], AggregateSaldo[P]>
+  }
+
+
+
+
+  export type SaldoGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SaldoWhereInput
+    orderBy?: SaldoOrderByWithAggregationInput | SaldoOrderByWithAggregationInput[]
+    by: SaldoScalarFieldEnum[] | SaldoScalarFieldEnum
+    having?: SaldoScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SaldoCountAggregateInputType | true
+    _avg?: SaldoAvgAggregateInputType
+    _sum?: SaldoSumAggregateInputType
+    _min?: SaldoMinAggregateInputType
+    _max?: SaldoMaxAggregateInputType
+  }
+
+  export type SaldoGroupByOutputType = {
+    id: string
+    RD1: number
+    RD5: number
+    RD10: number
+    RD25: number
+    RD100: number
+    RD200: number
+    RD500: number
+    RD1000: number
+    RD2000: number
+    USD1: number
+    USD2: number
+    USD5: number
+    USD10: number
+    USD20: number
+    USD50: number
+    USD100: number
+    EUR5: number
+    EUR10: number
+    EUR20: number
+    EUR50: number
+    EUR100: number
+    _count: SaldoCountAggregateOutputType | null
+    _avg: SaldoAvgAggregateOutputType | null
+    _sum: SaldoSumAggregateOutputType | null
+    _min: SaldoMinAggregateOutputType | null
+    _max: SaldoMaxAggregateOutputType | null
+  }
+
+  type GetSaldoGroupByPayload<T extends SaldoGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SaldoGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SaldoGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SaldoGroupByOutputType[P]>
+            : GetScalarType<T[P], SaldoGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SaldoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    RD1?: boolean
+    RD5?: boolean
+    RD10?: boolean
+    RD25?: boolean
+    RD100?: boolean
+    RD200?: boolean
+    RD500?: boolean
+    RD1000?: boolean
+    RD2000?: boolean
+    USD1?: boolean
+    USD2?: boolean
+    USD5?: boolean
+    USD10?: boolean
+    USD20?: boolean
+    USD50?: boolean
+    USD100?: boolean
+    EUR5?: boolean
+    EUR10?: boolean
+    EUR20?: boolean
+    EUR50?: boolean
+    EUR100?: boolean
+    usuario?: boolean | Saldo$usuarioArgs<ExtArgs>
+  }, ExtArgs["result"]["saldo"]>
+
+  export type SaldoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    RD1?: boolean
+    RD5?: boolean
+    RD10?: boolean
+    RD25?: boolean
+    RD100?: boolean
+    RD200?: boolean
+    RD500?: boolean
+    RD1000?: boolean
+    RD2000?: boolean
+    USD1?: boolean
+    USD2?: boolean
+    USD5?: boolean
+    USD10?: boolean
+    USD20?: boolean
+    USD50?: boolean
+    USD100?: boolean
+    EUR5?: boolean
+    EUR10?: boolean
+    EUR20?: boolean
+    EUR50?: boolean
+    EUR100?: boolean
+  }, ExtArgs["result"]["saldo"]>
+
+  export type SaldoSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    RD1?: boolean
+    RD5?: boolean
+    RD10?: boolean
+    RD25?: boolean
+    RD100?: boolean
+    RD200?: boolean
+    RD500?: boolean
+    RD1000?: boolean
+    RD2000?: boolean
+    USD1?: boolean
+    USD2?: boolean
+    USD5?: boolean
+    USD10?: boolean
+    USD20?: boolean
+    USD50?: boolean
+    USD100?: boolean
+    EUR5?: boolean
+    EUR10?: boolean
+    EUR20?: boolean
+    EUR50?: boolean
+    EUR100?: boolean
+  }, ExtArgs["result"]["saldo"]>
+
+  export type SaldoSelectScalar = {
+    id?: boolean
+    RD1?: boolean
+    RD5?: boolean
+    RD10?: boolean
+    RD25?: boolean
+    RD100?: boolean
+    RD200?: boolean
+    RD500?: boolean
+    RD1000?: boolean
+    RD2000?: boolean
+    USD1?: boolean
+    USD2?: boolean
+    USD5?: boolean
+    USD10?: boolean
+    USD20?: boolean
+    USD50?: boolean
+    USD100?: boolean
+    EUR5?: boolean
+    EUR10?: boolean
+    EUR20?: boolean
+    EUR50?: boolean
+    EUR100?: boolean
+  }
+
+  export type SaldoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "RD1" | "RD5" | "RD10" | "RD25" | "RD100" | "RD200" | "RD500" | "RD1000" | "RD2000" | "USD1" | "USD2" | "USD5" | "USD10" | "USD20" | "USD50" | "USD100" | "EUR5" | "EUR10" | "EUR20" | "EUR50" | "EUR100", ExtArgs["result"]["saldo"]>
+  export type SaldoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    usuario?: boolean | Saldo$usuarioArgs<ExtArgs>
+  }
+  export type SaldoIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type SaldoIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $SaldoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Saldo"
+    objects: {
+      usuario: Prisma.$UsuarioPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      RD1: number
+      RD5: number
+      RD10: number
+      RD25: number
+      RD100: number
+      RD200: number
+      RD500: number
+      RD1000: number
+      RD2000: number
+      USD1: number
+      USD2: number
+      USD5: number
+      USD10: number
+      USD20: number
+      USD50: number
+      USD100: number
+      EUR5: number
+      EUR10: number
+      EUR20: number
+      EUR50: number
+      EUR100: number
+    }, ExtArgs["result"]["saldo"]>
+    composites: {}
+  }
+
+  type SaldoGetPayload<S extends boolean | null | undefined | SaldoDefaultArgs> = $Result.GetResult<Prisma.$SaldoPayload, S>
+
+  type SaldoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SaldoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SaldoCountAggregateInputType | true
+    }
+
+  export interface SaldoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Saldo'], meta: { name: 'Saldo' } }
+    /**
+     * Find zero or one Saldo that matches the filter.
+     * @param {SaldoFindUniqueArgs} args - Arguments to find a Saldo
+     * @example
+     * // Get one Saldo
+     * const saldo = await prisma.saldo.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SaldoFindUniqueArgs>(args: SelectSubset<T, SaldoFindUniqueArgs<ExtArgs>>): Prisma__SaldoClient<$Result.GetResult<Prisma.$SaldoPayload<ExtArgs>, T, "findUnique", ClientOptions> | null, null, ExtArgs, ClientOptions>
+
+    /**
+     * Find one Saldo that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SaldoFindUniqueOrThrowArgs} args - Arguments to find a Saldo
+     * @example
+     * // Get one Saldo
+     * const saldo = await prisma.saldo.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SaldoFindUniqueOrThrowArgs>(args: SelectSubset<T, SaldoFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SaldoClient<$Result.GetResult<Prisma.$SaldoPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Find the first Saldo that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaldoFindFirstArgs} args - Arguments to find a Saldo
+     * @example
+     * // Get one Saldo
+     * const saldo = await prisma.saldo.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SaldoFindFirstArgs>(args?: SelectSubset<T, SaldoFindFirstArgs<ExtArgs>>): Prisma__SaldoClient<$Result.GetResult<Prisma.$SaldoPayload<ExtArgs>, T, "findFirst", ClientOptions> | null, null, ExtArgs, ClientOptions>
+
+    /**
+     * Find the first Saldo that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaldoFindFirstOrThrowArgs} args - Arguments to find a Saldo
+     * @example
+     * // Get one Saldo
+     * const saldo = await prisma.saldo.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SaldoFindFirstOrThrowArgs>(args?: SelectSubset<T, SaldoFindFirstOrThrowArgs<ExtArgs>>): Prisma__SaldoClient<$Result.GetResult<Prisma.$SaldoPayload<ExtArgs>, T, "findFirstOrThrow", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Find zero or more Saldos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaldoFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Saldos
+     * const saldos = await prisma.saldo.findMany()
+     * 
+     * // Get first 10 Saldos
+     * const saldos = await prisma.saldo.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const saldoWithIdOnly = await prisma.saldo.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SaldoFindManyArgs>(args?: SelectSubset<T, SaldoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SaldoPayload<ExtArgs>, T, "findMany", ClientOptions>>
+
+    /**
+     * Create a Saldo.
+     * @param {SaldoCreateArgs} args - Arguments to create a Saldo.
+     * @example
+     * // Create one Saldo
+     * const Saldo = await prisma.saldo.create({
+     *   data: {
+     *     // ... data to create a Saldo
+     *   }
+     * })
+     * 
+     */
+    create<T extends SaldoCreateArgs>(args: SelectSubset<T, SaldoCreateArgs<ExtArgs>>): Prisma__SaldoClient<$Result.GetResult<Prisma.$SaldoPayload<ExtArgs>, T, "create", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Create many Saldos.
+     * @param {SaldoCreateManyArgs} args - Arguments to create many Saldos.
+     * @example
+     * // Create many Saldos
+     * const saldo = await prisma.saldo.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SaldoCreateManyArgs>(args?: SelectSubset<T, SaldoCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Saldos and returns the data saved in the database.
+     * @param {SaldoCreateManyAndReturnArgs} args - Arguments to create many Saldos.
+     * @example
+     * // Create many Saldos
+     * const saldo = await prisma.saldo.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Saldos and only return the `id`
+     * const saldoWithIdOnly = await prisma.saldo.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends SaldoCreateManyAndReturnArgs>(args?: SelectSubset<T, SaldoCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SaldoPayload<ExtArgs>, T, "createManyAndReturn", ClientOptions>>
+
+    /**
+     * Delete a Saldo.
+     * @param {SaldoDeleteArgs} args - Arguments to delete one Saldo.
+     * @example
+     * // Delete one Saldo
+     * const Saldo = await prisma.saldo.delete({
+     *   where: {
+     *     // ... filter to delete one Saldo
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SaldoDeleteArgs>(args: SelectSubset<T, SaldoDeleteArgs<ExtArgs>>): Prisma__SaldoClient<$Result.GetResult<Prisma.$SaldoPayload<ExtArgs>, T, "delete", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Update one Saldo.
+     * @param {SaldoUpdateArgs} args - Arguments to update one Saldo.
+     * @example
+     * // Update one Saldo
+     * const saldo = await prisma.saldo.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SaldoUpdateArgs>(args: SelectSubset<T, SaldoUpdateArgs<ExtArgs>>): Prisma__SaldoClient<$Result.GetResult<Prisma.$SaldoPayload<ExtArgs>, T, "update", ClientOptions>, never, ExtArgs, ClientOptions>
+
+    /**
+     * Delete zero or more Saldos.
+     * @param {SaldoDeleteManyArgs} args - Arguments to filter Saldos to delete.
+     * @example
+     * // Delete a few Saldos
+     * const { count } = await prisma.saldo.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SaldoDeleteManyArgs>(args?: SelectSubset<T, SaldoDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Saldos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaldoUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Saldos
+     * const saldo = await prisma.saldo.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SaldoUpdateManyArgs>(args: SelectSubset<T, SaldoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Saldos and returns the data updated in the database.
+     * @param {SaldoUpdateManyAndReturnArgs} args - Arguments to update many Saldos.
+     * @example
+     * // Update many Saldos
+     * const saldo = await prisma.saldo.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Saldos and only return the `id`
+     * const saldoWithIdOnly = await prisma.saldo.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends SaldoUpdateManyAndReturnArgs>(args: SelectSubset<T, SaldoUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SaldoPayload<ExtArgs>, T, "updateManyAndReturn", ClientOptions>>
+
+    /**
+     * Create or update one Saldo.
+     * @param {SaldoUpsertArgs} args - Arguments to update or create a Saldo.
+     * @example
+     * // Update or create a Saldo
+     * const saldo = await prisma.saldo.upsert({
+     *   create: {
+     *     // ... data to create a Saldo
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Saldo we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SaldoUpsertArgs>(args: SelectSubset<T, SaldoUpsertArgs<ExtArgs>>): Prisma__SaldoClient<$Result.GetResult<Prisma.$SaldoPayload<ExtArgs>, T, "upsert", ClientOptions>, never, ExtArgs, ClientOptions>
+
+
+    /**
+     * Count the number of Saldos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaldoCountArgs} args - Arguments to filter Saldos to count.
+     * @example
+     * // Count the number of Saldos
+     * const count = await prisma.saldo.count({
+     *   where: {
+     *     // ... the filter for the Saldos we want to count
+     *   }
+     * })
+    **/
+    count<T extends SaldoCountArgs>(
+      args?: Subset<T, SaldoCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SaldoCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Saldo.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaldoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SaldoAggregateArgs>(args: Subset<T, SaldoAggregateArgs>): Prisma.PrismaPromise<GetSaldoAggregateType<T>>
+
+    /**
+     * Group by Saldo.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SaldoGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SaldoGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SaldoGroupByArgs['orderBy'] }
+        : { orderBy?: SaldoGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SaldoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSaldoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Saldo model
+   */
+  readonly fields: SaldoFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Saldo.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SaldoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    usuario<T extends Saldo$usuarioArgs<ExtArgs> = {}>(args?: Subset<T, Saldo$usuarioArgs<ExtArgs>>): Prisma__UsuarioClient<$Result.GetResult<Prisma.$UsuarioPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | null, null, ExtArgs, ClientOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Saldo model
+   */ 
+  interface SaldoFieldRefs {
+    readonly id: FieldRef<"Saldo", 'String'>
+    readonly RD1: FieldRef<"Saldo", 'Int'>
+    readonly RD5: FieldRef<"Saldo", 'Int'>
+    readonly RD10: FieldRef<"Saldo", 'Int'>
+    readonly RD25: FieldRef<"Saldo", 'Int'>
+    readonly RD100: FieldRef<"Saldo", 'Int'>
+    readonly RD200: FieldRef<"Saldo", 'Int'>
+    readonly RD500: FieldRef<"Saldo", 'Int'>
+    readonly RD1000: FieldRef<"Saldo", 'Int'>
+    readonly RD2000: FieldRef<"Saldo", 'Int'>
+    readonly USD1: FieldRef<"Saldo", 'Int'>
+    readonly USD2: FieldRef<"Saldo", 'Int'>
+    readonly USD5: FieldRef<"Saldo", 'Int'>
+    readonly USD10: FieldRef<"Saldo", 'Int'>
+    readonly USD20: FieldRef<"Saldo", 'Int'>
+    readonly USD50: FieldRef<"Saldo", 'Int'>
+    readonly USD100: FieldRef<"Saldo", 'Int'>
+    readonly EUR5: FieldRef<"Saldo", 'Int'>
+    readonly EUR10: FieldRef<"Saldo", 'Int'>
+    readonly EUR20: FieldRef<"Saldo", 'Int'>
+    readonly EUR50: FieldRef<"Saldo", 'Int'>
+    readonly EUR100: FieldRef<"Saldo", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Saldo findUnique
+   */
+  export type SaldoFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Saldo
+     */
+    select?: SaldoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Saldo
+     */
+    omit?: SaldoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaldoInclude<ExtArgs> | null
+    /**
+     * Filter, which Saldo to fetch.
+     */
+    where: SaldoWhereUniqueInput
+  }
+
+  /**
+   * Saldo findUniqueOrThrow
+   */
+  export type SaldoFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Saldo
+     */
+    select?: SaldoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Saldo
+     */
+    omit?: SaldoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaldoInclude<ExtArgs> | null
+    /**
+     * Filter, which Saldo to fetch.
+     */
+    where: SaldoWhereUniqueInput
+  }
+
+  /**
+   * Saldo findFirst
+   */
+  export type SaldoFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Saldo
+     */
+    select?: SaldoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Saldo
+     */
+    omit?: SaldoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaldoInclude<ExtArgs> | null
+    /**
+     * Filter, which Saldo to fetch.
+     */
+    where?: SaldoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Saldos to fetch.
+     */
+    orderBy?: SaldoOrderByWithRelationInput | SaldoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Saldos.
+     */
+    cursor?: SaldoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Saldos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Saldos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Saldos.
+     */
+    distinct?: SaldoScalarFieldEnum | SaldoScalarFieldEnum[]
+  }
+
+  /**
+   * Saldo findFirstOrThrow
+   */
+  export type SaldoFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Saldo
+     */
+    select?: SaldoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Saldo
+     */
+    omit?: SaldoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaldoInclude<ExtArgs> | null
+    /**
+     * Filter, which Saldo to fetch.
+     */
+    where?: SaldoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Saldos to fetch.
+     */
+    orderBy?: SaldoOrderByWithRelationInput | SaldoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Saldos.
+     */
+    cursor?: SaldoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Saldos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Saldos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Saldos.
+     */
+    distinct?: SaldoScalarFieldEnum | SaldoScalarFieldEnum[]
+  }
+
+  /**
+   * Saldo findMany
+   */
+  export type SaldoFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Saldo
+     */
+    select?: SaldoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Saldo
+     */
+    omit?: SaldoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaldoInclude<ExtArgs> | null
+    /**
+     * Filter, which Saldos to fetch.
+     */
+    where?: SaldoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Saldos to fetch.
+     */
+    orderBy?: SaldoOrderByWithRelationInput | SaldoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Saldos.
+     */
+    cursor?: SaldoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Saldos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Saldos.
+     */
+    skip?: number
+    distinct?: SaldoScalarFieldEnum | SaldoScalarFieldEnum[]
+  }
+
+  /**
+   * Saldo create
+   */
+  export type SaldoCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Saldo
+     */
+    select?: SaldoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Saldo
+     */
+    omit?: SaldoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaldoInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Saldo.
+     */
+    data?: XOR<SaldoCreateInput, SaldoUncheckedCreateInput>
+  }
+
+  /**
+   * Saldo createMany
+   */
+  export type SaldoCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Saldos.
+     */
+    data: SaldoCreateManyInput | SaldoCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Saldo createManyAndReturn
+   */
+  export type SaldoCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Saldo
+     */
+    select?: SaldoSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Saldo
+     */
+    omit?: SaldoOmit<ExtArgs> | null
+    /**
+     * The data used to create many Saldos.
+     */
+    data: SaldoCreateManyInput | SaldoCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Saldo update
+   */
+  export type SaldoUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Saldo
+     */
+    select?: SaldoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Saldo
+     */
+    omit?: SaldoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaldoInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Saldo.
+     */
+    data: XOR<SaldoUpdateInput, SaldoUncheckedUpdateInput>
+    /**
+     * Choose, which Saldo to update.
+     */
+    where: SaldoWhereUniqueInput
+  }
+
+  /**
+   * Saldo updateMany
+   */
+  export type SaldoUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Saldos.
+     */
+    data: XOR<SaldoUpdateManyMutationInput, SaldoUncheckedUpdateManyInput>
+    /**
+     * Filter which Saldos to update
+     */
+    where?: SaldoWhereInput
+    /**
+     * Limit how many Saldos to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Saldo updateManyAndReturn
+   */
+  export type SaldoUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Saldo
+     */
+    select?: SaldoSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Saldo
+     */
+    omit?: SaldoOmit<ExtArgs> | null
+    /**
+     * The data used to update Saldos.
+     */
+    data: XOR<SaldoUpdateManyMutationInput, SaldoUncheckedUpdateManyInput>
+    /**
+     * Filter which Saldos to update
+     */
+    where?: SaldoWhereInput
+    /**
+     * Limit how many Saldos to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Saldo upsert
+   */
+  export type SaldoUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Saldo
+     */
+    select?: SaldoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Saldo
+     */
+    omit?: SaldoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaldoInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Saldo to update in case it exists.
+     */
+    where: SaldoWhereUniqueInput
+    /**
+     * In case the Saldo found by the `where` argument doesn't exist, create a new Saldo with this data.
+     */
+    create: XOR<SaldoCreateInput, SaldoUncheckedCreateInput>
+    /**
+     * In case the Saldo was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SaldoUpdateInput, SaldoUncheckedUpdateInput>
+  }
+
+  /**
+   * Saldo delete
+   */
+  export type SaldoDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Saldo
+     */
+    select?: SaldoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Saldo
+     */
+    omit?: SaldoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaldoInclude<ExtArgs> | null
+    /**
+     * Filter which Saldo to delete.
+     */
+    where: SaldoWhereUniqueInput
+  }
+
+  /**
+   * Saldo deleteMany
+   */
+  export type SaldoDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Saldos to delete
+     */
+    where?: SaldoWhereInput
+    /**
+     * Limit how many Saldos to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Saldo.usuario
+   */
+  export type Saldo$usuarioArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Usuario
+     */
+    select?: UsuarioSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Usuario
+     */
+    omit?: UsuarioOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UsuarioInclude<ExtArgs> | null
+    where?: UsuarioWhereInput
+  }
+
+  /**
+   * Saldo without action
+   */
+  export type SaldoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Saldo
+     */
+    select?: SaldoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Saldo
+     */
+    omit?: SaldoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SaldoInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -2140,10 +3650,39 @@ export namespace Prisma {
     recepcion: 'recepcion',
     preparacion: 'preparacion',
     EIE: 'EIE',
-    SupervisorID: 'SupervisorID'
+    SupervisorID: 'SupervisorID',
+    saldoId: 'saldoId'
   };
 
   export type UsuarioScalarFieldEnum = (typeof UsuarioScalarFieldEnum)[keyof typeof UsuarioScalarFieldEnum]
+
+
+  export const SaldoScalarFieldEnum: {
+    id: 'id',
+    RD1: 'RD1',
+    RD5: 'RD5',
+    RD10: 'RD10',
+    RD25: 'RD25',
+    RD100: 'RD100',
+    RD200: 'RD200',
+    RD500: 'RD500',
+    RD1000: 'RD1000',
+    RD2000: 'RD2000',
+    USD1: 'USD1',
+    USD2: 'USD2',
+    USD5: 'USD5',
+    USD10: 'USD10',
+    USD20: 'USD20',
+    USD50: 'USD50',
+    USD100: 'USD100',
+    EUR5: 'EUR5',
+    EUR10: 'EUR10',
+    EUR20: 'EUR20',
+    EUR50: 'EUR50',
+    EUR100: 'EUR100'
+  };
+
+  export type SaldoScalarFieldEnum = (typeof SaldoScalarFieldEnum)[keyof typeof SaldoScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -2242,8 +3781,10 @@ export namespace Prisma {
     preparacion?: BoolFilter<"Usuario"> | boolean
     EIE?: BoolFilter<"Usuario"> | boolean
     SupervisorID?: IntNullableFilter<"Usuario"> | number | null
+    saldoId?: StringFilter<"Usuario"> | string
     Supervisor?: XOR<UsuarioNullableScalarRelationFilter, UsuarioWhereInput> | null
     colaboradores?: UsuarioListRelationFilter
+    saldo?: XOR<SaldoScalarRelationFilter, SaldoWhereInput>
   }
 
   export type UsuarioOrderByWithRelationInput = {
@@ -2258,14 +3799,17 @@ export namespace Prisma {
     preparacion?: SortOrder
     EIE?: SortOrder
     SupervisorID?: SortOrderInput | SortOrder
+    saldoId?: SortOrder
     Supervisor?: UsuarioOrderByWithRelationInput
     colaboradores?: UsuarioOrderByRelationAggregateInput
+    saldo?: SaldoOrderByWithRelationInput
   }
 
   export type UsuarioWhereUniqueInput = Prisma.AtLeast<{
     id?: string
     nombre?: string
     codigoEmpleado?: number
+    saldoId?: string
     AND?: UsuarioWhereInput | UsuarioWhereInput[]
     OR?: UsuarioWhereInput[]
     NOT?: UsuarioWhereInput | UsuarioWhereInput[]
@@ -2279,7 +3823,8 @@ export namespace Prisma {
     SupervisorID?: IntNullableFilter<"Usuario"> | number | null
     Supervisor?: XOR<UsuarioNullableScalarRelationFilter, UsuarioWhereInput> | null
     colaboradores?: UsuarioListRelationFilter
-  }, "id" | "id" | "nombre" | "codigoEmpleado">
+    saldo?: XOR<SaldoScalarRelationFilter, SaldoWhereInput>
+  }, "id" | "nombre" | "codigoEmpleado" | "saldoId">
 
   export type UsuarioOrderByWithAggregationInput = {
     id?: SortOrder
@@ -2293,6 +3838,7 @@ export namespace Prisma {
     preparacion?: SortOrder
     EIE?: SortOrder
     SupervisorID?: SortOrderInput | SortOrder
+    saldoId?: SortOrder
     _count?: UsuarioCountOrderByAggregateInput
     _avg?: UsuarioAvgOrderByAggregateInput
     _max?: UsuarioMaxOrderByAggregateInput
@@ -2315,6 +3861,149 @@ export namespace Prisma {
     preparacion?: BoolWithAggregatesFilter<"Usuario"> | boolean
     EIE?: BoolWithAggregatesFilter<"Usuario"> | boolean
     SupervisorID?: IntNullableWithAggregatesFilter<"Usuario"> | number | null
+    saldoId?: StringWithAggregatesFilter<"Usuario"> | string
+  }
+
+  export type SaldoWhereInput = {
+    AND?: SaldoWhereInput | SaldoWhereInput[]
+    OR?: SaldoWhereInput[]
+    NOT?: SaldoWhereInput | SaldoWhereInput[]
+    id?: StringFilter<"Saldo"> | string
+    RD1?: IntFilter<"Saldo"> | number
+    RD5?: IntFilter<"Saldo"> | number
+    RD10?: IntFilter<"Saldo"> | number
+    RD25?: IntFilter<"Saldo"> | number
+    RD100?: IntFilter<"Saldo"> | number
+    RD200?: IntFilter<"Saldo"> | number
+    RD500?: IntFilter<"Saldo"> | number
+    RD1000?: IntFilter<"Saldo"> | number
+    RD2000?: IntFilter<"Saldo"> | number
+    USD1?: IntFilter<"Saldo"> | number
+    USD2?: IntFilter<"Saldo"> | number
+    USD5?: IntFilter<"Saldo"> | number
+    USD10?: IntFilter<"Saldo"> | number
+    USD20?: IntFilter<"Saldo"> | number
+    USD50?: IntFilter<"Saldo"> | number
+    USD100?: IntFilter<"Saldo"> | number
+    EUR5?: IntFilter<"Saldo"> | number
+    EUR10?: IntFilter<"Saldo"> | number
+    EUR20?: IntFilter<"Saldo"> | number
+    EUR50?: IntFilter<"Saldo"> | number
+    EUR100?: IntFilter<"Saldo"> | number
+    usuario?: XOR<UsuarioNullableScalarRelationFilter, UsuarioWhereInput> | null
+  }
+
+  export type SaldoOrderByWithRelationInput = {
+    id?: SortOrder
+    RD1?: SortOrder
+    RD5?: SortOrder
+    RD10?: SortOrder
+    RD25?: SortOrder
+    RD100?: SortOrder
+    RD200?: SortOrder
+    RD500?: SortOrder
+    RD1000?: SortOrder
+    RD2000?: SortOrder
+    USD1?: SortOrder
+    USD2?: SortOrder
+    USD5?: SortOrder
+    USD10?: SortOrder
+    USD20?: SortOrder
+    USD50?: SortOrder
+    USD100?: SortOrder
+    EUR5?: SortOrder
+    EUR10?: SortOrder
+    EUR20?: SortOrder
+    EUR50?: SortOrder
+    EUR100?: SortOrder
+    usuario?: UsuarioOrderByWithRelationInput
+  }
+
+  export type SaldoWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: SaldoWhereInput | SaldoWhereInput[]
+    OR?: SaldoWhereInput[]
+    NOT?: SaldoWhereInput | SaldoWhereInput[]
+    RD1?: IntFilter<"Saldo"> | number
+    RD5?: IntFilter<"Saldo"> | number
+    RD10?: IntFilter<"Saldo"> | number
+    RD25?: IntFilter<"Saldo"> | number
+    RD100?: IntFilter<"Saldo"> | number
+    RD200?: IntFilter<"Saldo"> | number
+    RD500?: IntFilter<"Saldo"> | number
+    RD1000?: IntFilter<"Saldo"> | number
+    RD2000?: IntFilter<"Saldo"> | number
+    USD1?: IntFilter<"Saldo"> | number
+    USD2?: IntFilter<"Saldo"> | number
+    USD5?: IntFilter<"Saldo"> | number
+    USD10?: IntFilter<"Saldo"> | number
+    USD20?: IntFilter<"Saldo"> | number
+    USD50?: IntFilter<"Saldo"> | number
+    USD100?: IntFilter<"Saldo"> | number
+    EUR5?: IntFilter<"Saldo"> | number
+    EUR10?: IntFilter<"Saldo"> | number
+    EUR20?: IntFilter<"Saldo"> | number
+    EUR50?: IntFilter<"Saldo"> | number
+    EUR100?: IntFilter<"Saldo"> | number
+    usuario?: XOR<UsuarioNullableScalarRelationFilter, UsuarioWhereInput> | null
+  }, "id">
+
+  export type SaldoOrderByWithAggregationInput = {
+    id?: SortOrder
+    RD1?: SortOrder
+    RD5?: SortOrder
+    RD10?: SortOrder
+    RD25?: SortOrder
+    RD100?: SortOrder
+    RD200?: SortOrder
+    RD500?: SortOrder
+    RD1000?: SortOrder
+    RD2000?: SortOrder
+    USD1?: SortOrder
+    USD2?: SortOrder
+    USD5?: SortOrder
+    USD10?: SortOrder
+    USD20?: SortOrder
+    USD50?: SortOrder
+    USD100?: SortOrder
+    EUR5?: SortOrder
+    EUR10?: SortOrder
+    EUR20?: SortOrder
+    EUR50?: SortOrder
+    EUR100?: SortOrder
+    _count?: SaldoCountOrderByAggregateInput
+    _avg?: SaldoAvgOrderByAggregateInput
+    _max?: SaldoMaxOrderByAggregateInput
+    _min?: SaldoMinOrderByAggregateInput
+    _sum?: SaldoSumOrderByAggregateInput
+  }
+
+  export type SaldoScalarWhereWithAggregatesInput = {
+    AND?: SaldoScalarWhereWithAggregatesInput | SaldoScalarWhereWithAggregatesInput[]
+    OR?: SaldoScalarWhereWithAggregatesInput[]
+    NOT?: SaldoScalarWhereWithAggregatesInput | SaldoScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Saldo"> | string
+    RD1?: IntWithAggregatesFilter<"Saldo"> | number
+    RD5?: IntWithAggregatesFilter<"Saldo"> | number
+    RD10?: IntWithAggregatesFilter<"Saldo"> | number
+    RD25?: IntWithAggregatesFilter<"Saldo"> | number
+    RD100?: IntWithAggregatesFilter<"Saldo"> | number
+    RD200?: IntWithAggregatesFilter<"Saldo"> | number
+    RD500?: IntWithAggregatesFilter<"Saldo"> | number
+    RD1000?: IntWithAggregatesFilter<"Saldo"> | number
+    RD2000?: IntWithAggregatesFilter<"Saldo"> | number
+    USD1?: IntWithAggregatesFilter<"Saldo"> | number
+    USD2?: IntWithAggregatesFilter<"Saldo"> | number
+    USD5?: IntWithAggregatesFilter<"Saldo"> | number
+    USD10?: IntWithAggregatesFilter<"Saldo"> | number
+    USD20?: IntWithAggregatesFilter<"Saldo"> | number
+    USD50?: IntWithAggregatesFilter<"Saldo"> | number
+    USD100?: IntWithAggregatesFilter<"Saldo"> | number
+    EUR5?: IntWithAggregatesFilter<"Saldo"> | number
+    EUR10?: IntWithAggregatesFilter<"Saldo"> | number
+    EUR20?: IntWithAggregatesFilter<"Saldo"> | number
+    EUR50?: IntWithAggregatesFilter<"Saldo"> | number
+    EUR100?: IntWithAggregatesFilter<"Saldo"> | number
   }
 
   export type UsuarioCreateInput = {
@@ -2330,6 +4019,7 @@ export namespace Prisma {
     EIE?: boolean
     Supervisor?: UsuarioCreateNestedOneWithoutColaboradoresInput
     colaboradores?: UsuarioCreateNestedManyWithoutSupervisorInput
+    saldo: SaldoCreateNestedOneWithoutUsuarioInput
   }
 
   export type UsuarioUncheckedCreateInput = {
@@ -2344,6 +4034,7 @@ export namespace Prisma {
     preparacion?: boolean
     EIE?: boolean
     SupervisorID?: number | null
+    saldoId: string
     colaboradores?: UsuarioUncheckedCreateNestedManyWithoutSupervisorInput
   }
 
@@ -2359,6 +4050,7 @@ export namespace Prisma {
     EIE?: BoolFieldUpdateOperationsInput | boolean
     Supervisor?: UsuarioUpdateOneWithoutColaboradoresNestedInput
     colaboradores?: UsuarioUpdateManyWithoutSupervisorNestedInput
+    saldo?: SaldoUpdateOneRequiredWithoutUsuarioNestedInput
   }
 
   export type UsuarioUncheckedUpdateInput = {
@@ -2373,6 +4065,7 @@ export namespace Prisma {
     preparacion?: BoolFieldUpdateOperationsInput | boolean
     EIE?: BoolFieldUpdateOperationsInput | boolean
     SupervisorID?: NullableIntFieldUpdateOperationsInput | number | null
+    saldoId?: StringFieldUpdateOperationsInput | string
     colaboradores?: UsuarioUncheckedUpdateManyWithoutSupervisorNestedInput
   }
 
@@ -2388,6 +4081,7 @@ export namespace Prisma {
     preparacion?: boolean
     EIE?: boolean
     SupervisorID?: number | null
+    saldoId: string
   }
 
   export type UsuarioUpdateManyMutationInput = {
@@ -2414,6 +4108,186 @@ export namespace Prisma {
     preparacion?: BoolFieldUpdateOperationsInput | boolean
     EIE?: BoolFieldUpdateOperationsInput | boolean
     SupervisorID?: NullableIntFieldUpdateOperationsInput | number | null
+    saldoId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type SaldoCreateInput = {
+    id?: string
+    RD1?: number
+    RD5?: number
+    RD10?: number
+    RD25?: number
+    RD100?: number
+    RD200?: number
+    RD500?: number
+    RD1000?: number
+    RD2000?: number
+    USD1?: number
+    USD2?: number
+    USD5?: number
+    USD10?: number
+    USD20?: number
+    USD50?: number
+    USD100?: number
+    EUR5?: number
+    EUR10?: number
+    EUR20?: number
+    EUR50?: number
+    EUR100?: number
+    usuario?: UsuarioCreateNestedOneWithoutSaldoInput
+  }
+
+  export type SaldoUncheckedCreateInput = {
+    id?: string
+    RD1?: number
+    RD5?: number
+    RD10?: number
+    RD25?: number
+    RD100?: number
+    RD200?: number
+    RD500?: number
+    RD1000?: number
+    RD2000?: number
+    USD1?: number
+    USD2?: number
+    USD5?: number
+    USD10?: number
+    USD20?: number
+    USD50?: number
+    USD100?: number
+    EUR5?: number
+    EUR10?: number
+    EUR20?: number
+    EUR50?: number
+    EUR100?: number
+    usuario?: UsuarioUncheckedCreateNestedOneWithoutSaldoInput
+  }
+
+  export type SaldoUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    RD1?: IntFieldUpdateOperationsInput | number
+    RD5?: IntFieldUpdateOperationsInput | number
+    RD10?: IntFieldUpdateOperationsInput | number
+    RD25?: IntFieldUpdateOperationsInput | number
+    RD100?: IntFieldUpdateOperationsInput | number
+    RD200?: IntFieldUpdateOperationsInput | number
+    RD500?: IntFieldUpdateOperationsInput | number
+    RD1000?: IntFieldUpdateOperationsInput | number
+    RD2000?: IntFieldUpdateOperationsInput | number
+    USD1?: IntFieldUpdateOperationsInput | number
+    USD2?: IntFieldUpdateOperationsInput | number
+    USD5?: IntFieldUpdateOperationsInput | number
+    USD10?: IntFieldUpdateOperationsInput | number
+    USD20?: IntFieldUpdateOperationsInput | number
+    USD50?: IntFieldUpdateOperationsInput | number
+    USD100?: IntFieldUpdateOperationsInput | number
+    EUR5?: IntFieldUpdateOperationsInput | number
+    EUR10?: IntFieldUpdateOperationsInput | number
+    EUR20?: IntFieldUpdateOperationsInput | number
+    EUR50?: IntFieldUpdateOperationsInput | number
+    EUR100?: IntFieldUpdateOperationsInput | number
+    usuario?: UsuarioUpdateOneWithoutSaldoNestedInput
+  }
+
+  export type SaldoUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    RD1?: IntFieldUpdateOperationsInput | number
+    RD5?: IntFieldUpdateOperationsInput | number
+    RD10?: IntFieldUpdateOperationsInput | number
+    RD25?: IntFieldUpdateOperationsInput | number
+    RD100?: IntFieldUpdateOperationsInput | number
+    RD200?: IntFieldUpdateOperationsInput | number
+    RD500?: IntFieldUpdateOperationsInput | number
+    RD1000?: IntFieldUpdateOperationsInput | number
+    RD2000?: IntFieldUpdateOperationsInput | number
+    USD1?: IntFieldUpdateOperationsInput | number
+    USD2?: IntFieldUpdateOperationsInput | number
+    USD5?: IntFieldUpdateOperationsInput | number
+    USD10?: IntFieldUpdateOperationsInput | number
+    USD20?: IntFieldUpdateOperationsInput | number
+    USD50?: IntFieldUpdateOperationsInput | number
+    USD100?: IntFieldUpdateOperationsInput | number
+    EUR5?: IntFieldUpdateOperationsInput | number
+    EUR10?: IntFieldUpdateOperationsInput | number
+    EUR20?: IntFieldUpdateOperationsInput | number
+    EUR50?: IntFieldUpdateOperationsInput | number
+    EUR100?: IntFieldUpdateOperationsInput | number
+    usuario?: UsuarioUncheckedUpdateOneWithoutSaldoNestedInput
+  }
+
+  export type SaldoCreateManyInput = {
+    id?: string
+    RD1?: number
+    RD5?: number
+    RD10?: number
+    RD25?: number
+    RD100?: number
+    RD200?: number
+    RD500?: number
+    RD1000?: number
+    RD2000?: number
+    USD1?: number
+    USD2?: number
+    USD5?: number
+    USD10?: number
+    USD20?: number
+    USD50?: number
+    USD100?: number
+    EUR5?: number
+    EUR10?: number
+    EUR20?: number
+    EUR50?: number
+    EUR100?: number
+  }
+
+  export type SaldoUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    RD1?: IntFieldUpdateOperationsInput | number
+    RD5?: IntFieldUpdateOperationsInput | number
+    RD10?: IntFieldUpdateOperationsInput | number
+    RD25?: IntFieldUpdateOperationsInput | number
+    RD100?: IntFieldUpdateOperationsInput | number
+    RD200?: IntFieldUpdateOperationsInput | number
+    RD500?: IntFieldUpdateOperationsInput | number
+    RD1000?: IntFieldUpdateOperationsInput | number
+    RD2000?: IntFieldUpdateOperationsInput | number
+    USD1?: IntFieldUpdateOperationsInput | number
+    USD2?: IntFieldUpdateOperationsInput | number
+    USD5?: IntFieldUpdateOperationsInput | number
+    USD10?: IntFieldUpdateOperationsInput | number
+    USD20?: IntFieldUpdateOperationsInput | number
+    USD50?: IntFieldUpdateOperationsInput | number
+    USD100?: IntFieldUpdateOperationsInput | number
+    EUR5?: IntFieldUpdateOperationsInput | number
+    EUR10?: IntFieldUpdateOperationsInput | number
+    EUR20?: IntFieldUpdateOperationsInput | number
+    EUR50?: IntFieldUpdateOperationsInput | number
+    EUR100?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type SaldoUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    RD1?: IntFieldUpdateOperationsInput | number
+    RD5?: IntFieldUpdateOperationsInput | number
+    RD10?: IntFieldUpdateOperationsInput | number
+    RD25?: IntFieldUpdateOperationsInput | number
+    RD100?: IntFieldUpdateOperationsInput | number
+    RD200?: IntFieldUpdateOperationsInput | number
+    RD500?: IntFieldUpdateOperationsInput | number
+    RD1000?: IntFieldUpdateOperationsInput | number
+    RD2000?: IntFieldUpdateOperationsInput | number
+    USD1?: IntFieldUpdateOperationsInput | number
+    USD2?: IntFieldUpdateOperationsInput | number
+    USD5?: IntFieldUpdateOperationsInput | number
+    USD10?: IntFieldUpdateOperationsInput | number
+    USD20?: IntFieldUpdateOperationsInput | number
+    USD50?: IntFieldUpdateOperationsInput | number
+    USD100?: IntFieldUpdateOperationsInput | number
+    EUR5?: IntFieldUpdateOperationsInput | number
+    EUR10?: IntFieldUpdateOperationsInput | number
+    EUR20?: IntFieldUpdateOperationsInput | number
+    EUR50?: IntFieldUpdateOperationsInput | number
+    EUR100?: IntFieldUpdateOperationsInput | number
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -2477,6 +4351,11 @@ export namespace Prisma {
     none?: UsuarioWhereInput
   }
 
+  export type SaldoScalarRelationFilter = {
+    is?: SaldoWhereInput
+    isNot?: SaldoWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -2498,6 +4377,7 @@ export namespace Prisma {
     preparacion?: SortOrder
     EIE?: SortOrder
     SupervisorID?: SortOrder
+    saldoId?: SortOrder
   }
 
   export type UsuarioAvgOrderByAggregateInput = {
@@ -2516,6 +4396,7 @@ export namespace Prisma {
     preparacion?: SortOrder
     EIE?: SortOrder
     SupervisorID?: SortOrder
+    saldoId?: SortOrder
   }
 
   export type UsuarioMinOrderByAggregateInput = {
@@ -2529,6 +4410,7 @@ export namespace Prisma {
     preparacion?: SortOrder
     EIE?: SortOrder
     SupervisorID?: SortOrder
+    saldoId?: SortOrder
   }
 
   export type UsuarioSumOrderByAggregateInput = {
@@ -2594,6 +4476,129 @@ export namespace Prisma {
     _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
+  export type SaldoCountOrderByAggregateInput = {
+    id?: SortOrder
+    RD1?: SortOrder
+    RD5?: SortOrder
+    RD10?: SortOrder
+    RD25?: SortOrder
+    RD100?: SortOrder
+    RD200?: SortOrder
+    RD500?: SortOrder
+    RD1000?: SortOrder
+    RD2000?: SortOrder
+    USD1?: SortOrder
+    USD2?: SortOrder
+    USD5?: SortOrder
+    USD10?: SortOrder
+    USD20?: SortOrder
+    USD50?: SortOrder
+    USD100?: SortOrder
+    EUR5?: SortOrder
+    EUR10?: SortOrder
+    EUR20?: SortOrder
+    EUR50?: SortOrder
+    EUR100?: SortOrder
+  }
+
+  export type SaldoAvgOrderByAggregateInput = {
+    RD1?: SortOrder
+    RD5?: SortOrder
+    RD10?: SortOrder
+    RD25?: SortOrder
+    RD100?: SortOrder
+    RD200?: SortOrder
+    RD500?: SortOrder
+    RD1000?: SortOrder
+    RD2000?: SortOrder
+    USD1?: SortOrder
+    USD2?: SortOrder
+    USD5?: SortOrder
+    USD10?: SortOrder
+    USD20?: SortOrder
+    USD50?: SortOrder
+    USD100?: SortOrder
+    EUR5?: SortOrder
+    EUR10?: SortOrder
+    EUR20?: SortOrder
+    EUR50?: SortOrder
+    EUR100?: SortOrder
+  }
+
+  export type SaldoMaxOrderByAggregateInput = {
+    id?: SortOrder
+    RD1?: SortOrder
+    RD5?: SortOrder
+    RD10?: SortOrder
+    RD25?: SortOrder
+    RD100?: SortOrder
+    RD200?: SortOrder
+    RD500?: SortOrder
+    RD1000?: SortOrder
+    RD2000?: SortOrder
+    USD1?: SortOrder
+    USD2?: SortOrder
+    USD5?: SortOrder
+    USD10?: SortOrder
+    USD20?: SortOrder
+    USD50?: SortOrder
+    USD100?: SortOrder
+    EUR5?: SortOrder
+    EUR10?: SortOrder
+    EUR20?: SortOrder
+    EUR50?: SortOrder
+    EUR100?: SortOrder
+  }
+
+  export type SaldoMinOrderByAggregateInput = {
+    id?: SortOrder
+    RD1?: SortOrder
+    RD5?: SortOrder
+    RD10?: SortOrder
+    RD25?: SortOrder
+    RD100?: SortOrder
+    RD200?: SortOrder
+    RD500?: SortOrder
+    RD1000?: SortOrder
+    RD2000?: SortOrder
+    USD1?: SortOrder
+    USD2?: SortOrder
+    USD5?: SortOrder
+    USD10?: SortOrder
+    USD20?: SortOrder
+    USD50?: SortOrder
+    USD100?: SortOrder
+    EUR5?: SortOrder
+    EUR10?: SortOrder
+    EUR20?: SortOrder
+    EUR50?: SortOrder
+    EUR100?: SortOrder
+  }
+
+  export type SaldoSumOrderByAggregateInput = {
+    RD1?: SortOrder
+    RD5?: SortOrder
+    RD10?: SortOrder
+    RD25?: SortOrder
+    RD100?: SortOrder
+    RD200?: SortOrder
+    RD500?: SortOrder
+    RD1000?: SortOrder
+    RD2000?: SortOrder
+    USD1?: SortOrder
+    USD2?: SortOrder
+    USD5?: SortOrder
+    USD10?: SortOrder
+    USD20?: SortOrder
+    USD50?: SortOrder
+    USD100?: SortOrder
+    EUR5?: SortOrder
+    EUR10?: SortOrder
+    EUR20?: SortOrder
+    EUR50?: SortOrder
+    EUR100?: SortOrder
+  }
+
   export type UsuarioCreateinventarioInput = {
     set: string[]
   }
@@ -2609,6 +4614,12 @@ export namespace Prisma {
     connectOrCreate?: UsuarioCreateOrConnectWithoutSupervisorInput | UsuarioCreateOrConnectWithoutSupervisorInput[]
     createMany?: UsuarioCreateManySupervisorInputEnvelope
     connect?: UsuarioWhereUniqueInput | UsuarioWhereUniqueInput[]
+  }
+
+  export type SaldoCreateNestedOneWithoutUsuarioInput = {
+    create?: XOR<SaldoCreateWithoutUsuarioInput, SaldoUncheckedCreateWithoutUsuarioInput>
+    connectOrCreate?: SaldoCreateOrConnectWithoutUsuarioInput
+    connect?: SaldoWhereUniqueInput
   }
 
   export type UsuarioUncheckedCreateNestedManyWithoutSupervisorInput = {
@@ -2655,6 +4666,14 @@ export namespace Prisma {
     deleteMany?: UsuarioScalarWhereInput | UsuarioScalarWhereInput[]
   }
 
+  export type SaldoUpdateOneRequiredWithoutUsuarioNestedInput = {
+    create?: XOR<SaldoCreateWithoutUsuarioInput, SaldoUncheckedCreateWithoutUsuarioInput>
+    connectOrCreate?: SaldoCreateOrConnectWithoutUsuarioInput
+    upsert?: SaldoUpsertWithoutUsuarioInput
+    connect?: SaldoWhereUniqueInput
+    update?: XOR<XOR<SaldoUpdateToOneWithWhereWithoutUsuarioInput, SaldoUpdateWithoutUsuarioInput>, SaldoUncheckedUpdateWithoutUsuarioInput>
+  }
+
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
@@ -2683,6 +4702,38 @@ export namespace Prisma {
     update?: UsuarioUpdateWithWhereUniqueWithoutSupervisorInput | UsuarioUpdateWithWhereUniqueWithoutSupervisorInput[]
     updateMany?: UsuarioUpdateManyWithWhereWithoutSupervisorInput | UsuarioUpdateManyWithWhereWithoutSupervisorInput[]
     deleteMany?: UsuarioScalarWhereInput | UsuarioScalarWhereInput[]
+  }
+
+  export type UsuarioCreateNestedOneWithoutSaldoInput = {
+    create?: XOR<UsuarioCreateWithoutSaldoInput, UsuarioUncheckedCreateWithoutSaldoInput>
+    connectOrCreate?: UsuarioCreateOrConnectWithoutSaldoInput
+    connect?: UsuarioWhereUniqueInput
+  }
+
+  export type UsuarioUncheckedCreateNestedOneWithoutSaldoInput = {
+    create?: XOR<UsuarioCreateWithoutSaldoInput, UsuarioUncheckedCreateWithoutSaldoInput>
+    connectOrCreate?: UsuarioCreateOrConnectWithoutSaldoInput
+    connect?: UsuarioWhereUniqueInput
+  }
+
+  export type UsuarioUpdateOneWithoutSaldoNestedInput = {
+    create?: XOR<UsuarioCreateWithoutSaldoInput, UsuarioUncheckedCreateWithoutSaldoInput>
+    connectOrCreate?: UsuarioCreateOrConnectWithoutSaldoInput
+    upsert?: UsuarioUpsertWithoutSaldoInput
+    disconnect?: UsuarioWhereInput | boolean
+    delete?: UsuarioWhereInput | boolean
+    connect?: UsuarioWhereUniqueInput
+    update?: XOR<XOR<UsuarioUpdateToOneWithWhereWithoutSaldoInput, UsuarioUpdateWithoutSaldoInput>, UsuarioUncheckedUpdateWithoutSaldoInput>
+  }
+
+  export type UsuarioUncheckedUpdateOneWithoutSaldoNestedInput = {
+    create?: XOR<UsuarioCreateWithoutSaldoInput, UsuarioUncheckedCreateWithoutSaldoInput>
+    connectOrCreate?: UsuarioCreateOrConnectWithoutSaldoInput
+    upsert?: UsuarioUpsertWithoutSaldoInput
+    disconnect?: UsuarioWhereInput | boolean
+    delete?: UsuarioWhereInput | boolean
+    connect?: UsuarioWhereUniqueInput
+    update?: XOR<XOR<UsuarioUpdateToOneWithWhereWithoutSaldoInput, UsuarioUpdateWithoutSaldoInput>, UsuarioUncheckedUpdateWithoutSaldoInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -2817,6 +4868,7 @@ export namespace Prisma {
     preparacion?: boolean
     EIE?: boolean
     Supervisor?: UsuarioCreateNestedOneWithoutColaboradoresInput
+    saldo: SaldoCreateNestedOneWithoutUsuarioInput
   }
 
   export type UsuarioUncheckedCreateWithoutColaboradoresInput = {
@@ -2831,6 +4883,7 @@ export namespace Prisma {
     preparacion?: boolean
     EIE?: boolean
     SupervisorID?: number | null
+    saldoId: string
   }
 
   export type UsuarioCreateOrConnectWithoutColaboradoresInput = {
@@ -2850,6 +4903,7 @@ export namespace Prisma {
     preparacion?: boolean
     EIE?: boolean
     colaboradores?: UsuarioCreateNestedManyWithoutSupervisorInput
+    saldo: SaldoCreateNestedOneWithoutUsuarioInput
   }
 
   export type UsuarioUncheckedCreateWithoutSupervisorInput = {
@@ -2863,6 +4917,7 @@ export namespace Prisma {
     recepcion?: boolean
     preparacion?: boolean
     EIE?: boolean
+    saldoId: string
     colaboradores?: UsuarioUncheckedCreateNestedManyWithoutSupervisorInput
   }
 
@@ -2874,6 +4929,61 @@ export namespace Prisma {
   export type UsuarioCreateManySupervisorInputEnvelope = {
     data: UsuarioCreateManySupervisorInput | UsuarioCreateManySupervisorInput[]
     skipDuplicates?: boolean
+  }
+
+  export type SaldoCreateWithoutUsuarioInput = {
+    id?: string
+    RD1?: number
+    RD5?: number
+    RD10?: number
+    RD25?: number
+    RD100?: number
+    RD200?: number
+    RD500?: number
+    RD1000?: number
+    RD2000?: number
+    USD1?: number
+    USD2?: number
+    USD5?: number
+    USD10?: number
+    USD20?: number
+    USD50?: number
+    USD100?: number
+    EUR5?: number
+    EUR10?: number
+    EUR20?: number
+    EUR50?: number
+    EUR100?: number
+  }
+
+  export type SaldoUncheckedCreateWithoutUsuarioInput = {
+    id?: string
+    RD1?: number
+    RD5?: number
+    RD10?: number
+    RD25?: number
+    RD100?: number
+    RD200?: number
+    RD500?: number
+    RD1000?: number
+    RD2000?: number
+    USD1?: number
+    USD2?: number
+    USD5?: number
+    USD10?: number
+    USD20?: number
+    USD50?: number
+    USD100?: number
+    EUR5?: number
+    EUR10?: number
+    EUR20?: number
+    EUR50?: number
+    EUR100?: number
+  }
+
+  export type SaldoCreateOrConnectWithoutUsuarioInput = {
+    where: SaldoWhereUniqueInput
+    create: XOR<SaldoCreateWithoutUsuarioInput, SaldoUncheckedCreateWithoutUsuarioInput>
   }
 
   export type UsuarioUpsertWithoutColaboradoresInput = {
@@ -2898,6 +5008,7 @@ export namespace Prisma {
     preparacion?: BoolFieldUpdateOperationsInput | boolean
     EIE?: BoolFieldUpdateOperationsInput | boolean
     Supervisor?: UsuarioUpdateOneWithoutColaboradoresNestedInput
+    saldo?: SaldoUpdateOneRequiredWithoutUsuarioNestedInput
   }
 
   export type UsuarioUncheckedUpdateWithoutColaboradoresInput = {
@@ -2912,6 +5023,7 @@ export namespace Prisma {
     preparacion?: BoolFieldUpdateOperationsInput | boolean
     EIE?: BoolFieldUpdateOperationsInput | boolean
     SupervisorID?: NullableIntFieldUpdateOperationsInput | number | null
+    saldoId?: StringFieldUpdateOperationsInput | string
   }
 
   export type UsuarioUpsertWithWhereUniqueWithoutSupervisorInput = {
@@ -2945,6 +5057,143 @@ export namespace Prisma {
     preparacion?: BoolFilter<"Usuario"> | boolean
     EIE?: BoolFilter<"Usuario"> | boolean
     SupervisorID?: IntNullableFilter<"Usuario"> | number | null
+    saldoId?: StringFilter<"Usuario"> | string
+  }
+
+  export type SaldoUpsertWithoutUsuarioInput = {
+    update: XOR<SaldoUpdateWithoutUsuarioInput, SaldoUncheckedUpdateWithoutUsuarioInput>
+    create: XOR<SaldoCreateWithoutUsuarioInput, SaldoUncheckedCreateWithoutUsuarioInput>
+    where?: SaldoWhereInput
+  }
+
+  export type SaldoUpdateToOneWithWhereWithoutUsuarioInput = {
+    where?: SaldoWhereInput
+    data: XOR<SaldoUpdateWithoutUsuarioInput, SaldoUncheckedUpdateWithoutUsuarioInput>
+  }
+
+  export type SaldoUpdateWithoutUsuarioInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    RD1?: IntFieldUpdateOperationsInput | number
+    RD5?: IntFieldUpdateOperationsInput | number
+    RD10?: IntFieldUpdateOperationsInput | number
+    RD25?: IntFieldUpdateOperationsInput | number
+    RD100?: IntFieldUpdateOperationsInput | number
+    RD200?: IntFieldUpdateOperationsInput | number
+    RD500?: IntFieldUpdateOperationsInput | number
+    RD1000?: IntFieldUpdateOperationsInput | number
+    RD2000?: IntFieldUpdateOperationsInput | number
+    USD1?: IntFieldUpdateOperationsInput | number
+    USD2?: IntFieldUpdateOperationsInput | number
+    USD5?: IntFieldUpdateOperationsInput | number
+    USD10?: IntFieldUpdateOperationsInput | number
+    USD20?: IntFieldUpdateOperationsInput | number
+    USD50?: IntFieldUpdateOperationsInput | number
+    USD100?: IntFieldUpdateOperationsInput | number
+    EUR5?: IntFieldUpdateOperationsInput | number
+    EUR10?: IntFieldUpdateOperationsInput | number
+    EUR20?: IntFieldUpdateOperationsInput | number
+    EUR50?: IntFieldUpdateOperationsInput | number
+    EUR100?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type SaldoUncheckedUpdateWithoutUsuarioInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    RD1?: IntFieldUpdateOperationsInput | number
+    RD5?: IntFieldUpdateOperationsInput | number
+    RD10?: IntFieldUpdateOperationsInput | number
+    RD25?: IntFieldUpdateOperationsInput | number
+    RD100?: IntFieldUpdateOperationsInput | number
+    RD200?: IntFieldUpdateOperationsInput | number
+    RD500?: IntFieldUpdateOperationsInput | number
+    RD1000?: IntFieldUpdateOperationsInput | number
+    RD2000?: IntFieldUpdateOperationsInput | number
+    USD1?: IntFieldUpdateOperationsInput | number
+    USD2?: IntFieldUpdateOperationsInput | number
+    USD5?: IntFieldUpdateOperationsInput | number
+    USD10?: IntFieldUpdateOperationsInput | number
+    USD20?: IntFieldUpdateOperationsInput | number
+    USD50?: IntFieldUpdateOperationsInput | number
+    USD100?: IntFieldUpdateOperationsInput | number
+    EUR5?: IntFieldUpdateOperationsInput | number
+    EUR10?: IntFieldUpdateOperationsInput | number
+    EUR20?: IntFieldUpdateOperationsInput | number
+    EUR50?: IntFieldUpdateOperationsInput | number
+    EUR100?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type UsuarioCreateWithoutSaldoInput = {
+    id?: string
+    nombre: string
+    contrasena: string
+    codigoEmpleado?: number
+    cargo?: string
+    inventario?: UsuarioCreateinventarioInput | string[]
+    transferencia?: boolean
+    recepcion?: boolean
+    preparacion?: boolean
+    EIE?: boolean
+    Supervisor?: UsuarioCreateNestedOneWithoutColaboradoresInput
+    colaboradores?: UsuarioCreateNestedManyWithoutSupervisorInput
+  }
+
+  export type UsuarioUncheckedCreateWithoutSaldoInput = {
+    id?: string
+    nombre: string
+    contrasena: string
+    codigoEmpleado?: number
+    cargo?: string
+    inventario?: UsuarioCreateinventarioInput | string[]
+    transferencia?: boolean
+    recepcion?: boolean
+    preparacion?: boolean
+    EIE?: boolean
+    SupervisorID?: number | null
+    colaboradores?: UsuarioUncheckedCreateNestedManyWithoutSupervisorInput
+  }
+
+  export type UsuarioCreateOrConnectWithoutSaldoInput = {
+    where: UsuarioWhereUniqueInput
+    create: XOR<UsuarioCreateWithoutSaldoInput, UsuarioUncheckedCreateWithoutSaldoInput>
+  }
+
+  export type UsuarioUpsertWithoutSaldoInput = {
+    update: XOR<UsuarioUpdateWithoutSaldoInput, UsuarioUncheckedUpdateWithoutSaldoInput>
+    create: XOR<UsuarioCreateWithoutSaldoInput, UsuarioUncheckedCreateWithoutSaldoInput>
+    where?: UsuarioWhereInput
+  }
+
+  export type UsuarioUpdateToOneWithWhereWithoutSaldoInput = {
+    where?: UsuarioWhereInput
+    data: XOR<UsuarioUpdateWithoutSaldoInput, UsuarioUncheckedUpdateWithoutSaldoInput>
+  }
+
+  export type UsuarioUpdateWithoutSaldoInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nombre?: StringFieldUpdateOperationsInput | string
+    contrasena?: StringFieldUpdateOperationsInput | string
+    cargo?: StringFieldUpdateOperationsInput | string
+    inventario?: UsuarioUpdateinventarioInput | string[]
+    transferencia?: BoolFieldUpdateOperationsInput | boolean
+    recepcion?: BoolFieldUpdateOperationsInput | boolean
+    preparacion?: BoolFieldUpdateOperationsInput | boolean
+    EIE?: BoolFieldUpdateOperationsInput | boolean
+    Supervisor?: UsuarioUpdateOneWithoutColaboradoresNestedInput
+    colaboradores?: UsuarioUpdateManyWithoutSupervisorNestedInput
+  }
+
+  export type UsuarioUncheckedUpdateWithoutSaldoInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nombre?: StringFieldUpdateOperationsInput | string
+    contrasena?: StringFieldUpdateOperationsInput | string
+    codigoEmpleado?: IntFieldUpdateOperationsInput | number
+    cargo?: StringFieldUpdateOperationsInput | string
+    inventario?: UsuarioUpdateinventarioInput | string[]
+    transferencia?: BoolFieldUpdateOperationsInput | boolean
+    recepcion?: BoolFieldUpdateOperationsInput | boolean
+    preparacion?: BoolFieldUpdateOperationsInput | boolean
+    EIE?: BoolFieldUpdateOperationsInput | boolean
+    SupervisorID?: NullableIntFieldUpdateOperationsInput | number | null
+    colaboradores?: UsuarioUncheckedUpdateManyWithoutSupervisorNestedInput
   }
 
   export type UsuarioCreateManySupervisorInput = {
@@ -2958,6 +5207,7 @@ export namespace Prisma {
     recepcion?: boolean
     preparacion?: boolean
     EIE?: boolean
+    saldoId: string
   }
 
   export type UsuarioUpdateWithoutSupervisorInput = {
@@ -2971,6 +5221,7 @@ export namespace Prisma {
     preparacion?: BoolFieldUpdateOperationsInput | boolean
     EIE?: BoolFieldUpdateOperationsInput | boolean
     colaboradores?: UsuarioUpdateManyWithoutSupervisorNestedInput
+    saldo?: SaldoUpdateOneRequiredWithoutUsuarioNestedInput
   }
 
   export type UsuarioUncheckedUpdateWithoutSupervisorInput = {
@@ -2984,6 +5235,7 @@ export namespace Prisma {
     recepcion?: BoolFieldUpdateOperationsInput | boolean
     preparacion?: BoolFieldUpdateOperationsInput | boolean
     EIE?: BoolFieldUpdateOperationsInput | boolean
+    saldoId?: StringFieldUpdateOperationsInput | string
     colaboradores?: UsuarioUncheckedUpdateManyWithoutSupervisorNestedInput
   }
 
@@ -2998,6 +5250,7 @@ export namespace Prisma {
     recepcion?: BoolFieldUpdateOperationsInput | boolean
     preparacion?: BoolFieldUpdateOperationsInput | boolean
     EIE?: BoolFieldUpdateOperationsInput | boolean
+    saldoId?: StringFieldUpdateOperationsInput | string
   }
 
 

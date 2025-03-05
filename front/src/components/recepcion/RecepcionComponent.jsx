@@ -1,0 +1,167 @@
+import { useState } from "react";
+import { useForm } from "../../hooks/useForm";
+
+
+export const RecepcionComponent = () => {
+
+  const [valijas, setValijas] = useState([])
+
+
+  let { camion, transportista, valija, tipoDeValija, formState, onInputChange, onResetForm } = useForm({
+    camion: '',
+    valija: '',
+    tipoDeValija: '',
+    transportista: ''
+  })
+
+  const registrarValijaEnBD = async (nuevaValija) => {
+    try {
+      const response = await fetch("http://localhost:3000/valijas/registrarValija", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ codigo: nuevaValija }),
+      });
+      // Verificar si la respuesta fue exitosa
+      if (!response.ok) {
+        throw new Error("Error en la respuesta del servidor");
+      }
+      // Obtener la respuesta JSON
+      const data = await response.json();
+      // Devolver el valor de success
+      return data;
+    } catch (error) {
+      console.error("Error al registrar la valija:", error);
+      return false;
+    }
+  };
+
+  const verificarValijaEnBd = async (nuevaValija) => {
+
+    const data = await fetch(`http://localhost:3000/valijas/getByCodigo/${nuevaValija}`)
+    const verificacion = data.json()
+    return verificacion
+  }
+
+  const handleKeyDown = async (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+
+      const nuevaValija = {
+        valija: valija.trim(),
+        tipo: tipoDeValija,
+      };
+
+      // Verificar si la valija ya está en la lista
+      const existe = valijas.some(
+        (item) => item.valija === nuevaValija.valija
+      );
+      if (nuevaValija.valija === '') {
+        alert("ingrese un codigo de valija valido.");
+        return;
+      }else if (nuevaValija.tipo === "") {
+        alert("la valija no tiene un tipo designado");
+        return;
+      } 
+
+      
+      const existeEnBD = await verificarValijaEnBd(nuevaValija.valija)
+
+       if (existeEnBD) {
+        alert("esta valija ya existe en el sistema");
+        formState.valija = '';
+        onInputChange({ target: { name: "valija", value: "" } });
+        return;
+      } else if (existe) {
+        alert("La valija con ese tipo ya está en la lista");
+        onInputChange({ target: { name: "valija", value: "" } });
+        return;
+      }
+      // Agregar al estado
+      setValijas([...valijas, nuevaValija]);
+
+      // Resetear los valores en el formulario
+      onInputChange({ target: { name: "valija", value: "" } });
+    }
+  };
+
+  const handleRegisteValija = (e) => {
+    e.preventDefault()
+    try {
+      valijas.forEach(async valija => {
+        const registro = await registrarValijaEnBD(valija.valija)
+      })
+
+      onResetForm()
+      setValijas([])
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+
+  return (
+    <form
+      style={{
+        margin: "auto",
+        marginTop: "10dvh",
+        backgroundColor: "#7a4",
+        padding: 10,
+        display: "flex",
+        flexDirection: "column",
+        gap: 20,
+        width: "30dvw"
+
+      }}>
+      <input type="text"
+        name="transporte"
+        value={transportista}
+        onChange={onInputChange}
+        placeholder="transporte"
+      />
+      <input type="text"
+        name="camion"
+        value={camion}
+        onChange={onInputChange}
+        placeholder="camion"
+      />
+      <input type="text"
+        name="valija"
+        value={valija}
+        onChange={onInputChange}
+        placeholder="valija"
+        onKeyDown={handleKeyDown}
+      />
+
+      <select name="tipoDeValija" value={tipoDeValija} onChange={onInputChange} >
+        <option defaultValue="X">SELECIONE UNA OPCION</option>
+        <option defaultValue="ATM RETIRO">ATM</option>
+        <option defaultValue="ATM DEPOSITO">ATM</option>
+        <option defaultValue="BR CASSETE">BR CASSETE</option>
+        <option defaultValue="BR CAIDA LIBRE">BR CAIDA LIBRE</option>
+        <option defaultValue="CLIENTES CORPORATIVOS">CLIENTES CORPORATIVOS</option>
+        <option defaultValue="OFICINA">OFICINA</option>
+        <option defaultValue="DOLARES">DOLARES</option>
+      </select>
+      <table>
+        <thead>
+          <tr>
+            <th>valija</th>
+            <th>tipo</th>
+          </tr>
+        </thead>
+        <tbody>
+          {valijas.map((valija, index) => (
+            <tr key={index}>
+              <td>{valija.valija}</td>
+              <td>{valija.tipo}</td>
+            </tr>
+          ))}
+
+        </tbody>
+      </table>
+
+      <button onClick={handleRegisteValija}>Registrar Valijas</button>
+    </form>
+  )
+};

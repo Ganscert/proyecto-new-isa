@@ -128,7 +128,33 @@ exports.Prisma.UsuarioScalarFieldEnum = {
   recepcion: 'recepcion',
   preparacion: 'preparacion',
   EIE: 'EIE',
-  SupervisorID: 'SupervisorID'
+  SupervisorID: 'SupervisorID',
+  saldoId: 'saldoId'
+};
+
+exports.Prisma.SaldoScalarFieldEnum = {
+  id: 'id',
+  RD1: 'RD1',
+  RD5: 'RD5',
+  RD10: 'RD10',
+  RD25: 'RD25',
+  RD100: 'RD100',
+  RD200: 'RD200',
+  RD500: 'RD500',
+  RD1000: 'RD1000',
+  RD2000: 'RD2000',
+  USD1: 'USD1',
+  USD2: 'USD2',
+  USD5: 'USD5',
+  USD10: 'USD10',
+  USD20: 'USD20',
+  USD50: 'USD50',
+  USD100: 'USD100',
+  EUR5: 'EUR5',
+  EUR10: 'EUR10',
+  EUR20: 'EUR20',
+  EUR50: 'EUR50',
+  EUR100: 'EUR100'
 };
 
 exports.Prisma.SortOrder = {
@@ -148,7 +174,8 @@ exports.Prisma.NullsOrder = {
 
 
 exports.Prisma.ModelName = {
-  Usuario: 'Usuario'
+  Usuario: 'Usuario',
+  Saldo: 'Saldo'
 };
 
 /**

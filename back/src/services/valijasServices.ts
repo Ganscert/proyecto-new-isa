@@ -16,12 +16,16 @@ export const ValijasServices = {
   getByCodigo: async (req: Request, res: Response) => {
     try {
       const { codigo } = req.params
-      const [allValijas] = await ClientValijas.valija.findMany({
+      const [valija] = await ClientValijas.valija.findMany({
         where: {
           codigo
         }
       })
-      res.send(allValijas)
+      if(valija === undefined){
+        res.send(false)
+      }else{
+        res.send([valija,true]) 
+      }
     } catch (error) {
       console.log(error)
     }
@@ -30,12 +34,12 @@ export const ValijasServices = {
   getById: async (req: Request, res: Response) => {
     try {
       const { id } = req.params
-      const [allValijas] = await ClientValijas.valija.findMany({
+      const [valija] = await ClientValijas.valija.findMany({
         where: {
           id: parseInt(id)
         }
       })
-      res.send(allValijas)
+      res.send([valija,true])
     } catch (error) {
       console.log(error)
     }
@@ -64,7 +68,7 @@ export const ValijasServices = {
           usuarioACargo: "Recepcion"
         }
       })
-      res.send(valijaCreada)
+      res.send([valijaCreada,true])
     } catch (error) {
       res.send(error)
     }
@@ -226,8 +230,6 @@ export const ValijasServices = {
                   D20: 1,
                   D50: 1,
                   D100: 1,
-                  D200: 1,
-                  D500: 1
                 }
               }
             }
@@ -242,8 +244,6 @@ export const ValijasServices = {
               D20: 1,
               D50: 1,
               D100: 1,
-              D200: 1,
-              D500: 1,
               valijaEur: {
                 connect: {
                   id: consulta.valijaEurId

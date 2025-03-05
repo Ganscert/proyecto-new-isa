@@ -172,12 +172,11 @@ exports.Prisma.TransaccionesDopScalarFieldEnum = {
 
 exports.Prisma.TransaccionesEurScalarFieldEnum = {
   id: 'id',
+  D5: 'D5',
   D10: 'D10',
   D20: 'D20',
   D50: 'D50',
   D100: 'D100',
-  D200: 'D200',
-  D500: 'D500',
   valijaEurId: 'valijaEurId'
 };
 
