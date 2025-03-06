@@ -74,25 +74,36 @@ export const UsuariosServices = {
 
   //servicio login de los usuarios
   login: async (req: Request, res: Response) => {
-    const { codigo, Contrasena } = req.body
-    console.log(codigo,Contrasena)
-
-    const { nombre, contrasena, cargo, transferencia, recepcion, EIE, SupervisorID, preparacion } = (await ClientUsuarios.usuario.findFirst({
-      where: {
-        codigoEmpleado: parseInt(codigo)
+    try {
+      const { codigo, Contrasena } = req.body
+      console.log(codigo,Contrasena)
+  
+      const { nombre, contrasena, cargo, transferencia, recepcion, EIE, SupervisorID, preparacion, saldoId} = (await ClientUsuarios.usuario.findFirst({
+        where: {
+          codigoEmpleado: parseInt(codigo)
+        }
+      })) || {}
+  
+      const comparacion = bcryptAdapter.compare(Contrasena, contrasena!)
+      if (comparacion) {
+        const token = await AuthService.login({ nombre, cargo, transferencia, recepcion, EIE, SupervisorID })
+        res.send([{ nombre, cargo, transferencia, recepcion, EIE, SupervisorID, codigo, preparacion,saldoId},true])
+        // localStorage.setItem("token",JSON.stringify(token)) 
+      } else {
+        res.json(["usuario o contraseña invalidos",false])
       }
-    })) || {}
-
-    const comparacion = bcryptAdapter.compare(Contrasena, contrasena!)
-    if (comparacion) {
-      const token = await AuthService.login({ nombre, cargo, transferencia, recepcion, EIE, SupervisorID })
-      res.send({ nombre, cargo, transferencia, recepcion, EIE, SupervisorID, codigo, preparacion })
-      // localStorage.setItem("token",JSON.stringify(token)) 
-    } else {
-      res.send("usuario o contraseña invalidos")
+    } catch (error) {
+      res.json(["usuario o contraseña invalidos",false])
     }
+   
   },
 
+
+
+
+
+
+  
   //servicio para las asignaciones de las valijas
   asignacion: async (req: Request, res: Response) => {
     const { valija, user } = req.body

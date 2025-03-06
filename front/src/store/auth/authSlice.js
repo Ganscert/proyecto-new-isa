@@ -19,7 +19,8 @@ export const authSlice = createSlice({
             state.isLoading = true
         },
         fullLogin: (state, action) => {
-            state.isLoading = action.payload.isLoading
+            console.log(action)
+            state.isLoading = false
             state.userName = action.payload.userName
             state.position = action.payload.position
             state.codigo = action.payload.codigo

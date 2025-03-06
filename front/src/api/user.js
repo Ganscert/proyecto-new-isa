@@ -9,7 +9,6 @@ export const login = async (code,password) => {
     },
     body: JSON.stringify({ codigo: code, Contrasena: password })
   })
-
   const data = await peticion.json()
   return data
 }

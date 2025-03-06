@@ -11,6 +11,7 @@ export const bcryptAdapter = {
     return hashSync(password, salt)
   },
   compare: (password: string, hashed: string) => {
-    return compareSync(password, hashed)
+    const result=  compareSync(password, hashed)
+    return result
   }
 }
