@@ -1,5 +1,5 @@
 
-import { NavBar } from "../components/NavbarHero"
+import { NavBar } from "../../components/NavbarHero"
 
 
 

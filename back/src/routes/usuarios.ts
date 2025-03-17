@@ -1,4 +1,4 @@
-import { Router } from "express";
+import { NextFunction, Request, Response, Router } from "express";
 import { UsuariosServices } from "../services/usuariosServices";
 
 export const router = Router()
@@ -9,4 +9,6 @@ router.get("/getAll", UsuariosServices.getAll)
 router.post("/register", UsuariosServices.register)
 
 router.post("/login", UsuariosServices.login)
-router.get("/asignacion", UsuariosServices.asignacion)
+
+router.post('/asignacion',async (req : Request,res: Response)=>{ await UsuariosServices.asignacion(req,res)})
+router.get("/consultaValijas/:codigo", UsuariosServices.consultaPorUsuario)

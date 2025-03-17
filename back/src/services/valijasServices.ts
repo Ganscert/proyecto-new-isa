@@ -1,7 +1,12 @@
 import { Request, Response } from "express"
 import { PrismaClient } from "../clientes/PrismaValijas"
+import { PrismaClient as Usuarios } from "../clientes/PrismaUsuarios"
+
+
 
 const ClientValijas = new PrismaClient()
+const ClientUsuarios = new Usuarios();
+
 
 export const ValijasServices = {
   getAll: async (req: Request, res: Response) => {
@@ -10,6 +15,7 @@ export const ValijasServices = {
       res.send(allValijas)
     } catch (error) {
       console.log(error)
+      res.send(error)
     }
   },
   
@@ -68,6 +74,14 @@ export const ValijasServices = {
           usuarioACargo: "Recepcion"
         }
       })
+      const recepcion = await ClientUsuarios.usuario.findFirst({ where : { nombre : 'Recepcion'}})
+      await ClientUsuarios.usuario.update({
+        where:{ nombre : 'Recepcion'},
+        data:{
+          inventario : [...recepcion!.inventario,codigo]
+        }
+      })
+      console.log(valijaCreada)
       res.send([valijaCreada,true])
     } catch (error) {
       res.send(error)

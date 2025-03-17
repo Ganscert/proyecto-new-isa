@@ -23,7 +23,7 @@ export const RecepcionComponent = () => {
         },
         body: JSON.stringify({ codigo: nuevaValija }),
       });
-      // Verificar si la respuesta fue exitosa
+      // Verificar si la respuesta fue exitos sdsd
       if (!response.ok) {
         throw new Error("Error en la respuesta del servidor");
       }
@@ -49,8 +49,7 @@ export const RecepcionComponent = () => {
       e.preventDefault();
 
       const nuevaValija = {
-        valija: valija.trim(),
-        tipo: tipoDeValija,
+        valija: valija.trim()
       };
 
       // Verificar si la valija ya está en la lista
@@ -70,7 +69,6 @@ export const RecepcionComponent = () => {
 
        if (existeEnBD) {
         alert("esta valija ya existe en el sistema");
-        formState.valija = '';
         onInputChange({ target: { name: "valija", value: "" } });
         return;
       } else if (existe) {
@@ -86,12 +84,15 @@ export const RecepcionComponent = () => {
     }
   };
 
-  const handleRegisteValija = (e) => {
+  const handleRegisteValija = async (e) => {
     e.preventDefault()
     try {
-      valijas.forEach(async valija => {
-        const registro = await registrarValijaEnBD(valija.valija)
-      })
+
+      for (let i = 0; i < valijas.length; i++) {
+        const valija = valijas[i].valija;
+        const registro = await registrarValijaEnBD(valija)
+        console.log(registro,valija)
+      }
 
       onResetForm()
       setValijas([])
@@ -114,7 +115,7 @@ export const RecepcionComponent = () => {
 
       }}>
       <input type="text"
-        name="transporte"
+        name="transportista"
         value={transportista}
         onChange={onInputChange}
         placeholder="transporte"

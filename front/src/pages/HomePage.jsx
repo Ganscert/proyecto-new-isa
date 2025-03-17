@@ -9,9 +9,15 @@ export const HomePage = () => {
     <div className="container">
       <div className="row">
         <div className="col-6">
-          <ProcessCard name="RECEPCION" link="/recepcion"/>
+          <ProcessCard
+            name="RECEPCION"
+            link={[
+              { link: '/recepcion', placeholder: 'recepcion' },
+              { link: '/recepcion/transferencia', placeholder: 'transferencia' },
+            ]}
+          />
         </div>
-        <div className="col-6">
+        {/* <div className="col-6">
           <ProcessCard name="CUENTA" link="/cuenta" />
         </div>
         <div className="col-6">
@@ -19,7 +25,7 @@ export const HomePage = () => {
         </div>
         <div className="col-6">
           <ProcessCard name="REPORTS" link="/reports" />
-        </div>
+        </div> */}
       </div>
 
     </div>

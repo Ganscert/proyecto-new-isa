@@ -1,10 +1,11 @@
-import { Route, Routes } from "react-router"
-import { Recepcion } from "../pages/Recepcion"
+import {Recepcion} from "../pages/recepcion/Recepcion"
 import { LoginPage } from "../pages/LoginPage"
-import { HomePage } from "../pages/HomePage"
-import { Cuenta } from "../pages/Cuenta"
-import { Preparacion } from "../pages/Preparacion"
-import { Reports } from "../pages/Reports"
+import {HomePage} from "../pages/HomePage"
+import { Cuenta } from "../pages/cuenta/Cuenta"
+import {Preparacion} from "../pages/preparacion/Preparacion"
+import {Reports} from "../pages/reportes/Reports"
+import { Route, Routes } from "react-router"
+import { Transferencia } from "../pages/recepcion/Transferencia"
 
 export const AppRouter = () => {
   return (
@@ -16,6 +17,7 @@ export const AppRouter = () => {
         <Route path="/cuenta" element={<Cuenta/>}/>
         <Route path="/preparacion" element={<Preparacion/>}/>
         <Route path="/reports" element={<Reports/>}/>
+        <Route path="/recepcion/transferencia" element={<Transferencia/>}/>
       </Routes>
     </>
   )
