@@ -18,8 +18,8 @@ model Valija {
   valijaDopId        Int?       @unique
   valijaEurId        Int?       @unique
   valijaDop          ValijaDop? @relation("ValijaDop", fields: [valijaDopId], references: [id])
-  valijaEur          ValijaEur? @relation(fields: [valijaEurId], references: [id])
-  valijaUsd          ValijaUsd? @relation(fields: [valijaUsdId], references: [id])
+  valijaEur          ValijaEur? @relation("ValijaEur", fields: [valijaEurId], references: [id])
+  valijaUsd          ValijaUsd? @relation("ValijaUsd", fields: [valijaUsdId], references: [id])
 
   @@map("valijas")
 }
@@ -28,7 +28,7 @@ model ValijaUsd {
   id             Int                @id @default(autoincrement())
   depositos      Int                @default(0)
   transaccionUsd transaccionesUsd[] @relation("transaccionesUsd")
-  valija         Valija?
+  valija         Valija?            @relation("ValijaUsd")
 }
 
 model ValijaDop {
@@ -42,7 +42,7 @@ model ValijaEur {
   id             Int                @id @default(autoincrement())
   depositos      Int                @default(0)
   transaccionEur transaccionesEur[] @relation("transaccionesEur")
-  valija         Valija?
+  valija         Valija?            @relation("ValijaEur")
 }
 
 model transaccionesUsd {

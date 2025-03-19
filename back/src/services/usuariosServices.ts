@@ -122,11 +122,10 @@ export const UsuariosServices = {
       const valijaBuscada = await ClienteValijas.valija.findFirst({ where: { codigo: valija } })
       if (valijaBuscada === null) {
         return res.send([null, false])
-
       }
 
-      const usuarioDestino = await ClientUsuarios.usuario.findFirst({ where: { codigoEmpleado: parseInt(userDestino) } });
       const usuarioFuente = await ClientUsuarios.usuario.findFirst({ where: { codigoEmpleado: parseInt(userFuente) } });
+      const usuarioDestino = await ClientUsuarios.usuario.findFirst({ where: { codigoEmpleado: parseInt(userDestino) } });
 
       if (!usuarioFuente?.inventario.includes(valijaBuscada.codigo)) {
         return res.send(['el usuario no contiene la valija', false])

@@ -91,17 +91,6 @@ export const Transferencia = () => {
         const data = await response.json();
         console.log(data)
       }
-      // const response = await fetch("http://localhost:3000/user/asignacion", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify({ userDestino: usuarioDestino,valija : "2" , userFuente : usuarioFuente}),
-      // });
-
-
-      // const data = await response.json();
-      // console.log(data)
       onResetForm()
       setValijas([])
     } catch (error) {
