@@ -1,6 +1,6 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "../../src/clientes/PrismaUsuarios"
+  output   = "."
 }
 
 datasource db {
@@ -30,7 +30,7 @@ model Usuario {
   colaboradores Usuario[] @relation("supervisores")
 
   // Relación 1:1 con Saldo (se elimina @fields y @references aquí)
-  saldo   Saldo  @relation(fields: [saldoId], references: [id]) 
+  saldo   Saldo  @relation(fields: [saldoId], references: [id])
   saldoId String @unique
 
   @@map("usuarios")

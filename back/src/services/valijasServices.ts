@@ -1,10 +1,10 @@
 import { Request, Response } from "express"
-import { PrismaClient } from "../clientes/PrismaValijas"
-import { PrismaClient as Usuarios } from "../clientes/PrismaUsuarios"
+import { PrismaClient as valijas } from "../../prisma/valijasDB"
+import { PrismaClient as Usuarios } from "../../prisma/usuariosDB"
 
 
 
-const ClientValijas = new PrismaClient()
+const ClientValijas = new valijas()
 const ClientUsuarios = new Usuarios();
 
 

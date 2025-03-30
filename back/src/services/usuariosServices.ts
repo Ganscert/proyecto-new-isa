@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express"
-import { PrismaClient as Usuarios } from "../clientes/PrismaUsuarios"
-import { PrismaClient as valijas } from "../clientes/PrismaValijas"
+import { PrismaClient as valijas } from "../../prisma/valijasDB"
+import { PrismaClient as Usuarios } from "../../prisma/usuariosDB"
 import { bcryptAdapter } from "../config/bcrypt"
 import { AuthService } from "./authService"
 
