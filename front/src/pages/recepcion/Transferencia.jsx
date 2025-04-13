@@ -20,7 +20,7 @@ export const Transferencia = () => {
     usuarios()
   }, [])
 
-  const { formState, onInputChange, usuarioDestino, usuarioFuente, valija, onResetForm } = useForm({
+  const { onInputChange, usuarioDestino, usuarioFuente, valija, onResetForm } = useForm({
     usuarioFuente: '',
     usuarioDestino: '',
     valija: ''
@@ -31,7 +31,12 @@ export const Transferencia = () => {
   useEffect(() => {
     const peticion = async () => {
       try {
+        const existeUsuairo = users.some(user => user[2] == usuarioFuente)
         if (!usuarioFuente) return; // Evita hacer la petición si usuarioFuente está vacío
+        else if(!existeUsuairo){
+          console.log('klk')
+          return;
+        }
 
         const respuesta = await fetch(`http://localhost:3000/user/consultaValijas/${usuarioFuente}`);
 
@@ -47,7 +52,7 @@ export const Transferencia = () => {
           console.warn("No se encontró inventario en la respuesta.");
         }
       } catch (error) {
-        console.error("Error en la petición:", error);
+
       }
     };
 
@@ -72,7 +77,6 @@ export const Transferencia = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      console.log({ usuarioDestino, usuarioFuente })
       if (usuarioDestino === usuarioFuente) {
         return console.log('usuarios son los mismos, no se pueden enviar valijas entre el mismo usuario')
       }
@@ -102,9 +106,6 @@ export const Transferencia = () => {
 
 
   return (
-
-
-
     <>
       <NavBar />
       <form

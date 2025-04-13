@@ -1,3 +1,4 @@
+// store.js
 import { configureStore } from "@reduxjs/toolkit";
 import { authSlice } from "./auth/authSlice";
 
@@ -18,4 +19,13 @@ export const store = configureStore({
   reducer: {
     auth: persistedAuthReducer, // aquí usas el persistido
   },
-})
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+});
+
+// Exportar el persistor
+export const persistor = persistStore(store);

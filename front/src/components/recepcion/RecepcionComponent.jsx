@@ -15,13 +15,14 @@ export const RecepcionComponent = () => {
   })
 
   const registrarValijaEnBD = async (nuevaValija) => {
+    console.log
     try {
       const response = await fetch("http://localhost:3000/valijas/registrarValija", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ codigo: nuevaValija }),
+        body: JSON.stringify({ codigo: nuevaValija.valija,tipo:nuevaValija.tipo,camion,transportista }),
       });
       // Verificar si la respuesta fue exitos sdsd
       if (!response.ok) {
@@ -49,7 +50,8 @@ export const RecepcionComponent = () => {
       e.preventDefault();
 
       const nuevaValija = {
-        valija: valija.trim()
+        valija: valija.trim(),
+        tipo: tipoDeValija
       };
 
       // Verificar si la valija ya está en la lista
@@ -67,7 +69,7 @@ export const RecepcionComponent = () => {
       
       const existeEnBD = await verificarValijaEnBd(nuevaValija.valija)
 
-       if (existeEnBD) {
+       if (existeEnBD[1]) {
         alert("esta valija ya existe en el sistema");
         onInputChange({ target: { name: "valija", value: "" } });
         return;
@@ -89,7 +91,7 @@ export const RecepcionComponent = () => {
     try {
 
       for (let i = 0; i < valijas.length; i++) {
-        const valija = valijas[i].valija;
+        const valija = valijas[i];
         const registro = await registrarValijaEnBD(valija)
         console.log(registro,valija)
       }

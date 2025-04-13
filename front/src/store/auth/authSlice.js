@@ -12,14 +12,15 @@ export const authSlice = createSlice({
         recepcion: false,
         preparacion: false,
         EIE: false,
-        saldoId: ""
+        saldoId: "",
+        inventario: [],
+        caja: 0
     },
     reducers: {
         setLogin: (state) => {
             state.isLoading = true
         },
         fullLogin: (state, action) => {
-            console.log(action)
             state.isLoading = false
             state.userName = action.payload.userName
             state.position = action.payload.position
@@ -29,10 +30,12 @@ export const authSlice = createSlice({
             state.preparacion = action.payload.preparacion
             state.EIE = action.payload.EIE
             state.saldoId = action.payload.saldoId
+            state.inventario = action.payload.inventario
+            state.caja = action.payload.caja
         }
     }
 });
 
 
-export const { setLogin,fullLogin } = authSlice.actions;
+export const { setLogin, fullLogin } = authSlice.actions;
 

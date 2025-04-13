@@ -2,7 +2,7 @@
 import { useDispatch } from "react-redux"
 import { loginUser } from "../store/auth/thunks";
 import { useForm } from "../hooks/useForm";
-import {  useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 
 
 
@@ -16,9 +16,7 @@ export const Login = () => {
       return dispatch(loginUser(code, password))
     } catch (error) {
       console.log(error)
-
     }
-
   }
 
   const { codigo, password, onInputChange } = useForm({
@@ -33,12 +31,12 @@ export const Login = () => {
       setError("Both fields are required");
       return;
     }
-    const result= await handleLogin(codigo, password)
+    const result = await handleLogin(codigo, password)
 
-    if(result[1]){
-      console.log("klk")
+    if (result[1]) {
+      localStorage.setItem("jwt", result[2])
       return navigate("/home")
-    }else{
+    } else {
       console.log("klk")
     }
 

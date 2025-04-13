@@ -8,9 +8,9 @@ export const loginUser = (code, password) => {
       dispatch(setLogin());
 
       const user = await login(code, password);
-      console.log(['este es el usuario',user[0]])
 
       if(user[1]){
+        console.log(user)
         const result =  await dispatch(fullLogin({
           userName: user[0].nombre,
           position: user[0].cargo,
@@ -19,10 +19,12 @@ export const loginUser = (code, password) => {
           recepcion: user[0].recepcion,
           preparacion: user[0].preparacion,
           EIE: user[0].EIE,
-          saldoId: user[0].saldoId
+          saldoId: user[0].saldoId,
+          inventario: user[0].inventario,
+          caja : user[0].Caja
         }));
         console.log(result)
-        return [result,true]
+        return [result,true,user[2]]
       }else{
         return [undefined,false]
 
